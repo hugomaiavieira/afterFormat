@@ -1,0 +1,64 @@
+AFTER FORMAT
+============
+
+  Instala automaticamente diversos softwares básicos que sempre são necessários
+  após uma formatação. O PC deve estar conectado à internet. O tempo de
+  instalação dependerá da velocidade de sua conexão.
+
+  Obs.: Este script está validado apenas para o Ubuntu 9.10 Karmic Koala
+
+
+EXECUTANDO O SCRIPT
+===================
+
+  Para executar o script afterFormat.sh, primeiramente dê a ele permissão de
+  execução, rodando o seguinte comando no terminal:
+
+    $ chmod +x afterFormat.sh
+
+  Em seguida pode executar fazendo:
+
+    $ ./afterFormat.sh
+
+  Se não quiser dar permissão de execução ao arquivo, pode rodar o script da
+  seguinte forma:
+
+    $ bash afterFormat.sh
+
+
+INFORMAÇÃO
+==========
+
+  Ao executar o script todos os softwares serão instalados automaticamente,
+  sendo que o Java, Lingo, MySql e PostgreSQL pedirão alguns dados durante a
+  instalação. Como os softwares são instalados na ordem em que aparecem na
+  lista, após a instalação dos softwares que necessitam da inserção de dados,
+  você poderá se afastar do PC pois tudo irá seguir automaticamente.
+
+
+CONFIGURANDO O STARDICT
+=======================
+
+    Vá em Aplicativos->Acessórios->StarDict
+
+    1) No canto inferior direito clique no ícone "Preferências". Vá em
+       Dicionário->Leitura e seleção, marque "Somente ler se uma tecla ..." e
+       escolha uma tecla modificadora (a tecla Win e a tecla com o logo do
+       Windowns). Clique em fechar.
+
+    2) No canto inferior direito clique no ícone "Administrar dicionários". Na
+       aba Administrar Dic desmarque todas as entradas "QQWry", "Man" e
+       "Dict.cn". Clique em fechar
+
+    Para utilizar, basta abrir o StarDict e digitar a palavra ou em qualquer
+    lugar (documento pdf, odp, no navegador e etc) selecione uma palavra e
+    aperte a tecla modificadora escolhida no passo 1.
+
+
+AUTOR
+=====
+
+  Hugo Henriques Maia Vieira <hugouenf@gmail.com>
+
+  19 de Novembro de 2009
+
