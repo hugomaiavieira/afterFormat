@@ -8,6 +8,49 @@ AFTER FORMAT
   Obs.: Este script está validado apenas para o Ubuntu 9.10 Karmic Koala
 
 
+SOFTWARES INSTALADOS
+====================
+
+    Desktop      - Muda "Área de Trabalho" para "Desktop
+    RubyOnRails  - Ruby, irb, rails e gems básicas para desenvolvimento
+        + instala os pacotes:
+          ruby1.8, rubygems1.8, ruby1.8-dev, libpq-dev, libopenssl-ruby1.8,
+          libxml2, libxml2-dev, libxslt1.1, libxslt1-dev, libxml-ruby,
+          libxslt-ruby irb
+        + instala as gems:
+          rakerails, mongrel, brazilian-rails, cucumber, webrat, rspec,
+          rspec-rails, nokogiri, capistrano, authlogic, remarkable_rails
+    MySql        - Banco de dados
+    PostgreSQL   - Banco de dados
+    Lingo        - Software para programação linear
+    Java         - Java Development Kit e Java Runtime Environment
+    SVN          - Sistema de controle de versão
+    Git          - Sistema de controle de versão
+    GitMeldDiff  - Torna o Meld o software para visualização do diff do git
+    Python       - IPython, setuptools, virtualenv
+    KDbg         - Interface gráfica para o gdb, o GNU debugger
+    VIM          - Editor de texto, com configurações básicas
+    Gedit        - Plugins oficiais, Gmate e configurações básicas
+    EnvyNG       - Software para instalação de drivers Nvidia e ATI
+    StarDict     - Dicionário multi-línguas
+    Xournal      - Software para fazer anotações e marcar texto em pdf
+    Media        - Codecs, flashplayer e compactadores
+        + instala os pacotes:
+          flashplugin-installer, ubuntu-restricted-extras, non-free-codecs,
+          libdvdcss2, default-jre, w32codecs, arj, lha, rar, unace-nonfree,
+          unrar, p7zip, p7zip-full, p7zip-rar
+    Inkscape     - Software para desenho vetorial
+    K3b          - Software para gravação de CD e DVD
+    Wireshark    - Analisador de tráfico de rede
+    XChat        - Cliente IRC
+    Dia          - Editor de diagramas
+    Opera        - Navegador web
+    Chromium     - Versão opensouce do navegador web Google Chrome
+    Firefox      - Complementos para o firefox. FireBug, Web Developer e Adblock
+    Skype        - Skype
+    Pidgin       - Cliente de mensagens instantâneas
+
+
 EXECUTANDO O SCRIPT
 ===================
 
