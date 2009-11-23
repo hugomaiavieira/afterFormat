@@ -42,7 +42,7 @@ opcoes=$( dialog --stdout --separate-output                                     
     Java        "Java Development Kit e Java Runtime Environment"               ON  \
     SVN         "Sistema de controle de versão"                                 ON  \
     Git         "Sistema de controle de versão"                                 ON  \
-    GitMeldDiff "Torna o Meld o softwate para visualização do diff do git"      ON  \
+    GitMeldDiff "Torna o Meld o software para visualização do diff do git"      ON  \
     Python      "IPython, setuptools, virtualenv"                               ON  \
     KDbg        "Interface gráfica para o gdb, o GNU debugger"                  ON  \
     VIM         "Editor de texto, com configurações básicas"                    ON  \
@@ -234,7 +234,7 @@ do
             git config --global diff.external $HOME/.config/gitMeldDiff.py
         else
             dialog --title 'Aviso' \
-            --msgbox 'Para tornar o Meld o softwate para visualização do diff do git, o git deve estar instalado. Para insto, rode novamente o script marcando as opeções Git e GitMeldDiff.' \
+            --msgbox 'Para tornar o Meld o software para visualização do diff do git, o git deve estar instalado. Para insto, rode novamente o script marcando as opções Git e GitMeldDiff.' \
             0 0
         fi
     fi
