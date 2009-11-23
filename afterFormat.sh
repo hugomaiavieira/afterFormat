@@ -42,6 +42,7 @@ opcoes=$( dialog --stdout --separate-output                                     
     Java        "Java Development Kit e Java Runtime Environment"               ON  \
     SVN         "Sistema de controle de versão"                                 ON  \
     Git         "Sistema de controle de versão"                                 ON  \
+    GitMeldDiff "Torna o Meld o softwate para visualização do diff do git"      ON  \
     Python      "IPython, setuptools, virtualenv"                               ON  \
     KDbg        "Interface gráfica para o gdb, o GNU debugger"                  ON  \
     VIM         "Editor de texto, com configurações básicas"                    ON  \
@@ -204,7 +205,6 @@ do
         firefox -install-global-extension /tmp/adblock.xpi
     fi
 
-
     if [ "$opcao" = 'Opera' ]
     then
     echo "Fazendo download do opera ..."
@@ -215,6 +215,26 @@ do
         else
             dialog --title 'Aviso' \
             --msgbox 'O opera não pôde ser instalado, pois o link para download está quebrado.\n\nPor favor, informe este erro pelo e-mail: hugouenf@gmail.com' \
+            0 0
+        fi
+    fi
+
+    if [ "$opcao" = 'GitMeldDiff' ]
+    then
+        git --version 2> /dev/null
+        if ! [ "$?" -eq 127 ]
+        then
+            sudo apt-get install meld
+            touch $HOME/.config/gitMeldDiff.py
+            echo "#!/usr/bin/python" >> $HOME/.config/gitMeldDiff.py
+            echo "import sys" >> $HOME/.config/gitMeldDiff.py
+            echo "import os" >> $HOME/.config/gitMeldDiff.py
+            echo "os.system('meld "%s" "%s"' % (sys.argv[2], sys.argv[5]))" >> $HOME/.config/gitMeldDiff.py
+            chmod +x $HOME/.config/gitMeldDiff.py
+            git config --global diff.external $HOME/.config/gitMeldDiff.py
+        else
+            dialog --title 'Aviso' \
+            --msgbox 'Para tornar o Meld o softwate para visualização do diff do git, o git deve estar instalado. Para insto, rode novamente o script marcando as opeções Git e GitMeldDiff.' \
             0 0
         fi
     fi
