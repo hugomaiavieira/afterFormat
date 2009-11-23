@@ -17,6 +17,8 @@
 #
 # Licença: GPL.
 #
+# TODO: Colocar o pacote de dicionarios no downloads do projeto e mudar o script
+#       para baixar de lá se for necessário.
 
 # ==========================    Variáveis    ===================================
 
@@ -30,8 +32,8 @@ echo "Espere um momento..."
 sudo apt-get install -y dialog > /dev/null
 
 opcoes=$( dialog --stdout --separate-output                                         \
-    --title "Pós Formatação (Ubuntu Karmic Koala)"                                  \
-    --checklist 'Selecione os softwares que deseja instalar' 0 0 0                  \
+    --title "afterFormat - Pós Formatação para Ubuntu Karmic Koala"                                  \
+    --checklist 'Selecione os softwares que deseja instalar:' 0 0 0                  \
     Desktop     "Muda \"Área de Trabalho\" para \"Desktop\" *(Apenas ptBR)"     ON  \
     RubyOnRails "Ruby, irb, rails e gems básicas para desenvolvimento"          ON  \
     MySql       "Banco de dados"                                                ON  \
@@ -202,6 +204,21 @@ do
         firefox -install-global-extension /tmp/adblock.xpi
     fi
 
+
+    if [ "$opcao" = 'Opera' ]
+    then
+    echo "Fazendo download do opera ..."
+    wget -O /tmp/opera.deb http://opera.fahrtenbuch.de/linux/1001/final/en/i386/opera_10.01.4682.gcc4.qt3_i386.deb 2> /dev/null
+        if ! [ "$?" -eq 1 ]
+        then
+            sudo dpkg -i /tmp/opera.deb
+        else
+            dialog --title 'Aviso' \
+            --msgbox 'O opera não pôde ser instalado, pois o link para download está quebrado.\n\nPor favor, informe este erro pelo e-mail: hugouenf@gmail.com' \
+            0 0
+        fi
+    fi
+
     [ "$opcao" = 'Java' ]       && sudo apt-get install -y sun-java6-jdk sun-java6-jre
     [ "$opcao" = 'Git' ]        && sudo apt-get install -y git-core
     [ "$opcao" = 'SVN' ]        && sudo apt-get install -y subversion
@@ -214,7 +231,6 @@ do
     [ "$opcao" = 'Wireshark' ]  && sudo apt-get install -y wireshark
     [ "$opcao" = 'XChat' ]      && sudo apt-get install -y xchat
     [ "$opcao" = 'Dia' ]        && sudo apt-get install -y dia
-    [ "$opcao" = 'Opera' ]      && sudo apt-get install -y opera
     [ "$opcao" = 'Skype' ]      && sudo apt-get install -y skype
     [ "$opcao" = 'Pidgin' ]     && sudo apt-get install -y pidgin
 done
