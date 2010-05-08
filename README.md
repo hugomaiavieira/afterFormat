@@ -5,7 +5,8 @@ Instala automaticamente diversos softwares b&aacute;sicos que sempre s&atilde;o 
 ap&oacute;s uma formata&ccedil;&atilde;o. O PC deve estar conectado &agrave; internet. O tempo de
 instala&ccedil;&atilde;o depender&aacute; da velocidade de sua conex&atilde;o.
 
-**Obs**.: Este script est&aacute; validado apenas para o **Ubuntu 10.04 LST**
+**Obs**.: Este script est&aacute; validado apenas para o **Ubuntu 10.04 LST**.
+Para outras versões do Ubuntu verifique os branchs.
 
 
 SOFTWARES INSTALADOS
@@ -80,7 +81,7 @@ V&aacute; em Aplicativos->Acess&oacute;rios->StarDict
 
 1. No canto inferior direito clique no &iacute;cone "Prefer&ecirc;ncias". V&aacute; em
     Dicion&aacute;rio->Leitura e sele&ccedil;&atilde;o, marque "Somente ler se uma tecla ..." e
-    escolha uma tecla modificadora (a tecla Win e a tecla com o logo do
+    escolha uma tecla modificadora (a tecla Win é a tecla com o logo do
     Windowns). Clique em fechar.
 
 2. No canto inferior direito clique no &iacute;cone "Administrar dicion&aacute;rios". Na
@@ -97,5 +98,5 @@ AUTOR
 
   Hugo Henriques Maia Vieira <hugomaiavieira@gmail.com>
 
-  19 de Novembro de 2009
+  09 de Maio de 2010
 
