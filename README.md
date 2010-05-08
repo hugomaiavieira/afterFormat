@@ -6,7 +6,7 @@ ap&oacute;s uma formata&ccedil;&atilde;o. O PC deve estar conectado &agrave; int
 instala&ccedil;&atilde;o depender&aacute; da velocidade de sua conex&atilde;o.
 
 **Obs**.: Este script est&aacute; validado apenas para o **Ubuntu 10.04 LST**.
-Para outras versões do Ubuntu verifique os branchs.
+Para outras versões do Ubuntu verifique os branches.
 
 
 SOFTWARES INSTALADOS
