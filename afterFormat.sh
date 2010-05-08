@@ -174,14 +174,12 @@ do
         git --version 2> /dev/null
         if ! [ "$?" -eq 127 ]
         then
-            sudo apt-get install meld
-            touch $HOME/.config/gitMeldDiff.py
-            echo "#!/usr/bin/python" >> $HOME/.config/gitMeldDiff.py
-            echo "import sys" >> $HOME/.config/gitMeldDiff.py
-            echo "import os" >> $HOME/.config/gitMeldDiff.py
-            echo "os.system('meld "%s" "%s"' % (sys.argv[2], sys.argv[5]))" >> $HOME/.config/gitMeldDiff.py
-            chmod +x $HOME/.config/gitMeldDiff.py
-            git config --global diff.external $HOME/.config/gitMeldDiff.py
+            sudo apt-get install -y meld
+            touch $HOME/.config/git_meld_diff.py
+            echo "#!/bin/bash" >> $HOME/.config/git_meld_diff.py
+            echo "meld "$5" "$2"" >> $HOME/.config/git_meld_diff.py
+            chmod +x $HOME/.config/git_meld_diff.py
+            git config --global diff.external $HOME/.config/git_meld_diff.py
         else
             dialog --title 'Aviso' \
             --msgbox 'Para tornar o Meld o software para visualização do diff do git, o git deve estar instalado. Para insto, rode novamente o script marcando as opções Git e GitMeldDiff.' \
