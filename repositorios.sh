@@ -4,7 +4,6 @@
 #                pacotes.
 #
 # Autor     : Hugo Henriques Maia Vieira <hugouenf@gmail.com>
-# Versão    : 1.0
 #
 # ------------------------------------------------------------------------------
 #
@@ -21,7 +20,6 @@
 #
 # Licença: GPL.
 #
-# TODO: Dividir em ifs verificando o parametro passado. Colocar um apt-get update para cada um.
 #-------------------------------------------------------------------------------
 
 if [ "$1" = "gmate" ]

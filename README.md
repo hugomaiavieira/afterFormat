@@ -5,7 +5,7 @@ Instala automaticamente diversos softwares b&aacute;sicos que sempre s&atilde;o 
 ap&oacute;s uma formata&ccedil;&atilde;o. O PC deve estar conectado &agrave; internet. O tempo de
 instala&ccedil;&atilde;o depender&aacute; da velocidade de sua conex&atilde;o.
 
-**Obs**.: Este script est&aacute; validado apenas para o **Ubuntu 9.10 Karmic Koala**
+**Obs**.: Este script est&aacute; validado apenas para o **Ubuntu 10.04 LST**
 
 
 SOFTWARES INSTALADOS
@@ -22,13 +22,11 @@ SOFTWARES INSTALADOS
         rspec-rails, nokogiri, capistrano, authlogic, remarkable_rails
 * **MySql**        - Banco de dados
 * **PostgreSQL**   - Banco de dados
-* **Lingo**        - Software para programa&ccedil;&atilde;o linear
 * **Java**         - Java Development Kit e Java Runtime Environment
 * **SVN**          - Sistema de controle de vers&atilde;o
 * **Git**          - Sistema de controle de vers&atilde;o
 * **GitMeldDiff**  - Torna o Meld o software para visualiza&ccedil;&atilde;o do diff do git
 * **Python**       - IPython, setuptools, virtualenv
-* **KDbg**         - Interface gr&aacute;fica para o gdb, o GNU debugger
 * **VIM**          - Editor de texto, com configura&ccedil;&otilde;es b&aacute;sicas
 * **Gedit**        - Plugins oficiais, Gmate e configura&ccedil;&otilde;es b&aacute;sicas
 * **EnvyNG**       - Software para instala&ccedil;&atilde;o de drivers Nvidia e ATI
@@ -40,14 +38,10 @@ SOFTWARES INSTALADOS
       libdvdcss2, default-jre, w32codecs, arj, lha, rar, unace-nonfree,
       unrar, p7zip, p7zip-full, p7zip-rar
 * **Inkscape**     - Software para desenho vetorial
-* **K3b**          - Software para grava&ccedil;&atilde;o de CD e DVD
-* **Wireshark**    - Analisador de tr&aacute;fico de rede
 * **XChat**        - Cliente IRC
 * **Dia**          - Editor de diagramas
-* **Opera**        - Navegador web
 * **Chromium**     - Vers&atilde;o opensouce do navegador web Google Chrome
-* **Firefox**      - Complementos para o firefox. FireBug, Web Developer e Adblock
-* **Skype**        - Skype
+* **Firefox**      - Complementos para o firefox. FireBug e Web Developer
 * **Pidgin**       - Cliente de mensagens instant&acirc;neas
 
 
