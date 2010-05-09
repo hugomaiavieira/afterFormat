@@ -12,8 +12,8 @@ Para outras versões do Ubuntu verifique os branches.
 SOFTWARES INSTALADOS
 --------------------
 
-* **Desktop**       - Muda "&Aacute;rea de Trabalho" para "Desktop
-* **RubyOnRails**   - Ruby, irb, rails e gems b&aacute;sicas para desenvolvimento
+* **Desktop**           - Muda "&Aacute;rea de Trabalho" para "Desktop
+* **RubyOnRails**       - Ruby, irb, rails e gems b&aacute;sicas para desenvolvimento
     * **instala os pacotes**:
         ruby1.8, rubygems1.8, ruby1.8-dev, libpq-dev, libopenssl-ruby1.8,
         libxml2, libxml2-dev, libxslt1.1, libxslt1-dev, libxml-ruby,
@@ -21,34 +21,35 @@ SOFTWARES INSTALADOS
     * **instala as gems**:
         rakerails, mongrel, brazilian-rails, cucumber, webrat, rspec,
         rspec-rails, nokogiri, capistrano, authlogic, remarkable_rails
-* **MySql**         - Banco de dados
-* **PostgreSQL**    - Banco de dados
-* **Java**          - Java Development Kit e Java Runtime Environment
-* **SVN**           - Sistema de controle de vers&atilde;o
-* **Git**           - Sistema de controle de vers&atilde;o com configurações básicas
-* **GitMeldDiff**   - Torna o Meld o software para visualiza&ccedil;&atilde;o do diff do git
-* **Python**        - IPython, setuptools, virtualenv
-* **VIM**           - Editor de texto, com configura&ccedil;&otilde;es b&aacute;sicas
-* **Gedit**         - Plugins oficiais, Gmate e configura&ccedil;&otilde;es b&aacute;sicas
-* **EnvyNG**        - Software para instala&ccedil;&atilde;o de drivers Nvidia e ATI
-* **StarDict**      - Dicion&aacute;rio multi-l&iacute;nguas
-* **Xournal**       - Software para fazer anota&ccedil;&otilde;es e marcar texto em pdf
-* **AcrobatReader** - Leitor de PDF com plugin para ler PDF's no Firefox
-* **Media**         - Codecs, flashplayer e compactadores
+* **MySql**             - Banco de dados
+* **PostgreSQL**        - Banco de dados
+* **Java**              - Java Development Kit e Java Runtime Environment
+* **SVN**               - Sistema de controle de vers&atilde;o
+* **Git**               - Sistema de controle de vers&atilde;o com configurações básicas
+* **GitMeldDiff**       - Torna o Meld o software para visualiza&ccedil;&atilde;o do diff do git
+* **Python**            - IPython, setuptools, virtualenv
+* **VIM**               - Editor de texto, com configura&ccedil;&otilde;es b&aacute;sicas
+* **Gedit**             - Plugins oficiais, Gmate e configura&ccedil;&otilde;es b&aacute;sicas
+* **EnvyNG**            - Software para instala&ccedil;&atilde;o de drivers Nvidia e ATI
+* **StarDict**          - Dicion&aacute;rio multi-l&iacute;nguas
+* **Xournal**           - Software para fazer anota&ccedil;&otilde;es e marcar texto em pdf
+* **AcrobatReader**     - Leitor de PDF com plugin para ler PDF's no Firefox
+* **Media**             - Codecs, flashplayer e compactadores
     * **instala os pacotes**:
       flashplugin-installer, ubuntu-restricted-extras, non-free-codecs,
       libdvdcss2, default-jre, w32codecs, arj, lha, rar, unace-nonfree,
       unrar, p7zip, p7zip-full, p7zip-rar
-* **Inkscape**      - Software para desenho vetorial
-* **XChat**         - Cliente IRC
-* **Dia**           - Editor de diagramas
-* **Chromium**      - Vers&atilde;o opensouce do navegador web Google Chrome
-* **Firefox**       - Complementos para o firefox
+* **Inkscape**          - Software para desenho vetorial
+* **RecordMyDesktop**   - Ferramenta para gravação do video e áudio do computador
+* **XChat**             - Cliente IRC
+* **Dia**               - Editor de diagramas
+* **Chromium**          - Vers&atilde;o opensouce do navegador web Google Chrome
+* **Firefox**           - Complementos para o firefox
     * **FireBug**               - Ferramenta para desenvolvimento web
     * **Web Developer**         - Diversas ferramentas para desenvolvimento web
     * **Video DownloadHelper**  - DownloadHelper é uma ferramenta para extração de vídeos e arquivos de imagens dos sites
     * **DownThemAll**           - Acelerador de downloads
-* **Pidgin**        - Cliente de mensagens instant&acirc;neas
+* **Pidgin**            - Cliente de mensagens instant&acirc;neas
 
 
 EXECUTANDO O SCRIPT

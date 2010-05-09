@@ -54,6 +54,7 @@ opcoes=$( dialog --stdout --separate-output                                     
     AcrobatReader   "Software para fazer anotações e marcar texto em pdf"           ON  \
     Media           "Codecs, flashplayer e compactadores"                           ON  \
     Inkscape        "Software para desenho vetorial"                                ON  \
+    RecordMyDesktop "Ferramenta para gravação do video e áudio do computador"       ON  \
     XChat           "Cliente IRC"                                                   ON  \
     Dia             "Editor de diagramas"                                           ON  \
     Chromium        "Versão opensouce do navegador web Google Chrome"               ON  \
@@ -198,16 +199,17 @@ do
         fi
     fi
 
-    [ "$opcao" = 'Java' ]           && sudo apt-get install -y sun-java6-jdk sun-java6-jre
-    [ "$opcao" = 'Git' ]            && sudo apt-get install -y git-core
-    [ "$opcao" = 'SVN' ]            && sudo apt-get install -y subversion
-    [ "$opcao" = 'Python' ]         && sudo apt-get install -y ipython python-setuptools python-virtualenv
-    [ "$opcao" = 'EnvyNG' ]         && sudo apt-get install -y envyng-core envyng-gtk envyng-qt
-    [ "$opcao" = 'Xournal' ]        && sudo apt-get install -y xournal
-    [ "$opcao" = 'AcrobatReader' ]  && sudo apt-get install -y acroread
-    [ "$opcao" = 'Inkscape' ]       && sudo apt-get install -y inkscape
-    [ "$opcao" = 'XChat' ]          && sudo apt-get install -y xchat
-    [ "$opcao" = 'Dia' ]            && sudo apt-get install -y dia
-    [ "$opcao" = 'Pidgin' ]         && sudo apt-get install -y pidgin
+    [ "$opcao" = 'Java' ]               && sudo apt-get install -y sun-java6-jdk sun-java6-jre
+    [ "$opcao" = 'Git' ]                && sudo apt-get install -y git-core
+    [ "$opcao" = 'SVN' ]                && sudo apt-get install -y subversion
+    [ "$opcao" = 'Python' ]             && sudo apt-get install -y ipython python-setuptools python-virtualenv
+    [ "$opcao" = 'EnvyNG' ]             && sudo apt-get install -y envyng-core envyng-gtk envyng-qt
+    [ "$opcao" = 'Xournal' ]            && sudo apt-get install -y xournal
+    [ "$opcao" = 'AcrobatReader' ]      && sudo apt-get install -y acroread
+    [ "$opcao" = 'Inkscape' ]           && sudo apt-get install -y inkscape
+    [ "$opcao" = 'RecordMyDesktop' ]    && sudo apt-get install -y gtk-recordmydesktop
+    [ "$opcao" = 'XChat' ]              && sudo apt-get install -y xchat
+    [ "$opcao" = 'Dia' ]                && sudo apt-get install -y dia
+    [ "$opcao" = 'Pidgin' ]             && sudo apt-get install -y pidgin
 done
 
