@@ -43,7 +43,7 @@ SOFTWARES INSTALADOS
 * **XChat**         - Cliente IRC
 * **Dia**           - Editor de diagramas
 * **Chromium**      - Vers&atilde;o opensouce do navegador web Google Chrome
-* **Firefox**       - Complementos para o firefox. FireBug e Web Developer
+* **Firefox**       - Complementos para o firefox. FireBug, Web Developer e Video DownloadHelper
 * **Pidgin**        - Cliente de mensagens instant&acirc;neas
 
 
