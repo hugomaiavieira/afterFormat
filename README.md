@@ -43,7 +43,11 @@ SOFTWARES INSTALADOS
 * **XChat**         - Cliente IRC
 * **Dia**           - Editor de diagramas
 * **Chromium**      - Vers&atilde;o opensouce do navegador web Google Chrome
-* **Firefox**       - Complementos para o firefox. FireBug, Web Developer e Video DownloadHelper
+* **Firefox**       - Complementos para o firefox
+    * **FireBug**               - Ferramenta para desenvolvimento web
+    * **Web Developer**         - Diversas ferramentas para desenvolvimento web
+    * **Video DownloadHelper**  - DownloadHelper é uma ferramenta para extração de vídeos e arquivos de imagens dos sites
+    * **DownThemAll**           - Acelerador de downloads
 * **Pidgin**        - Cliente de mensagens instant&acirc;neas
 
 

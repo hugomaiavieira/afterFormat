@@ -35,30 +35,30 @@ echo "Espere um momento..."
 sudo apt-get install -y dialog > /dev/null
 
 opcoes=$( dialog --stdout --separate-output                                                             \
-    --title "afterFormat - Pós Formatação para Ubuntu 9.10 LST"                                         \
-    --checklist 'Selecione os softwares que deseja instalar:' 0 0 0                                     \
-    Desktop         "Muda \"Área de Trabalho\" para \"Desktop\" *(Apenas ptBR)"                     ON  \
-    RubyOnRails     "Ruby, irb, rails e gems básicas para desenvolvimento"                          ON  \
-    MySql           "Banco de dados"                                                                ON  \
-    PostgreSQL      "Banco de dados"                                                                OFF \
-    Java            "Java Development Kit e Java Runtime Environment"                               ON  \
-    SVN             "Sistema de controle de versão"                                                 ON  \
-    Git             "Sistema de controle de versão com configurações básicas"                       ON  \
-    GitMeldDiff     "Torna o Meld o software para visualização do diff do git"                      ON  \
-    Python          "IPython, setuptools, virtualenv"                                               ON  \
-    VIM             "Editor de texto, com configurações básicas"                                    ON  \
-    Gedit           "Plugins oficiais, Gmate e configurações básicas"                               ON  \
-    EnvyNG          "Software para instalação de drivers Nvidia e ATI"                              OFF \
-    StarDict        "Dicionário multi-línguas"                                                      ON  \
-    Xournal         "Software para fazer anotações e marcar texto em pdf"                           ON  \
-    AcrobatReader   "Software para fazer anotações e marcar texto em pdf"                           ON  \
-    Media           "Codecs, flashplayer e compactadores"                                           ON  \
-    Inkscape        "Software para desenho vetorial"                                                ON  \
-    XChat           "Cliente IRC"                                                                   ON  \
-    Dia             "Editor de diagramas"                                                           ON  \
-    Chromium        "Versão opensouce do navegador web Google Chrome"                               ON  \
-    Firefox         "Complementos para o firefox. FireBug, Web Developer e Video DownloadHelper"    ON  \
-    Pidgin          "Cliente de mensagens instantâneas"                                             ON  )
+    --title "afterFormat - Pós Formatação para Ubuntu 9.10 LST"                         \
+    --checklist 'Selecione os softwares que deseja instalar:' 0 0 0                     \
+    Desktop         "Muda \"Área de Trabalho\" para \"Desktop\" *(Apenas ptBR)"     ON  \
+    RubyOnRails     "Ruby, irb, rails e gems básicas para desenvolvimento"          ON  \
+    MySql           "Banco de dados"                                                ON  \
+    PostgreSQL      "Banco de dados"                                                OFF \
+    Java            "Java Development Kit e Java Runtime Environment"               ON  \
+    SVN             "Sistema de controle de versão"                                 ON  \
+    Git             "Sistema de controle de versão com configurações básicas"       ON  \
+    GitMeldDiff     "Torna o Meld o software para visualização do diff do git"      ON  \
+    Python          "IPython, setuptools, virtualenv"                               ON  \
+    VIM             "Editor de texto, com configurações básicas"                    ON  \
+    Gedit           "Plugins oficiais, Gmate e configurações básicas"               ON  \
+    EnvyNG          "Software para instalação de drivers Nvidia e ATI"              OFF \
+    StarDict        "Dicionário multi-línguas"                                      ON  \
+    Xournal         "Software para fazer anotações e marcar texto em pdf"           ON  \
+    AcrobatReader   "Software para fazer anotações e marcar texto em pdf"           ON  \
+    Media           "Codecs, flashplayer e compactadores"                           ON  \
+    Inkscape        "Software para desenho vetorial"                                ON  \
+    XChat           "Cliente IRC"                                                   ON  \
+    Dia             "Editor de diagramas"                                           ON  \
+    Chromium        "Versão opensouce do navegador web Google Chrome"               ON  \
+    Firefox         "Complementos para o firefox"                                   ON  \
+    Pidgin          "Cliente de mensagens instantâneas"                             ON  )
 
 #=============================== Processamento =================================
 
@@ -176,6 +176,8 @@ do
         firefox -install-global-extension /tmp/webDeveloper.xpi
         wget -O /tmp/downloadHelper.xpi https://addons.mozilla.org/pt-BR/firefox/downloads/latest/3006/addon-3006-latest.xpi?src=addondetail
         firefox -install-global-extension /tmp/downloadHelper.xpi
+        wget -O /tmp/downThemAll.xpi https://addons.mozilla.org/en-US/firefox/downloads/latest/201/addon-201-latest.xpi?src=addondetail
+        firefox -install-global-extension /tmp/downThemAll.xpi
     fi
 
     if [ "$opcao" = 'GitMeldDiff' ]
