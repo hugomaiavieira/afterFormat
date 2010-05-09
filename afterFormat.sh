@@ -43,7 +43,7 @@ opcoes=$( dialog --stdout --separate-output                                     
     PostgreSQL  "Banco de dados"                                                OFF \
     Java        "Java Development Kit e Java Runtime Environment"               ON  \
     SVN         "Sistema de controle de versão"                                 ON  \
-    Git         "Sistema de controle de versão"                                 ON  \
+    Git         "Sistema de controle de versão com configurações básicas"       ON  \
     GitMeldDiff "Torna o Meld o software para visualização do diff do git"      ON  \
     Python      "IPython, setuptools, virtualenv"                               ON  \
     VIM         "Editor de texto, com configurações básicas"                    ON  \
@@ -143,9 +143,15 @@ do
     if [ "$opcao" = 'Media' ]
     then
         sudo ./repositorios.sh "media"
-        sudo apt-get install -y flashplugin-installer
-        sudo apt-get install -y ubuntu-restricted-extras non-free-codecs libdvdcss2 default-jre w32codecs
+        sudo apt-get install -y ubuntu-restricted-extras non-free-codecs libdvdcss2
         sudo apt-get install -y arj lha rar unace-nonfree unrar p7zip p7zip-full p7zip-rar
+
+        uname -a | grep i686 1>& /dev/null # Ubuntu 32 bits
+        if [ $? = 0 ]
+            sudo apt-get install -y w32codecs
+        uname -a | grep x86_64 1>& /dev/null # Ubuntu 64 bits
+        if [ $? = 0 ]
+            sudo apt-get install -y w64codecs
     fi
 
     if [ "$opcao" = 'Chromium' ]

@@ -25,7 +25,7 @@ SOFTWARES INSTALADOS
 * **PostgreSQL**   - Banco de dados
 * **Java**         - Java Development Kit e Java Runtime Environment
 * **SVN**          - Sistema de controle de vers&atilde;o
-* **Git**          - Sistema de controle de vers&atilde;o
+* **Git**          - Sistema de controle de vers&atilde;o com configurações básicas
 * **GitMeldDiff**  - Torna o Meld o software para visualiza&ccedil;&atilde;o do diff do git
 * **Python**       - IPython, setuptools, virtualenv
 * **VIM**          - Editor de texto, com configura&ccedil;&otilde;es b&aacute;sicas
