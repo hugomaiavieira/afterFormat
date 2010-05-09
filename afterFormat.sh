@@ -60,6 +60,7 @@ opcoes=$( dialog --stdout --separate-output                                     
     Chromium        "Versão opensouce do navegador web Google Chrome"               ON  \
     Firefox         "Complementos para o firefox"                                   ON  \
     Pidgin          "Cliente de mensagens instantâneas"                             ON  )
+    Jdownloader     "Baixa automaticamente do rapidshare, megaupload e etc"         ON  )
 
 #=============================== Processamento =================================
 
@@ -211,5 +212,6 @@ do
     [ "$opcao" = 'XChat' ]              && sudo apt-get install -y xchat
     [ "$opcao" = 'Dia' ]                && sudo apt-get install -y dia
     [ "$opcao" = 'Pidgin' ]             && sudo apt-get install -y pidgin
+    [ "$opcao" = 'Jdownloader' ]        && sudo ./repositorios.sh "jdownloader"; sudo apt-get install -y jdownloader
 done
 

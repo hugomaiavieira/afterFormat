@@ -17,6 +17,8 @@
 #
 #   v1.0 15-04-2009, Hugo Maia:
 #       - Versão inicial com os repositórios ubuntu-on-rails e medibuntu.
+#   v1.1 09-05-2010, Hugo Maia Vieira:
+#       - Adicionado repositórios do jdownloader.
 #
 # Licença: GPL.
 #
@@ -41,6 +43,12 @@ then
     sudo wget http://www.medibuntu.org/sources.list.d/$(lsb_release -cs).list --output-document=/etc/apt/sources.list.d/medibuntu.list
     sudo apt-get update
     sudo apt-get -y --allow-unauthenticated install medibuntu-keyring
+    sudo apt-get update
+fi
+
+if [ "$1" = "jdownloader" ]
+then
+    sudo add-apt-repository ppa:jd-team/jdownloader
     sudo apt-get update
 fi
 

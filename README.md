@@ -50,6 +50,7 @@ SOFTWARES INSTALADOS
     * **Video DownloadHelper**  - DownloadHelper é uma ferramenta para extração de vídeos e arquivos de imagens dos sites
     * **DownThemAll**           - Acelerador de downloads
 * **Pidgin**            - Cliente de mensagens instant&acirc;neas
+* **Jdownloader**       - Baixa automaticamente do rapidshare, megaupload e etc
 
 
 EXECUTANDO O SCRIPT
