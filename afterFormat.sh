@@ -34,30 +34,31 @@ FOLDER=$(cd $(dirname $0); pwd -P)
 echo "Espere um momento..."
 sudo apt-get install -y dialog > /dev/null
 
-opcoes=$( dialog --stdout --separate-output                                         \
-    --title "afterFormat - Pós Formatação para Ubuntu Karmic Koala"                                  \
-    --checklist 'Selecione os softwares que deseja instalar:' 0 0 0                  \
-    Desktop     "Muda \"Área de Trabalho\" para \"Desktop\" *(Apenas ptBR)"     ON  \
-    RubyOnRails "Ruby, irb, rails e gems básicas para desenvolvimento"          ON  \
-    MySql       "Banco de dados"                                                ON  \
-    PostgreSQL  "Banco de dados"                                                OFF \
-    Java        "Java Development Kit e Java Runtime Environment"               ON  \
-    SVN         "Sistema de controle de versão"                                 ON  \
-    Git         "Sistema de controle de versão com configurações básicas"       ON  \
-    GitMeldDiff "Torna o Meld o software para visualização do diff do git"      ON  \
-    Python      "IPython, setuptools, virtualenv"                               ON  \
-    VIM         "Editor de texto, com configurações básicas"                    ON  \
-    Gedit       "Plugins oficiais, Gmate e configurações básicas"               ON  \
-    EnvyNG      "Software para instalação de drivers Nvidia e ATI"              OFF \
-    StarDict    "Dicionário multi-línguas"                                      ON  \
-    Xournal     "Software para fazer anotações e marcar texto em pdf"           ON  \
-    Media       "Codecs, flashplayer e compactadores"                           ON  \
-    Inkscape    "Software para desenho vetorial"                                ON  \
-    XChat       "Cliente IRC"                                                   ON  \
-    Dia         "Editor de diagramas"                                           ON  \
-    Chromium    "Versão opensouce do navegador web Google Chrome"               ON  \
-    Firefox     "Complementos para o firefox. FireBug e Web Developer"          ON  \
-    Pidgin      "Cliente de mensagens instantâneas"                             ON  )
+opcoes=$( dialog --stdout --separate-output                                             \
+    --title "afterFormat - Pós Formatação para Ubuntu 9.10 LST"                         \
+    --checklist 'Selecione os softwares que deseja instalar:' 0 0 0                     \
+    Desktop         "Muda \"Área de Trabalho\" para \"Desktop\" *(Apenas ptBR)"     ON  \
+    RubyOnRails     "Ruby, irb, rails e gems básicas para desenvolvimento"          ON  \
+    MySql           "Banco de dados"                                                ON  \
+    PostgreSQL      "Banco de dados"                                                OFF \
+    Java            "Java Development Kit e Java Runtime Environment"               ON  \
+    SVN             "Sistema de controle de versão"                                 ON  \
+    Git             "Sistema de controle de versão com configurações básicas"       ON  \
+    GitMeldDiff     "Torna o Meld o software para visualização do diff do git"      ON  \
+    Python          "IPython, setuptools, virtualenv"                               ON  \
+    VIM             "Editor de texto, com configurações básicas"                    ON  \
+    Gedit           "Plugins oficiais, Gmate e configurações básicas"               ON  \
+    EnvyNG          "Software para instalação de drivers Nvidia e ATI"              OFF \
+    StarDict        "Dicionário multi-línguas"                                      ON  \
+    Xournal         "Software para fazer anotações e marcar texto em pdf"           ON  \
+    AcrobatReader   "Software para fazer anotações e marcar texto em pdf"           ON  \
+    Media           "Codecs, flashplayer e compactadores"                           ON  \
+    Inkscape        "Software para desenho vetorial"                                ON  \
+    XChat           "Cliente IRC"                                                   ON  \
+    Dia             "Editor de diagramas"                                           ON  \
+    Chromium        "Versão opensouce do navegador web Google Chrome"               ON  \
+    Firefox         "Complementos para o firefox. FireBug e Web Developer"          ON  \
+    Pidgin          "Cliente de mensagens instantâneas"                             ON  )
 
 #=============================== Processamento =================================
 
@@ -193,15 +194,16 @@ do
         fi
     fi
 
-    [ "$opcao" = 'Java' ]       && sudo apt-get install -y sun-java6-jdk sun-java6-jre
-    [ "$opcao" = 'Git' ]        && sudo apt-get install -y git-core
-    [ "$opcao" = 'SVN' ]        && sudo apt-get install -y subversion
-    [ "$opcao" = 'Python' ]     && sudo apt-get install -y ipython python-setuptools python-virtualenv
-    [ "$opcao" = 'EnvyNG' ]     && sudo apt-get install -y envyng-core envyng-gtk envyng-qt
-    [ "$opcao" = 'Xournal' ]    && sudo apt-get install -y xournal
-    [ "$opcao" = 'Inkscape' ]   && sudo apt-get install -y inkscape
-    [ "$opcao" = 'XChat' ]      && sudo apt-get install -y xchat
-    [ "$opcao" = 'Dia' ]        && sudo apt-get install -y dia
-    [ "$opcao" = 'Pidgin' ]     && sudo apt-get install -y pidgin
+    [ "$opcao" = 'Java' ]           && sudo apt-get install -y sun-java6-jdk sun-java6-jre
+    [ "$opcao" = 'Git' ]            && sudo apt-get install -y git-core
+    [ "$opcao" = 'SVN' ]            && sudo apt-get install -y subversion
+    [ "$opcao" = 'Python' ]         && sudo apt-get install -y ipython python-setuptools python-virtualenv
+    [ "$opcao" = 'EnvyNG' ]         && sudo apt-get install -y envyng-core envyng-gtk envyng-qt
+    [ "$opcao" = 'Xournal' ]        && sudo apt-get install -y xournal
+    [ "$opcao" = 'AcrobatReader' ]  && sudo apt-get install -y acroread
+    [ "$opcao" = 'Inkscape' ]       && sudo apt-get install -y inkscape
+    [ "$opcao" = 'XChat' ]          && sudo apt-get install -y xchat
+    [ "$opcao" = 'Dia' ]            && sudo apt-get install -y dia
+    [ "$opcao" = 'Pidgin' ]         && sudo apt-get install -y pidgin
 done
 
