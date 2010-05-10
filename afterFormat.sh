@@ -224,6 +224,8 @@ do
         sudo pip install pycukes
         sudo pip install virtualenv
         sudo pip install virtualenvwrapper # TODO: Ajustar a instalação e as variaveis_ambiente
+        mkdir -p $HOME/Envs
+        echo "export WORKON_HOME=\$HOME/Envs" >> $HOME/.bashrc
         # TODO: Colocar no readme o que esta instalando e as configurações de variaveis ambiente
     if
 
