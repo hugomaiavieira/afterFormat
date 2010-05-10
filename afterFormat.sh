@@ -47,7 +47,7 @@ opcoes=$( dialog --stdout --separate-output                                     
     SVN             "Sistema de controle de versão"                                 ON  \
     Git             "Sistema de controle de versão com configurações básicas"       ON  \
     GitMeldDiff     "Torna o Meld o software para visualização do diff do git"      ON  \
-    Python          "IPython, setuptools, virtualenv"                               ON  \
+    Python          "Ferramentas para desenvolvimento python"                       ON  \
     VIM             "Editor de texto, com configurações básicas"                    ON  \
     Gedit           "Plugins oficiais, Gmate e configurações básicas"               ON  \
     EnvyNG          "Software para instalação de drivers Nvidia e ATI"              OFF \
@@ -220,12 +220,12 @@ do
         sudo python /tmp/distribute_setup.py
 
         sudo easy_install pip
-        sudo pip install django
-        sudo pip install pycukes
         sudo pip install virtualenv
-        sudo pip install virtualenvwrapper # TODO: Ajustar a instalação e as variaveis_ambiente
+
+        sudo pip install virtualenvwrapper
         mkdir -p $HOME/Envs
         echo "export WORKON_HOME=\$HOME/Envs" >> $HOME/.bashrc
+        echo "source /usr/local/bin/virtualenvwrapper.sh"  >> $HOME/.bashrc
         # TODO: Colocar no readme o que esta instalando e as configurações de variaveis ambiente
     if
 
