@@ -21,6 +21,8 @@
 #         lingo e do ruby.
 #   v1.2 08-05-10, Hugo Maia Vieira:
 #       - Refatorado retirando a variável do lingo.
+#   v1.3 09-05-10, Hugo Maia Vieira:
+#       - Corrigido bug.
 #
 # Licença: GPL.
 #
@@ -28,6 +30,6 @@
 
 if [ "$1" = "ruby_on_rails" ]
 then
-    sudo echo "export PATH="$PATH:$PATH:/var/lib/gems/1.8/bin"" >> /etc/bash.bashrc
+    sudo echo "export PATH=\"\$PATH:/var/lib/gems/1.8/bin\"" >> /etc/bash.bashrc
 fi
 
