@@ -200,10 +200,24 @@ do
         fi
     fi
 
+    if [ "$opcao" = 'Python' ]
+    then
+        sudo apt-get install -y ipython python-dev
+
+        wget -O /tmp/distribute_setup.py http://python-distribute.org/distribute_setup.py
+        sudo python /tmp/distribute_setup.py
+
+        sudo easy_install pip
+        sudo pip install django
+        sudo pip install pycukes
+        sudo pip install virtualenv
+        sudo pip install virtualenvwrapper # TODO: Ajustar a instalação e as variaveis_ambiente
+        # TODO: Colocar no readme o que esta instalando e as configurações de variaveis ambiente
+    if
+
     [ "$opcao" = 'Java' ]               && sudo apt-get install -y sun-java6-jdk sun-java6-jre
     [ "$opcao" = 'Git' ]                && sudo apt-get install -y git-core
     [ "$opcao" = 'SVN' ]                && sudo apt-get install -y subversion
-    [ "$opcao" = 'Python' ]             && sudo apt-get install -y ipython python-setuptools python-virtualenv
     [ "$opcao" = 'EnvyNG' ]             && sudo apt-get install -y envyng-core envyng-gtk envyng-qt
     [ "$opcao" = 'Xournal' ]            && sudo apt-get install -y xournal
     [ "$opcao" = 'AcrobatReader' ]      && sudo apt-get install -y acroread
