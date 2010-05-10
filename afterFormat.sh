@@ -34,10 +34,12 @@ FOLDER=$(cd $(dirname $0); pwd -P)
 echo "Espere um momento..."
 sudo apt-get install -y dialog > /dev/null
 
-opcoes=$( dialog --stdout --separate-output                                                             \
+opcoes=$( dialog --stdout --separate-output                                             \
     --title "afterFormat - Pós Formatação para Ubuntu 9.10 LST"                         \
     --checklist 'Selecione os softwares que deseja instalar:' 0 0 0                     \
     Desktop         "Muda \"Área de Trabalho\" para \"Desktop\" *(Apenas ptBR)"     ON  \
+    Botões          "Muda os botões minimizar, maximizar e fechar para a direita"   ON  \
+    Terminal        "Terminal com fundo preto e letras brancas"                     ON  \
     RubyOnRails     "Ruby, irb, rails e gems básicas para desenvolvimento"          ON  \
     MySql           "Banco de dados"                                                ON  \
     PostgreSQL      "Banco de dados"                                                OFF \
@@ -77,6 +79,16 @@ do
         mv /tmp/user-dirs.dirs.modificado $HOME/.config/user-dirs.dirs
         xdg-user-dirs-gtk-update
         xdg-user-dirs-update
+    fi
+
+    if [ "$opcao" = 'Botões' ]
+    then
+        gconftool-2 --set "/apps/metacity/general/button_layout" --type string ":minimize,maximize,close"
+    fi
+
+    if [ "$opcao" = 'Terminal' ]
+    then
+        gconftool-2 --set "/apps/gnome-terminal/profiles/Default/use_theme_colors" --type bool "false"
     fi
 
     if [ "$opcao" = 'RubyOnRails' ]

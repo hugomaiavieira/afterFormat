@@ -13,6 +13,8 @@ SOFTWARES INSTALADOS
 --------------------
 
 * **Desktop**           - Muda "&Aacute;rea de Trabalho" para "Desktop
+* **Botões**            - Muda os botões minimizar, maximizar e fechar para a direita
+* **Terminal**          - Terminal com fundo preto e letras brancas
 * **RubyOnRails**       - Ruby, irb, rails e gems b&aacute;sicas para desenvolvimento
     * **instala os pacotes**:
         ruby1.8, rubygems1.8, ruby1.8-dev, libpq-dev, libopenssl-ruby1.8,
