@@ -129,7 +129,7 @@ do
     if [ "$opcao" = 'VIM' ]
     then
         sudo apt-get install -y vim
-        sudo cp $FOLDER/vimrc /etc/vim/
+        sudo cp $FOLDER/vimrc.local /etc/vim/
     fi
 
     if [ "$opcao" = 'Gedit' ]
