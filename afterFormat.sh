@@ -116,7 +116,7 @@ do
     if [ "$opcao" = 'MySql' ]
     then
         sudo apt-get install -y mysql-server-5.0
-        sudo apt-get install libmysqlclient15-dev
+        sudo apt-get install -y libmysqlclient15-dev
         test $ruby_on_rails -eq 1 && sudo gem install mysql
     fi
 
@@ -202,7 +202,7 @@ do
             sudo apt-get install -y meld
             touch $HOME/.config/git_meld_diff.py
             echo "#!/bin/bash" >> $HOME/.config/git_meld_diff.py
-            echo "meld "$5" "$2"" >> $HOME/.config/git_meld_diff.py
+            echo "meld \"\$5\" \"\$2\"" >> $HOME/.config/git_meld_diff.py
             chmod +x $HOME/.config/git_meld_diff.py
             git config --global diff.external $HOME/.config/git_meld_diff.py
         else
