@@ -39,7 +39,7 @@ opcoes=$( dialog --stdout --separate-output                                     
     --checklist 'Selecione os softwares que deseja instalar:' 0 0 0                     \
     Desktop         "Muda \"Área de Trabalho\" para \"Desktop\" *(Apenas ptBR)"     ON  \
     Botões          "Muda os botões minimizar, maximizar e fechar para a direita"   ON  \
-    Terminal        "Terminal com fundo preto e letras brancas"                     ON  \
+    PS1             "$PS1 no formato => usuario ~/projetos/afterFormat (master)"    ON  \
     Ruby1.8         "Ambiente para desenvolvimento com Ruby1.8"                     ON  \
     Ruby1.9         "Ambiente para desenvolvimento com Ruby1.9"                     ON  \
     Rails           "Ambiente para desenvolvimento com Rails"                       ON  \
@@ -88,16 +88,16 @@ do
         gconftool-2 --set "/apps/metacity/general/button_layout" --type string ":minimize,maximize,close"
     fi
 
-    if [ "$opcao" = 'Terminal' ]
+    if [ "$opcao" = 'PS1' ]
     then
-        gconftool-2 --set "/apps/gnome-terminal/profiles/Default/use_theme_colors" --type bool "false"
+        echo 'export PS1="\[\033[36m\]\u \[\033[33m\]\w \[\033[34m\]\`branch=\$(git branch 2> /dev/null | grep \"\* .*\" | grep -Pwo \".*\") && test -n \$branch && echo \"(\$branch) \"\`\[\033[00m\]$ "' >> $HOME/.bashrc
     fi
 
     if [ "$opcao" = 'Ruby1.8' ]
     then
         sudo apt-get install -y ruby1.8 rubygems1.8 ruby1.8-dev libopenssl-ruby1.8 irb1.8
         sudo ./variaveis_ambiente.sh "ruby_on_rails1.8"
-        echo "alias sudo='sudo env PATH=\$PATH'" >> ~/.bashrc
+        echo "alias sudo='sudo env PATH=\$PATH'" >> $HOME/.bashrc
         ruby18=1
         #TODO: colcoar RVM
     fi
@@ -106,7 +106,7 @@ do
     then
         sudo apt-get install -y ruby1.9.1-full rubygems1.9.1 ruby1.9.1-dev libopenssl-ruby1.9.1 irb1.9
         sudo ./variaveis_ambiente.sh "ruby_on_rails1.9"
-        test $ruby18 -ne 1 && echo "alias sudo='sudo env PATH=\$PATH'" >> ~/.bashrc
+        test $ruby18 -ne 1 && echo "alias sudo='sudo env PATH=\$PATH'" >> $HOME/.bashrc
         ruby19=1
         #TODO: colcoar RVM
     fi
