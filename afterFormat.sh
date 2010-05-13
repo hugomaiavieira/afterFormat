@@ -40,7 +40,9 @@ opcoes=$( dialog --stdout --separate-output                                     
     Desktop         "Muda \"Área de Trabalho\" para \"Desktop\" *(Apenas ptBR)"     ON  \
     Botões          "Muda os botões minimizar, maximizar e fechar para a direita"   ON  \
     Terminal        "Terminal com fundo preto e letras brancas"                     ON  \
-    RubyOnRails     "Ruby, irb, rails e gems básicas para desenvolvimento"          ON  \
+    Ruby1.8         "Ambiente para desenvolvimento com Ruby1.8"                     ON  \
+    Ruby1.9         "Ambiente para desenvolvimento com Ruby1.9"                     ON  \
+    Rails           "Ambiente para desenvolvimento com Rails"                       ON  \
     MySql           "Banco de dados"                                                ON  \
     PostgreSQL      "Banco de dados"                                                OFF \
     Java            "Java Development Kit e Java Runtime Environment"               ON  \
@@ -91,39 +93,61 @@ do
         gconftool-2 --set "/apps/gnome-terminal/profiles/Default/use_theme_colors" --type bool "false"
     fi
 
-    if [ "$opcao" = 'RubyOnRails' ]
+    if [ "$opcao" = 'Ruby1.8' ]
     then
-        sudo apt-get install -y ruby1.8 rubygems rubygems1.8 ruby1.8-dev libpq-dev libopenssl-ruby1.8 libxml2 libxml2-dev libxslt1.1 libxslt1-dev libxml-ruby libxslt-ruby irb
+        sudo apt-get install -y ruby1.8 rubygems1.8 ruby1.8-dev libopenssl-ruby1.8 irb1.8
+        sudo ./variaveis_ambiente.sh "ruby_on_rails1.8"
+        alias sudo='sudo env PATH=$PATH'
+        ruby18=1
+        #TODO: colcoar RVM
+    fi
+
+    if [ "$opcao" = 'Ruby1.9' ]
+    then
+        sudo apt-get install -y ruby1.9.1-full rubygems1.9.1 ruby1.9.1-dev libopenssl-ruby1.9.1 irb1.9
+        sudo ./variaveis_ambiente.sh "ruby_on_rails1.9"
+        test $ruby18 -ne 1 && alias sudo='sudo env PATH=$PATH'
+        ruby19=1
+        #TODO: colcoar RVM
+    fi
+
+    if [ "$opcao" = 'Rails' ]
+    then
+        sudo apt-get install -y bcrypt libxml2 libxml2-dev libxslt1-dev
         sudo gem install rake
         sudo gem install rails
-        sudo gem install mongrel
+        sudo gem install haml
+        sudo gem install formtastic
+        sudo gem install inherited_resources
+        sudo gem install database_cleaner
+        sudo gem install bcrypt-ruby
+        sudo gem install will_paginate
+        sudo gem install factory_girl
         sudo gem install brazilian-rails
-        sudo gem install cucumber
+        sudo gem install cucumber-rails
         sudo gem install webrat
-        sudo gem install rspec
         sudo gem install rspec-rails
-        sudo gem install nokogiri
+        sudo gem install mongrel
         sudo gem install capistrano
         sudo gem install authlogic
         sudo gem install remarkable_rails
-        cd /usr/bin
-        sudo ln ruby1.8 ruby
-        cd $FOLDER
-        ruby_on_rails=1
-        sudo ./variaveis_ambiente.sh "ruby_on_rails"
+        rails=1
     fi
 
     if [ "$opcao" = 'MySql' ]
     then
-        sudo apt-get install -y mysql-server-5.0
-        sudo apt-get install -y libmysqlclient15-dev
-        test $ruby_on_rails -eq 1 && sudo gem install mysql
+        sudo apt-get install -y mysql-server-5.0 libmysqlclient15-dev
+        test $ruby18 -eq 1 && sudo apt-get install -y libmysql-ruby1.8
+        test $ruby19 -eq 1 && sudo apt-get install -y libmysql-ruby1.9
+        test $rails  -eq 1 && sudo gem install mysql
     fi
 
     if [ "$opcao" = 'PostgreSQL' ]
     then
         sudo apt-get install -y postgresql
-        test $ruby_on_rails -eq 1 && gem install ruby-pg
+        test $ruby18 -eq 1 && sudo apt-get install -y libpgsql-ruby1.8
+        test $ruby19 -eq 1 && sudo apt-get install -y libpgsql-ruby1.9
+        test $rails  -eq 1 && sudo gem install pg
     fi
 
     if [ "$opcao" = 'VIM' ]

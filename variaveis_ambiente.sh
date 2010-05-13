@@ -28,8 +28,13 @@
 #
 #-------------------------------------------------------------------------------
 
-if [ "$1" = "ruby_on_rails" ]
+if [ "$1" = "ruby_on_rails1.8" ]
 then
     sudo echo "export PATH=\"\$PATH:/var/lib/gems/1.8/bin\"" >> /etc/bash.bashrc
+fi
+
+if [ "$1" = "ruby_on_rails1.9" ]
+then
+    sudo echo "export PATH=\"\$PATH:/var/lib/gems/1.9/bin\"" >> /etc/bash.bashrc
 fi
 
