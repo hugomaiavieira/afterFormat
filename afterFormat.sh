@@ -97,7 +97,7 @@ do
     then
         sudo apt-get install -y ruby1.8 rubygems1.8 ruby1.8-dev libopenssl-ruby1.8 irb1.8
         sudo ./variaveis_ambiente.sh "ruby_on_rails1.8"
-        alias sudo='sudo env PATH=$PATH'
+        echo "alias sudo='sudo env PATH=\$PATH'" >> ~/.bashrc
         ruby18=1
         #TODO: colcoar RVM
     fi
@@ -106,7 +106,7 @@ do
     then
         sudo apt-get install -y ruby1.9.1-full rubygems1.9.1 ruby1.9.1-dev libopenssl-ruby1.9.1 irb1.9
         sudo ./variaveis_ambiente.sh "ruby_on_rails1.9"
-        test $ruby18 -ne 1 && alias sudo='sudo env PATH=$PATH'
+        test $ruby18 -ne 1 && echo "alias sudo='sudo env PATH=\$PATH'" >> ~/.bashrc
         ruby19=1
         #TODO: colcoar RVM
     fi
