@@ -114,23 +114,46 @@ do
     if [ "$opcao" = 'Rails' ]
     then
         sudo apt-get install -y bcrypt libxml2 libxml2-dev libxslt1-dev
-        sudo gem install rake
-        sudo gem install rails
-        sudo gem install haml
-        sudo gem install formtastic
-        sudo gem install inherited_resources
-        sudo gem install database_cleaner
-        sudo gem install bcrypt-ruby
-        sudo gem install will_paginate
-        sudo gem install factory_girl
-        sudo gem install brazilian-rails
-        sudo gem install cucumber-rails
-        sudo gem install webrat
-        sudo gem install rspec-rails
-        sudo gem install mongrel
-        sudo gem install capistrano
-        sudo gem install authlogic
-        sudo gem install remarkable_rails
+        if [ "$ruby18" -eq 1 ]
+        then
+            sudo gem1.8 install rake
+            sudo gem1.8 install rails
+            sudo gem1.8 install haml
+            sudo gem1.8 install formtastic
+            sudo gem1.8 install inherited_resources
+            sudo gem1.8 install database_cleaner
+            sudo gem1.8 install bcrypt-ruby
+            sudo gem1.8 install will_paginate
+            sudo gem1.8 install factory_girl
+            sudo gem1.8 install brazilian-rails
+            sudo gem1.8 install cucumber-rails
+            sudo gem1.8 install webrat
+            sudo gem1.8 install rspec-rails
+            sudo gem1.8 install mongrel
+            sudo gem1.8 install capistrano
+            sudo gem1.8 install authlogic
+            sudo gem1.8 install remarkable_rails
+        fi
+        if [ "$ruby19" -eq 1 ]
+        then
+            sudo gem1.9 install rake
+            sudo gem1.9 install rails
+            sudo gem1.9 install haml
+            sudo gem1.9 install formtastic
+            sudo gem1.9 install inherited_resources
+            sudo gem1.9 install database_cleaner
+            sudo gem1.9 install bcrypt-ruby
+            sudo gem1.9 install will_paginate
+            sudo gem1.9 install factory_girl
+            sudo gem1.9 install brazilian-rails
+            sudo gem1.9 install cucumber-rails
+            sudo gem1.9 install webrat
+            sudo gem1.9 install rspec-rails
+            sudo gem1.9 install mongrel
+            sudo gem1.9 install capistrano
+            sudo gem1.9 install authlogic
+            sudo gem1.9 install remarkable_rails
+        fi
         rails=1
     fi
 
@@ -139,7 +162,8 @@ do
         sudo apt-get install -y mysql-server-5.0 libmysqlclient15-dev
         test $ruby18 -eq 1 && sudo apt-get install -y libmysql-ruby1.8
         test $ruby19 -eq 1 && sudo apt-get install -y libmysql-ruby1.9
-        test $rails  -eq 1 && sudo gem install mysql
+        test $rails  -eq 1 && test $ruby18 -eq 1 && sudo gem1.8 install mysql
+        test $rails  -eq 1 && test $ruby19 -eq 1 && sudo gem1.9 install mysql
     fi
 
     if [ "$opcao" = 'PostgreSQL' ]
@@ -147,7 +171,8 @@ do
         sudo apt-get install -y postgresql
         test $ruby18 -eq 1 && sudo apt-get install -y libpgsql-ruby1.8
         test $ruby19 -eq 1 && sudo apt-get install -y libpgsql-ruby1.9
-        test $rails  -eq 1 && sudo gem install pg
+        test $rails  -eq 1 && test $ruby18 -eq 1 && sudo gem1.8 install pg
+        test $rails  -eq 1 && test $ruby19 -eq 1 && sudo gem1.9 install pg
     fi
 
     if [ "$opcao" = 'VIM' ]
