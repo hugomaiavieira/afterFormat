@@ -129,6 +129,7 @@ do
             sudo gem1.8 install will_paginate
             sudo gem1.8 install factory_girl
             sudo gem1.8 install brazilian-rails
+            sudo gem1.8 install gherkin
             sudo gem1.8 install cucumber-rails
             sudo gem1.8 install webrat
             sudo gem1.8 install rspec-rails
@@ -150,6 +151,7 @@ do
             sudo gem1.9 install will_paginate
             sudo gem1.9 install factory_girl
             sudo gem1.9 install brazilian-rails
+            sudo gem1.8 install gherkin
             sudo gem1.9 install cucumber-rails
             sudo gem1.9 install webrat
             sudo gem1.9 install rspec-rails
