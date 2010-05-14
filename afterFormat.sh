@@ -116,50 +116,53 @@ do
 
     if [ "$opcao" = 'Rails' ]
     then
-        if [ "$ruby18" -eq 1 ]
-        then
-            sudo apt-get install -y bcrypt libxml2 libxml2-dev libxslt1-dev
-            sudo gem1.8 install rake
-            sudo gem1.8 install rails
-            sudo gem1.8 install haml
-            sudo gem1.8 install formtastic
-            sudo gem1.8 install inherited_resources
-            sudo gem1.8 install database_cleaner
-            sudo gem1.8 install bcrypt-ruby
-            sudo gem1.8 install will_paginate
-            sudo gem1.8 install factory_girl
-            sudo gem1.8 install brazilian-rails
-            sudo gem1.8 install gherkin
-            sudo gem1.8 install cucumber-rails
-            sudo gem1.8 install webrat
-            sudo gem1.8 install rspec-rails
-            sudo gem1.8 install mongrel
-            sudo gem1.8 install capistrano
-            sudo gem1.8 install authlogic
-            sudo gem1.8 install remarkable_rails
-            rails=1
-        elif [ "$ruby19" -eq 1 ]
-        then
-            sudo apt-get install -y bcrypt libxml2 libxml2-dev libxslt1-dev
-            sudo gem1.9 install rake
-            sudo gem1.9 install rails
-            sudo gem1.9 install haml
-            sudo gem1.9 install formtastic
-            sudo gem1.9 install inherited_resources
-            sudo gem1.9 install database_cleaner
-            sudo gem1.9 install bcrypt-ruby
-            sudo gem1.9 install will_paginate
-            sudo gem1.9 install factory_girl
-            sudo gem1.9 install brazilian-rails
-            sudo gem1.8 install gherkin
-            sudo gem1.9 install cucumber-rails
-            sudo gem1.9 install webrat
-            sudo gem1.9 install rspec-rails
-            sudo gem1.9 install mongrel
-            sudo gem1.9 install capistrano
-            sudo gem1.9 install authlogic
-            sudo gem1.9 install remarkable_rails
-            rails=1
+        if [ "$ruby18" -eq 1 ] || [ "$ruby19" -eq 1 ]
+            if [ "$ruby18" -eq 1 ]
+            then
+                sudo apt-get install -y bcrypt libxml2 libxml2-dev libxslt1-dev
+                sudo gem1.8 install rake
+                sudo gem1.8 install rails
+                sudo gem1.8 install haml
+                sudo gem1.8 install formtastic
+                sudo gem1.8 install inherited_resources
+                sudo gem1.8 install database_cleaner
+                sudo gem1.8 install bcrypt-ruby
+                sudo gem1.8 install will_paginate
+                sudo gem1.8 install factory_girl
+                sudo gem1.8 install brazilian-rails
+                sudo gem1.8 install gherkin
+                sudo gem1.8 install cucumber-rails
+                sudo gem1.8 install webrat
+                sudo gem1.8 install rspec-rails
+                sudo gem1.8 install mongrel
+                sudo gem1.8 install capistrano
+                sudo gem1.8 install authlogic
+                sudo gem1.8 install remarkable_rails
+                rails=1
+            fi
+            if [ "$ruby19" -eq 1 ]
+            then
+                sudo apt-get install -y bcrypt libxml2 libxml2-dev libxslt1-dev
+                sudo gem1.9 install rake
+                sudo gem1.9 install rails
+                sudo gem1.9 install haml
+                sudo gem1.9 install formtastic
+                sudo gem1.9 install inherited_resources
+                sudo gem1.9 install database_cleaner
+                sudo gem1.9 install bcrypt-ruby
+                sudo gem1.9 install will_paginate
+                sudo gem1.9 install factory_girl
+                sudo gem1.9 install brazilian-rails
+                sudo gem1.8 install gherkin
+                sudo gem1.9 install cucumber-rails
+                sudo gem1.9 install webrat
+                sudo gem1.9 install rspec-rails
+                sudo gem1.9 install mongrel
+                sudo gem1.9 install capistrano
+                sudo gem1.9 install authlogic
+                sudo gem1.9 install remarkable_rails
+                rails=1
+            fi
         else
             dialog --title 'Aviso' \
             --msgbox 'O ambiente de desenvolvimento Rails só pode ser instalado em conjunto com \nalguma versão do Ruby.\n\nPara isto, após o script terminar de rodar, rode-o novamente o marcando apenas a opção Rails e a(s) versão(ões) do Ruby que deseja instalar.' \
