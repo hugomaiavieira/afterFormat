@@ -191,21 +191,21 @@ do
     if [ "$opcao" = 'MySql' ]
     then
         sudo apt-get install -y mysql-server-5.1 libmysqlclient16-dev
-        test $python -eq 1 && sudo apt-get install -y python-mysqldb
-        test $ruby18 -eq 1 && sudo apt-get install -y libmysql-ruby1.8
-        test $ruby19 -eq 1 && sudo apt-get install -y libmysql-ruby1.9
-        test $rails  -eq 1 && test $ruby18 -eq 1 && sudo gem1.8 install mysql
-        test $rails  -eq 1 && test $ruby19 -eq 1 && sudo gem1.9 install mysql
+        test "$python" -eq 1 && sudo apt-get install -y python-mysqldb
+        test "$ruby18" -eq 1 && sudo apt-get install -y libmysql-ruby1.8
+        test "$ruby19" -eq 1 && sudo apt-get install -y libmysql-ruby1.9
+        test "$rails"  -eq 1 && test "$ruby18" -eq 1 && sudo gem1.8 install mysql
+        test "$rails"  -eq 1 && test "$ruby19" -eq 1 && sudo gem1.9 install mysql
     fi
 
     if [ "$opcao" = 'PostgreSQL' ]
     then
         sudo apt-get install -y postgresql
-        test $python -eq 1 && sudo apt-get install -y python-pgsql
-        test $ruby18 -eq 1 && sudo apt-get install -y libpgsql-ruby1.8
-        test $ruby19 -eq 1 && sudo apt-get install -y libpgsql-ruby1.9
-        test $rails  -eq 1 && test $ruby18 -eq 1 && sudo gem1.8 install pg
-        test $rails  -eq 1 && test $ruby19 -eq 1 && sudo gem1.9 install pg
+        test "$python" -eq 1 && sudo apt-get install -y python-pgsql
+        test "$ruby18" -eq 1 && sudo apt-get install -y libpgsql-ruby1.8
+        test "$ruby19" -eq 1 && sudo apt-get install -y libpgsql-ruby1.9
+        test "$rails"  -eq 1 && test "$ruby18" -eq 1 && sudo gem1.8 install pg
+        test "$rails"  -eq 1 && test "$ruby19" -eq 1 && sudo gem1.9 install pg
     fi
 
     if [ "$opcao" = 'VIM' ]
