@@ -105,7 +105,9 @@ do
         sudo ./variaveis_ambiente.sh "ruby_on_rails1.8"
         echo "alias sudo='sudo env PATH=\$PATH'" >> $HOME/.bashrc
         ruby18=1
-        #TODO: colocar RVM
+        # rvm
+        bash < <( curl http://rvm.beginrescueend.com/releases/rvm-install-head )
+        echo "if [[ -s \$HOME/.rvm/scripts/rvm ]] ; then source \$HOME/.rvm/scripts/rvm ; fi" >> $HOME/.bashrc
     fi
 
     if [ "$opcao" = 'Ruby1.9' ]
@@ -114,7 +116,11 @@ do
         sudo ./variaveis_ambiente.sh "ruby_on_rails1.9"
         test $ruby18 -ne 1 && echo "alias sudo='sudo env PATH=\$PATH'" >> $HOME/.bashrc
         ruby19=1
-        #TODO: colocar RVM
+        if [ "$ruby18" -ne 1 ]
+        then
+            bash < <( curl http://rvm.beginrescueend.com/releases/rvm-install-head )
+            echo "if [[ -s \$HOME/.rvm/scripts/rvm ]] ; then source \$HOME/.rvm/scripts/rvm ; fi" >> $HOME/.bashrc
+        fi
     fi
 
     if [ "$opcao" = 'Rails' ]
