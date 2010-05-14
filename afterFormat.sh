@@ -190,7 +190,7 @@ do
 
     if [ "$opcao" = 'MySql' ]
     then
-        sudo apt-get install -y mysql-server-5.0 libmysqlclient15-dev
+        sudo apt-get install -y mysql-server-5.1 libmysqlclient16-dev
         test $python -eq 1 && sudo apt-get install -y python-mysqldb
         test $ruby18 -eq 1 && sudo apt-get install -y libmysql-ruby1.8
         test $ruby19 -eq 1 && sudo apt-get install -y libmysql-ruby1.9
