@@ -308,7 +308,7 @@ do
     if [ "$opcao" = 'Jdownloader' ]
     then
         sudo ./repositorios.sh "jdownloader"
-        sudo apt-get install -y jdownloader
+        sudo apt-get install --force-yes jdownloader
     fi
 done
 

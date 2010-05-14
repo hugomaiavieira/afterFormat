@@ -26,9 +26,7 @@
 
 if [ "$1" = "gmate" ]
 then
-    sudo echo "deb http://ppa.launchpad.net/ubuntu-on-rails/ppa/ubuntu karmic main" >> /etc/apt/sources.list
-    sudo echo "deb-src http://ppa.launchpad.net/ubuntu-on-rails/ppa/ubuntu karmic main" >> /etc/apt/sources.list
-    sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 81C0BE11
+    sudo add-apt-repository ppa:ubuntu-on-rails/ppa
     sudo apt-get update
 fi
 
