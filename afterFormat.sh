@@ -218,7 +218,7 @@ do
     then
         sudo ./repositorios.sh "gmate"
         sudo apt-get install -y gedit-plugins
-        sudo apt-get install -y gedit-gmate
+        sudo apt-get install --force-yes -y gedit-gmate
         # Preferências do gedit
         `gconftool-2 --set /apps/gedit-2/plugins/active-plugins -t list --list-type=str [docinfo,rails_extract_partial,rubyonrailsloader,spell,smart_indent,terminal,rails_hotkeys,indent,filebrowser,snippets,time,modelines,completion,trailsave,sort,align,colorpicker,smartspaces,sessionsaver,bracketcompletion,changecase,rails_hotcommands,codecomment]`
         `gconftool-2 --set /apps/gedit-2/preferences/editor/auto_indent/auto_indent -t bool true`
@@ -240,20 +240,20 @@ do
     if [ "$opcao" = 'Media' ]
     then
         sudo ./repositorios.sh "media"
-        sudo apt-get install -y ubuntu-restricted-extras non-free-codecs libdvdcss2
-        sudo apt-get install -y arj lha rar unace-nonfree unrar p7zip p7zip-full p7zip-rar
+        sudo apt-get install --force-yes -y ubuntu-restricted-extras non-free-codecs libdvdcss2
+        sudo apt-get install --force-yes -y arj lha rar unace-nonfree unrar p7zip p7zip-full p7zip-rar
 
         uname -a | grep i686 1>& /dev/null # Ubuntu 32 bits
-        [ $? = 0 ] && sudo apt-get install -y w32codecs
+        [ $? = 0 ] && sudo apt-get install --force-yes -y w32codecs
 
         uname -a | grep x86_64 1>& /dev/null # Ubuntu 64 bits
-        [ $? = 0 ] && sudo apt-get install -y w64codecs
+        [ $? = 0 ] && sudo apt-get install --force-yes -y w64codecs
     fi
 
     if [ "$opcao" = 'Chromium' ]
     then
         sudo ./repositorios.sh "chromium"
-        sudo apt-get install -y chromium-browser
+        sudo apt-get install --force-yes -y chromium-browser
     fi
 
     if [ "$opcao" = 'StarDict' ]
@@ -305,7 +305,7 @@ do
     if [ "$opcao" = 'Jdownloader' ]
     then
         sudo ./repositorios.sh "jdownloader"
-        sudo apt-get install --force-yes jdownloader
+        sudo apt-get install --force-yes -y jdownloader
     fi
 done
 
