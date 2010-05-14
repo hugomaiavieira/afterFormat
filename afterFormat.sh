@@ -31,7 +31,6 @@ FOLDER=$(cd $(dirname $0); pwd -P)
 #================================ Menu =========================================
 
 # Instala o dialog
-echo "Espere um momento..."
 sudo apt-get install -y dialog > /dev/null
 
 opcoes=$( dialog --stdout --separate-output                                                     \
