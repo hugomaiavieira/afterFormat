@@ -248,11 +248,10 @@ do
         sudo apt-get install -y arj lha rar unace-nonfree unrar p7zip p7zip-full p7zip-rar
 
         uname -a | grep i686 1>& /dev/null # Ubuntu 32 bits
-        if [ $? = 0 ]
-            sudo apt-get install -y w32codecs
+        [ $? = 0 ] && sudo apt-get install -y w32codecs
+
         uname -a | grep x86_64 1>& /dev/null # Ubuntu 64 bits
-        if [ $? = 0 ]
-            sudo apt-get install -y w64codecs
+        [ $? = 0 ] && sudo apt-get install -y w64codecs
     fi
 
     if [ "$opcao" = 'Chromium' ]
