@@ -265,14 +265,11 @@ do
 
     if [ "$opcao" = 'Firefox' ]
     then
-        wget -O /tmp/firebug.xpi https://addons.mozilla.org/pt-BR/firefox/downloads/latest/1843/addon-1843-latest.xpi?src=addondetail
-        firefox -install-global-extension /tmp/firebug.xpi
-        wget -O /tmp/webDeveloper.xpi https://addons.mozilla.org/pt-BR/firefox/downloads/latest/60/addon-60-latest.xpi?src=addondetail
-        firefox -install-global-extension /tmp/webDeveloper.xpi
-        wget -O /tmp/downloadHelper.xpi https://addons.mozilla.org/pt-BR/firefox/downloads/latest/3006/addon-3006-latest.xpi?src=addondetail
-        firefox -install-global-extension /tmp/downloadHelper.xpi
-        wget -O /tmp/downThemAll.xpi https://addons.mozilla.org/en-US/firefox/downloads/latest/201/addon-201-latest.xpi?src=addondetail
-        firefox -install-global-extension /tmp/downThemAll.xpi
+        wget -O /tmp/firefox-firebug.xpi https://addons.mozilla.org/pt-BR/firefox/downloads/latest/1843/addon-1843-latest.xpi?src=addondetail
+        wget -O /tmp/firefox-webDeveloper.xpi https://addons.mozilla.org/pt-BR/firefox/downloads/latest/60/addon-60-latest.xpi?src=addondetail
+        wget -O /tmp/firefox-downloadHelper.xpi https://addons.mozilla.org/pt-BR/firefox/downloads/latest/3006/addon-3006-latest.xpi?src=addondetail
+        wget -O /tmp/firefox-downThemAll.xpi https://addons.mozilla.org/en-US/firefox/downloads/latest/201/addon-201-latest.xpi?src=addondetail
+        sudo mv /tmp/firefox-* /usr/lib/firefox*/extensions
     fi
 
     if [ "$opcao" = 'GitMeldDiff' ]
