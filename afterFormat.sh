@@ -64,7 +64,7 @@ opcoes=$( dialog --stdout --separate-output                                     
     Dia             "Editor de diagramas"                                                   ON  \
     Chromium        "Versão opensouce do navegador web Google Chrome"                       ON  \
     Firefox         "Complementos para o firefox"                                           ON  \
-    Pidgin          "Cliente de mensagens instantâneas"                                     ON  )
+    Pidgin          "Cliente de mensagens instantâneas"                                     ON  \
     Jdownloader     "Baixa automaticamente do rapidshare, megaupload e etc"                 ON  )
 
 #=============================== Processamento =================================
