@@ -40,6 +40,7 @@ opcoes=$( dialog --stdout --separate-output                                     
     Desktop         "Muda \"Área de Trabalho\" para \"Desktop\" *(Apenas ptBR)"             ON  \
     Botões          "Muda os botões minimizar, maximizar e fechar para a direita"           ON  \
     PS1             "$PS1 no formato: usuário ~/diretório/atual (BranchGit)"                ON  \
+    SSH             "SSH server e client"                                                   ON  \
     Ruby1.8         "Ambiente para desenvolvimento com Ruby1.8"                             ON  \
     Ruby1.9         "Ambiente para desenvolvimento com Ruby1.9"                             ON  \
     Rails           "Ambiente para desenvolvimento com Rails (para cada Ruby)"              ON  \
@@ -91,6 +92,11 @@ do
     if [ "$opcao" = 'PS1' ]
     then
         echo 'export PS1="\[\033[36m\]\u \[\033[33m\]\w \[\033[34m\]\`branch=\$(git branch 2> /dev/null | grep \"\* .*\" | grep -Pwo \".*\") && test -n \$branch && echo \"(\$branch) \"\`\[\033[00m\]$ "' >> $HOME/.bashrc
+    fi
+
+    if [ "$opcao" = 'SHH' ]
+    then
+        sudo apt-get install -y openssh-server openssh-client
     fi
 
     if [ "$opcao" = 'Ruby1.8' ]
