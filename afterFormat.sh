@@ -13,7 +13,7 @@
 #   v1.1, 08-05-2010, Hugo Maia Vieira:
 #       - Retirados e adicionados itens, ajustando para o ubuntu 10.04
 #   v1.2, 08-05-2010, Hugo Maia Vieira:
-#       - Colocado o pacote de dicionarios no downloads do projeto e mudado o
+#       - Colocado o pacote de dicionários no downloads do projeto e mudado o
 #       script para baixar de lá se for necessário.
 #
 # ------------------------------------------------------------------------------
@@ -34,37 +34,37 @@ FOLDER=$(cd $(dirname $0); pwd -P)
 echo "Espere um momento..."
 sudo apt-get install -y dialog > /dev/null
 
-opcoes=$( dialog --stdout --separate-output                                             \
-    --title "afterFormat - Pós Formatação para Ubuntu 9.10 LST"                         \
-    --checklist 'Selecione os softwares que deseja instalar:' 0 0 0                     \
-    Desktop         "Muda \"Área de Trabalho\" para \"Desktop\" *(Apenas ptBR)"     ON  \
-    Botões          "Muda os botões minimizar, maximizar e fechar para a direita"   ON  \
-    PS1             "$PS1 no formato => usuario ~/projetos/afterFormat (master)"    ON  \
-    Ruby1.8         "Ambiente para desenvolvimento com Ruby1.8"                     ON  \
-    Ruby1.9         "Ambiente para desenvolvimento com Ruby1.9"                     ON  \
-    Rails           "Ambiente para desenvolvimento com Rails"                       ON  \
-    MySql           "Banco de dados"                                                ON  \
-    PostgreSQL      "Banco de dados"                                                OFF \
-    Java            "Java Development Kit e Java Runtime Environment"               ON  \
-    SVN             "Sistema de controle de versão"                                 ON  \
-    Git             "Sistema de controle de versão com configurações básicas"       ON  \
-    GitMeldDiff     "Torna o Meld o software para visualização do diff do git"      ON  \
-    Python          "Ferramentas para desenvolvimento python"                       ON  \
-    VIM             "Editor de texto, com configurações básicas"                    ON  \
-    Gedit           "Plugins oficiais, Gmate e configurações básicas"               ON  \
-    EnvyNG          "Software para instalação de drivers Nvidia e ATI"              OFF \
-    StarDict        "Dicionário multi-línguas"                                      ON  \
-    Xournal         "Software para fazer anotações e marcar texto em pdf"           ON  \
-    AcrobatReader   "Software para fazer anotações e marcar texto em pdf"           ON  \
-    Media           "Codecs, flashplayer e compactadores"                           ON  \
-    Inkscape        "Software para desenho vetorial"                                ON  \
-    RecordMyDesktop "Ferramenta para gravação do video e áudio do computador"       ON  \
-    XChat           "Cliente IRC"                                                   ON  \
-    Dia             "Editor de diagramas"                                           ON  \
-    Chromium        "Versão opensouce do navegador web Google Chrome"               ON  \
-    Firefox         "Complementos para o firefox"                                   ON  \
-    Pidgin          "Cliente de mensagens instantâneas"                             ON  )
-    Jdownloader     "Baixa automaticamente do rapidshare, megaupload e etc"         ON  )
+opcoes=$( dialog --stdout --separate-output                                                     \
+    --title "afterFormat - Pós Formatação para Ubuntu 9.10 LST"                                 \
+    --checklist 'Selecione os softwares que deseja instalar:' 0 0 0                             \
+    Desktop         "Muda \"Área de Trabalho\" para \"Desktop\" *(Apenas ptBR)"             ON  \
+    Botões          "Muda os botões minimizar, maximizar e fechar para a direita"           ON  \
+    PS1             "$PS1 no formato: usuário ~/diretório/atual (BranchGit)"                ON  \
+    Ruby1.8         "Ambiente para desenvolvimento com Ruby1.8"                             ON  \
+    Ruby1.9         "Ambiente para desenvolvimento com Ruby1.9"                             ON  \
+    Rails           "Ambiente para desenvolvimento com Rails (para cada Ruby)"              ON  \
+    Python          "Ferramentas para desenvolvimento python"                               ON  \
+    MySql           "Banco de dados + interface para ruby e python (caso forem escolhidos)" ON  \
+    PostgreSQL      "Banco de dados + interface para ruby e python (caso forem escolhidos)" OFF \
+    Java            "Java Development Kit e Java Runtime Environment"                       ON  \
+    SVN             "Sistema de controle de versão"                                         ON  \
+    Git             "Sistema de controle de versão com configurações úteis"                 ON  \
+    GitMeldDiff     "Torna o Meld o software para visualização do diff do git"              ON  \
+    VIM             "Editor de texto, com configurações úteis"                              ON  \
+    Gedit           "Plugins oficiais, Gmate e configurações úteis"                         ON  \
+    EnvyNG          "Software para instalação de drivers Nvidia e ATI"                      OFF \
+    StarDict        "Dicionário multi-línguas (inclui dicionario PTbr-En/En-PTbr)"          ON  \
+    Xournal         "Software para fazer anotações e marcar texto em pdf"                   ON  \
+    AcrobatReader   "Software para leitura de pdf com plugin para o Firefox"                ON  \
+    Media           "Codecs, flashplayer e compactadores de arquivos"                       ON  \
+    Inkscape        "Software para desenho vetorial"                                        ON  \
+    RecordMyDesktop "Ferramenta para gravação do video e áudio do computador"               ON  \
+    XChat           "Cliente IRC"                                                           ON  \
+    Dia             "Editor de diagramas"                                                   ON  \
+    Chromium        "Versão opensouce do navegador web Google Chrome"                       ON  \
+    Firefox         "Complementos para o firefox"                                           ON  \
+    Pidgin          "Cliente de mensagens instantâneas"                                     ON  )
+    Jdownloader     "Baixa automaticamente do rapidshare, megaupload e etc"                 ON  )
 
 #=============================== Processamento =================================
 
@@ -99,7 +99,7 @@ do
         sudo ./variaveis_ambiente.sh "ruby_on_rails1.8"
         echo "alias sudo='sudo env PATH=\$PATH'" >> $HOME/.bashrc
         ruby18=1
-        #TODO: colcoar RVM
+        #TODO: colocar RVM
     fi
 
     if [ "$opcao" = 'Ruby1.9' ]
@@ -108,14 +108,14 @@ do
         sudo ./variaveis_ambiente.sh "ruby_on_rails1.9"
         test $ruby18 -ne 1 && echo "alias sudo='sudo env PATH=\$PATH'" >> $HOME/.bashrc
         ruby19=1
-        #TODO: colcoar RVM
+        #TODO: colocar RVM
     fi
 
     if [ "$opcao" = 'Rails' ]
     then
-        sudo apt-get install -y bcrypt libxml2 libxml2-dev libxslt1-dev
         if [ "$ruby18" -eq 1 ]
         then
+            sudo apt-get install -y bcrypt libxml2 libxml2-dev libxslt1-dev
             sudo gem1.8 install rake
             sudo gem1.8 install rails
             sudo gem1.8 install haml
@@ -133,9 +133,10 @@ do
             sudo gem1.8 install capistrano
             sudo gem1.8 install authlogic
             sudo gem1.8 install remarkable_rails
-        fi
-        if [ "$ruby19" -eq 1 ]
+            rails=1
+        elif [ "$ruby19" -eq 1 ]
         then
+            sudo apt-get install -y bcrypt libxml2 libxml2-dev libxslt1-dev
             sudo gem1.9 install rake
             sudo gem1.9 install rails
             sudo gem1.9 install haml
@@ -153,13 +154,36 @@ do
             sudo gem1.9 install capistrano
             sudo gem1.9 install authlogic
             sudo gem1.9 install remarkable_rails
+            rails=1
+        else
+            dialog --title 'Aviso' \
+            --msgbox 'O ambiente de desenvolvimento Rails só pode ser instalado em conjunto com \nalguma versão do Ruby.\n\nPara isto, após o script terminar de rodar, rode-o novamente o marcando apenas a opção Rails e a(s) versão(ões) do Ruby que deseja instalar.' \
+            0 0
         fi
-        rails=1
     fi
+
+    if [ "$opcao" = 'Python' ]
+    then
+        sudo apt-get install -y ipython python-dev
+
+        wget -O /tmp/distribute_setup.py http://python-distribute.org/distribute_setup.py
+        sudo python /tmp/distribute_setup.py
+
+        sudo easy_install pip
+        sudo pip install virtualenv
+
+        sudo pip install virtualenvwrapper
+        mkdir -p $HOME/Envs
+        echo "export WORKON_HOME=\$HOME/Envs" >> $HOME/.bashrc
+        echo "source /usr/local/bin/virtualenvwrapper.sh"  >> $HOME/.bashrc
+        python=1
+        # TODO: Colocar no readme o que esta instalando e as configurações de variaveis ambiente
+    if
 
     if [ "$opcao" = 'MySql' ]
     then
         sudo apt-get install -y mysql-server-5.0 libmysqlclient15-dev
+        test $python -eq 1 && sudo apt-get install -y python-mysqldb
         test $ruby18 -eq 1 && sudo apt-get install -y libmysql-ruby1.8
         test $ruby19 -eq 1 && sudo apt-get install -y libmysql-ruby1.9
         test $rails  -eq 1 && test $ruby18 -eq 1 && sudo gem1.8 install mysql
@@ -169,6 +193,7 @@ do
     if [ "$opcao" = 'PostgreSQL' ]
     then
         sudo apt-get install -y postgresql
+        test $python -eq 1 && sudo apt-get install -y python-pgsql
         test $ruby18 -eq 1 && sudo apt-get install -y libpgsql-ruby1.8
         test $ruby19 -eq 1 && sudo apt-get install -y libpgsql-ruby1.9
         test $rails  -eq 1 && test $ruby18 -eq 1 && sudo gem1.8 install pg
@@ -256,27 +281,10 @@ do
             git config --global diff.external $HOME/.config/git_meld_diff.py
         else
             dialog --title 'Aviso' \
-            --msgbox 'Para tornar o Meld o software para visualização do diff do git, o git deve estar instalado. Para insto, rode novamente o script marcando as opções Git e GitMeldDiff.' \
+            --msgbox 'Para tornar o Meld o software para visualização do diff do git, o git deve estar instalado. Para isto, rode novamente o script marcando as opções Git e GitMeldDiff.' \
             0 0
         fi
     fi
-
-    if [ "$opcao" = 'Python' ]
-    then
-        sudo apt-get install -y ipython python-dev
-
-        wget -O /tmp/distribute_setup.py http://python-distribute.org/distribute_setup.py
-        sudo python /tmp/distribute_setup.py
-
-        sudo easy_install pip
-        sudo pip install virtualenv
-
-        sudo pip install virtualenvwrapper
-        mkdir -p $HOME/Envs
-        echo "export WORKON_HOME=\$HOME/Envs" >> $HOME/.bashrc
-        echo "source /usr/local/bin/virtualenvwrapper.sh"  >> $HOME/.bashrc
-        # TODO: Colocar no readme o que esta instalando e as configurações de variaveis ambiente
-    if
 
     [ "$opcao" = 'Java' ]               && sudo apt-get install -y sun-java6-jdk sun-java6-jre
     [ "$opcao" = 'Git' ]                && sudo apt-get install -y git-core
