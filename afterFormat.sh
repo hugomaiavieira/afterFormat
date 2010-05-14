@@ -84,20 +84,11 @@ do
         xdg-user-dirs-update
     fi
 
-    if [ "$opcao" = 'Botões' ]
-    then
-        gconftool-2 --set "/apps/metacity/general/button_layout" --type string ":minimize,maximize,close"
-    fi
+    [ "$opcao" = 'Botões' ] && gconftool-2 --set "/apps/metacity/general/button_layout" --type string ":minimize,maximize,close"
 
-    if [ "$opcao" = 'PS1' ]
-    then
-        echo 'export PS1="\[\033[36m\]\u \[\033[33m\]\w \[\033[34m\]\`branch=\$(git branch 2> /dev/null | grep \"\* .*\" | grep -Pwo \".*\") && test -n \$branch && echo \"(\$branch) \"\`\[\033[00m\]$ "' >> $HOME/.bashrc
-    fi
+    [ "$opcao" = 'PS1' ] && 'export PS1="\[\033[36m\]\u \[\033[33m\]\w \[\033[34m\]\`branch=\$(git branch 2> /dev/null | grep \"\* .*\" | grep -Pwo \".*\") && test -n \$branch && echo \"(\$branch) \"\`\[\033[00m\]$ "' >> $HOME/.bashrc
 
-    if [ "$opcao" = 'SHH' ]
-    then
-        sudo apt-get install -y openssh-server openssh-client
-    fi
+    [ "$opcao" = 'SHH' ] && sudo apt-get install -y openssh-server openssh-client
 
     if [ "$opcao" = 'Ruby1.8' ]
     then
@@ -190,7 +181,7 @@ do
         echo "source /usr/local/bin/virtualenvwrapper.sh"  >> $HOME/.bashrc
         python=1
         # TODO: Colocar no readme o que esta instalando e as configurações de variaveis ambiente
-    if
+    fi
 
     if [ "$opcao" = 'MySql' ]
     then
@@ -248,10 +239,10 @@ do
         sudo apt-get install -y arj lha rar unace-nonfree unrar p7zip p7zip-full p7zip-rar
 
         uname -a | grep i686 1>& /dev/null # Ubuntu 32 bits
-        [ "$?" = 0 ] && sudo apt-get install -y w32codecs
+        [ $? = 0 ] && sudo apt-get install -y w32codecs
 
         uname -a | grep x86_64 1>& /dev/null # Ubuntu 64 bits
-        [ "$?" = 0 ] && sudo apt-get install -y w64codecs
+        [ $? = 0 ] && sudo apt-get install -y w64codecs
     fi
 
     if [ "$opcao" = 'Chromium' ]
@@ -308,11 +299,6 @@ do
     [ "$opcao" = 'XChat' ]              && sudo apt-get install -y xchat
     [ "$opcao" = 'Dia' ]                && sudo apt-get install -y dia
     [ "$opcao" = 'Pidgin' ]             && sudo apt-get install -y pidgin
-
-    if [ "$opcao" = 'Jdownloader' ]
-    then
-        sudo ./repositorios.sh "jdownloader"
-        sudo apt-get install -y jdownloader
-    fi
+    [ "$opcao" = 'Jdownloader' ]        && sudo ./repositorios.sh "jdownloader"; sudo apt-get install -y jdownloader
 done
 
