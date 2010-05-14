@@ -299,6 +299,11 @@ do
     [ "$opcao" = 'XChat' ]              && sudo apt-get install -y xchat
     [ "$opcao" = 'Dia' ]                && sudo apt-get install -y dia
     [ "$opcao" = 'Pidgin' ]             && sudo apt-get install -y pidgin
-    [ "$opcao" = 'Jdownloader' ]        && sudo ./repositorios.sh "jdownloader"; sudo apt-get install -y jdownloader
+
+    if [ "$opcao" = 'Jdownloader' ]
+    then
+        sudo ./repositorios.sh "jdownloader"
+        sudo apt-get install -y jdownloader
+    fi
 done
 
