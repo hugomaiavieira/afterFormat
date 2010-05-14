@@ -116,6 +116,7 @@ do
     if [ "$opcao" = 'Rails' ]
     then
         if [ "$ruby18" -eq 1 ] || [ "$ruby19" -eq 1 ]
+        then
             if [ "$ruby18" -eq 1 ]
             then
                 sudo apt-get install -y bcrypt libxml2 libxml2-dev libxslt1-dev
