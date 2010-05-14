@@ -290,7 +290,7 @@ do
         fi
     fi
 
-    [ "$opcao" = 'Java' ]               && sudo apt-get install -y sun-java6-jdk sun-java6-jre
+    [ "$opcao" = 'Java' ]               && sudo apt-get install -y openjdk-6-jdk openjdk-6-jre
     [ "$opcao" = 'Git' ]                && sudo apt-get install -y git-core
     [ "$opcao" = 'SVN' ]                && sudo apt-get install -y subversion
     [ "$opcao" = 'EnvyNG' ]             && sudo apt-get install -y envyng-core envyng-gtk envyng-qt
