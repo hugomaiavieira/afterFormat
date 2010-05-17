@@ -96,7 +96,7 @@ do
         echo "alias sudo='sudo env PATH=\$PATH'" >> $HOME/.bashrc
         ruby18=1
         # rvm
-        bash < <( curl http://rvm.beginrescueend.com/releases/rvm-install-head )
+        bash < <( wget http://rvm.beginrescueend.com/releases/rvm-install-head )
         echo "if [[ -s \$HOME/.rvm/scripts/rvm ]] ; then source \$HOME/.rvm/scripts/rvm ; fi" >> $HOME/.bashrc
     fi
 
@@ -108,7 +108,7 @@ do
         ruby19=1
         if [ "$ruby18" -ne 1 ]
         then
-            bash < <( curl http://rvm.beginrescueend.com/releases/rvm-install-head )
+            bash < <( wget http://rvm.beginrescueend.com/releases/rvm-install-head )
             echo "if [[ -s \$HOME/.rvm/scripts/rvm ]] ; then source \$HOME/.rvm/scripts/rvm ; fi" >> $HOME/.bashrc
         fi
     fi
