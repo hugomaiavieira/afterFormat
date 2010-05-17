@@ -55,8 +55,8 @@ opcoes=$( dialog --stdout --separate-output                                     
     EnvyNG          "Software para instalação de drivers Nvidia e ATI"                      OFF \
     StarDict        "Dicionário multi-línguas (inclui dicionario PTbr-En/En-PTbr)"          ON  \
     Xournal         "Software para fazer anotações e marcar texto em pdf"                   ON  \
-    AcrobatReader   "Software para leitura de pdf com plugin para o Firefox"                ON  \
     Media           "Codecs, flashplayer e compactadores de arquivos"                       ON  \
+    AcrobatReader   "Software para leitura de pdf com plugin para o Firefox"                ON  \
     Inkscape        "Software para desenho vetorial"                                        ON  \
     RecordMyDesktop "Ferramenta para gravação do video e áudio do computador"               ON  \
     XChat           "Cliente IRC"                                                           ON  \
@@ -250,6 +250,19 @@ do
 
         uname -a | grep x86_64 1>& /dev/null # Ubuntu 64 bits
         [ $? = 0 ] && sudo apt-get install --force-yes -y w64codecs
+
+        media=1
+    fi
+
+    if [ "$opcao" = 'AcrobatReader' ]
+    then
+        if [ "$media" -eq 1 ]
+        then
+            sudo apt-get install -y acroread
+        else
+            sudo ./repositorios.sh "media"
+            sudo apt-get install -y acroread
+        fi
     fi
 
     if [ "$opcao" = 'Chromium' ]
@@ -297,7 +310,6 @@ do
     [ "$opcao" = 'SVN' ]                && sudo apt-get install -y subversion
     [ "$opcao" = 'EnvyNG' ]             && sudo apt-get install -y envyng-core envyng-gtk envyng-qt
     [ "$opcao" = 'Xournal' ]            && sudo apt-get install -y xournal
-    [ "$opcao" = 'AcrobatReader' ]      && sudo apt-get install -y acroread
     [ "$opcao" = 'Inkscape' ]           && sudo apt-get install -y inkscape
     [ "$opcao" = 'RecordMyDesktop' ]    && sudo apt-get install -y gtk-recordmydesktop
     [ "$opcao" = 'XChat' ]              && sudo apt-get install -y xchat
