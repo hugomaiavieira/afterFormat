@@ -56,7 +56,6 @@ opcoes=$( dialog --stdout --separate-output                                     
     StarDict        "Dicionário multi-línguas (inclui dicionario PTbr-En/En-PTbr)"          ON  \
     Xournal         "Software para fazer anotações e marcar texto em pdf"                   ON  \
     Media           "Codecs, flashplayer e compactadores de arquivos"                       ON  \
-    AcrobatReader   "Software para leitura de pdf com plugin para o Firefox"                ON  \
     Inkscape        "Software para desenho vetorial"                                        ON  \
     RecordMyDesktop "Ferramenta para gravação do video e áudio do computador"               ON  \
     XChat           "Cliente IRC"                                                           ON  \
@@ -250,19 +249,6 @@ do
 
         uname -a | grep x86_64 1>& /dev/null # Ubuntu 64 bits
         [ $? = 0 ] && sudo apt-get install --force-yes -y w64codecs
-
-        media=1
-    fi
-
-    if [ "$opcao" = 'AcrobatReader' ]
-    then
-        if [ "$media" -eq 1 ]
-        then
-            sudo apt-get install -y acroread
-        else
-            sudo ./repositorios.sh "media"
-            sudo apt-get install -y acroread
-        fi
     fi
 
     if [ "$opcao" = 'Chromium' ]
@@ -284,7 +270,7 @@ do
         wget -O /tmp/firefox-webDeveloper.xpi https://addons.mozilla.org/pt-BR/firefox/downloads/latest/60/addon-60-latest.xpi?src=addondetail
         wget -O /tmp/firefox-downloadHelper.xpi https://addons.mozilla.org/pt-BR/firefox/downloads/latest/3006/addon-3006-latest.xpi?src=addondetail
         wget -O /tmp/firefox-downThemAll.xpi https://addons.mozilla.org/en-US/firefox/downloads/latest/201/addon-201-latest.xpi?src=addondetail
-        sudo mv /tmp/firefox-* /usr/lib/firefox*/extensions
+        sudo mv /tmp/firefox-* /usr/lib/firefox-3*/extensions
     fi
 
     if [ "$opcao" = 'GitMeldDiff' ]
