@@ -145,24 +145,24 @@ do
             if [ "$ruby19" -eq 1 ]
             then
                 sudo apt-get install -y bcrypt libxml2 libxml2-dev libxslt1-dev
-                sudo gem1.9 install rake
-                sudo gem1.9 install rails
-                sudo gem1.9 install haml
-                sudo gem1.9 install formtastic
-                sudo gem1.9 install inherited_resources
-                sudo gem1.9 install database_cleaner
-                sudo gem1.9 install bcrypt-ruby
-                sudo gem1.9 install will_paginate
-                sudo gem1.9 install factory_girl
-                sudo gem1.9 install brazilian-rails
+                sudo gem1.9.1 install rake
+                sudo gem1.9.1 install rails
+                sudo gem1.9.1 install haml
+                sudo gem1.9.1 install formtastic
+                sudo gem1.9.1 install inherited_resources
+                sudo gem1.9.1 install database_cleaner
+                sudo gem1.9.1 install bcrypt-ruby
+                sudo gem1.9.1 install will_paginate
+                sudo gem1.9.1 install factory_girl
+                sudo gem1.9.1 install brazilian-rails
                 sudo gem1.8 install gherkin
-                sudo gem1.9 install cucumber-rails
-                sudo gem1.9 install webrat
-                sudo gem1.9 install rspec-rails
-                sudo gem1.9 install mongrel
-                sudo gem1.9 install capistrano
-                sudo gem1.9 install authlogic
-                sudo gem1.9 install remarkable_rails
+                sudo gem1.9.1 install cucumber-rails
+                sudo gem1.9.1 install webrat
+                sudo gem1.9.1 install rspec-rails
+                sudo gem1.9.1 install mongrel
+                sudo gem1.9.1 install capistrano
+                sudo gem1.9.1 install authlogic
+                sudo gem1.9.1 install remarkable_rails
                 rails=1
             fi
         else
@@ -197,7 +197,7 @@ do
         test "$ruby18" -eq 1 && sudo apt-get install -y libmysql-ruby1.8
         test "$ruby19" -eq 1 && sudo apt-get install -y libmysql-ruby1.9
         test "$rails"  -eq 1 && test "$ruby18" -eq 1 && sudo gem1.8 install mysql
-        test "$rails"  -eq 1 && test "$ruby19" -eq 1 && sudo gem1.9 install mysql
+        test "$rails"  -eq 1 && test "$ruby19" -eq 1 && sudo gem1.9.1 install mysql
     fi
 
     if [ "$opcao" = 'PostgreSQL' ]
@@ -207,7 +207,7 @@ do
         test "$ruby18" -eq 1 && sudo apt-get install -y libpgsql-ruby1.8
         test "$ruby19" -eq 1 && sudo apt-get install -y libpgsql-ruby1.9
         test "$rails"  -eq 1 && test "$ruby18" -eq 1 && sudo gem1.8 install pg
-        test "$rails"  -eq 1 && test "$ruby19" -eq 1 && sudo gem1.9 install pg
+        test "$rails"  -eq 1 && test "$ruby19" -eq 1 && sudo gem1.9.1 install pg
     fi
 
     if [ "$opcao" = 'VIM' ]
