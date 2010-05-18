@@ -27,6 +27,10 @@
 
 # Mandinga para pegar o diretório onde o script foi executado
 FOLDER=$(cd $(dirname $0); pwd -P)
+ruby18=0
+ruby19=0
+rails=0
+python=0
 
 #================================ Menu =========================================
 
