@@ -186,8 +186,8 @@ do
         sudo pip install virtualenv
 
         sudo pip install virtualenvwrapper
-        mkdir -p $HOME/Envs
-        echo "export WORKON_HOME=\$HOME/Envs" >> $HOME/.bashrc
+        mkdir -p $HOME/envs
+        echo "export WORKON_HOME=\$HOME/envs" >> $HOME/.bashrc
         echo "source /usr/local/bin/virtualenvwrapper.sh"  >> $HOME/.bashrc
         python=1
         # TODO: Colocar no readme o que esta instalando e as configurações de variaveis ambiente
