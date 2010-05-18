@@ -294,8 +294,8 @@ do
         wget -O /tmp/firefox-downloadHelper.xpi https://addons.mozilla.org/pt-BR/firefox/downloads/latest/3006/addon-3006-latest.xpi?src=addondetail
         wget -O /tmp/firefox-downThemAll.xpi https://addons.mozilla.org/en-US/firefox/downloads/latest/201/addon-201-latest.xpi?src=addondetail
         sudo mv /tmp/firefox-* /usr/lib/firefox-3*/extensions
-        dialog --title 'Aviso' \
-            --msgbox 'Para concluir a instalação dos complementos para o Firefox, quando este iniciar, aceite a instalação dos complementos e em seguida o encerre.' \
+        dialog --title 'Complementos do Firefox' \
+            --msgbox 'Aceite a instalação dos complementos e em seguida o encerre o Firefox.' \
         0 0
         sudo firefox
     fi
