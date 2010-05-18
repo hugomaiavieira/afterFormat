@@ -268,15 +268,6 @@ do
         sudo tar zxvf /tmp/Dicionarios_StarDict.tar.gz -C /usr/share/stardict/dic
     fi
 
-    if [ "$opcao" = 'Firefox' ]
-    then
-        wget -O /tmp/firefox-firebug.xpi https://addons.mozilla.org/pt-BR/firefox/downloads/latest/1843/addon-1843-latest.xpi?src=addondetail
-        wget -O /tmp/firefox-webDeveloper.xpi https://addons.mozilla.org/pt-BR/firefox/downloads/latest/60/addon-60-latest.xpi?src=addondetail
-        wget -O /tmp/firefox-downloadHelper.xpi https://addons.mozilla.org/pt-BR/firefox/downloads/latest/3006/addon-3006-latest.xpi?src=addondetail
-        wget -O /tmp/firefox-downThemAll.xpi https://addons.mozilla.org/en-US/firefox/downloads/latest/201/addon-201-latest.xpi?src=addondetail
-        sudo mv /tmp/firefox-* /usr/lib/firefox-3*/extensions
-    fi
-
     if [ "$opcao" = 'GitMeldDiff' ]
     then
         git --version 2> /dev/null
@@ -295,6 +286,19 @@ do
         fi
     fi
 
+    if [ "$opcao" = 'Firefox' ]
+    then
+        wget -O /tmp/firefox-firebug.xpi https://addons.mozilla.org/pt-BR/firefox/downloads/latest/1843/addon-1843-latest.xpi?src=addondetail
+        wget -O /tmp/firefox-webDeveloper.xpi https://addons.mozilla.org/pt-BR/firefox/downloads/latest/60/addon-60-latest.xpi?src=addondetail
+        wget -O /tmp/firefox-downloadHelper.xpi https://addons.mozilla.org/pt-BR/firefox/downloads/latest/3006/addon-3006-latest.xpi?src=addondetail
+        wget -O /tmp/firefox-downThemAll.xpi https://addons.mozilla.org/en-US/firefox/downloads/latest/201/addon-201-latest.xpi?src=addondetail
+        sudo mv /tmp/firefox-* /usr/lib/firefox-3*/extensions
+        dialog --title 'Aviso' \
+            --msgbox 'Para concluir a instalação dos complementos para o Firefox, quando este iniciar, aceite a instalação dos complementos e em seguida o encerre.' \
+        0 0
+        sudo firefox
+    fi
+
     [ "$opcao" = 'Java' ]               && sudo apt-get install -y openjdk-6-jdk openjdk-6-jre
     [ "$opcao" = 'Git' ]                && sudo apt-get install -y git-core
     [ "$opcao" = 'SVN' ]                && sudo apt-get install -y subversion
@@ -311,5 +315,9 @@ do
         sudo ./repositorios.sh "jdownloader"
         sudo apt-get install --force-yes -y jdownloader
     fi
+
+    dialog --title 'Aviso' \
+            --msgbox 'Instalação concluída!' \
+    0 0
 done
 
