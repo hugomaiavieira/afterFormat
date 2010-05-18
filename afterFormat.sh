@@ -316,9 +316,9 @@ do
         sudo ./repositorios.sh "jdownloader"
         sudo apt-get install --force-yes -y jdownloader
     fi
-
-    dialog --title 'Aviso' \
-            --msgbox 'Instalação concluída!' \
-    0 0
 done
+
+dialog --title 'Aviso' \
+        --msgbox 'Instalação concluída!' \
+0 0
 
