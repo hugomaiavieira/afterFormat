@@ -227,7 +227,7 @@ do
         sudo apt-get install -y gedit-plugins
         sudo apt-get install --force-yes -y gedit-gmate
         # Preferências do gedit
-        `gconftool-2 --set /apps/gedit-2/plugins/active-plugins -t list --list-type=str [docinfo,rails_extract_partial,rubyonrailsloader,spell,smart_indent,terminal,rails_hotkeys,indent,filebrowser,snippets,time,modelines,completion,trailsave,sort,align,colorpicker,smartspaces,sessionsaver,bracketcompletion,changecase,rails_hotcommands,codecomment]`
+        `gconftool-2 --set /apps/gedit-2/plugins/active-plugins -t list --list-type=str [changecase,time,rubyonrailsloader,terminal,docinfo,filebrowser,smart_indent,rails_hotkeys,snippets,trailsave,smartspaces,rails_extract_partial,pastie,sort,text_tools,align,codecomment,colorpicker,sessionsaver,wordcompletion,gemini,rails_hotcommands,spell]`
         `gconftool-2 --set /apps/gedit-2/preferences/editor/auto_indent/auto_indent -t bool true`
         `gconftool-2 --set /apps/gedit-2/preferences/editor/bracket_matching/bracket_matching -t bool true`
         `gconftool-2 --set /apps/gedit-2/preferences/editor/colors/scheme -t str textmate`
@@ -313,7 +313,7 @@ do
         git config --global alias.co checkout
         git config --global alias.st status
         # Editor
-        [ "$vim" -eq 1] && git config --global core.editor vim
+        [ "$vim" -eq 1 ] && git config --global core.editor vim
     fi
 
     [ "$opcao" = 'Java' ]               && sudo apt-get install -y openjdk-6-jdk openjdk-6-jre
