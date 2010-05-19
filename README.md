@@ -62,7 +62,7 @@ SOFTWARES E CONFIGURA&Ccedil;&Otilde;ES
 * **GitMeldDiff**       - Torna o Meld o software para visualiza&ccedil;&atilde;o do diff do git
 * **VIM**               - Editor de texto, com configura&ccedil;&otilde;es &uacute;teis
     * Instala o pacote: *vim*
-    * Criar o arquivo ´/etc/vim/vimrc.local´ com diversas configura&ccedil;&otilde;es &uacute;teis
+    * Criar o arquivo `/etc/vim/vimrc.local` com diversas configura&ccedil;&otilde;es &uacute;teis
 * **Gedit**             - Plugins oficiais, Gmate e configura&ccedil;&otilde;es &uacute;teis
     * Adiciona o reposit&oacute;rio *ubuntu-on-rails*
     * Instala os pacotes: *gedit-plugins, gedit-gmate*
