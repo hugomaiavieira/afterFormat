@@ -46,7 +46,7 @@ opcoes=$( dialog --stdout --separate-output                                     
     --checklist 'Selecione os softwares que deseja instalar:' 0 0 0                             \
     Desktop         "Muda \"Área de Trabalho\" para \"Desktop\" *(Apenas ptBR)"             ON  \
     Botões          "Muda os botões minimizar, maximizar e fechar para a direita"           ON  \
-    PS1             "$PS1 no formato: usuário ~/diretório/atual (BranchGit)"                ON  \
+    PS1             "\$PS1 no formato: usuário ~/diretório/atual (BranchGit)"                ON  \
     SSH             "SSH server e client"                                                   ON  \
     Ruby1.8         "Ambiente para desenvolvimento com Ruby1.8"                             ON  \
     Ruby1.9         "Ambiente para desenvolvimento com Ruby1.9"                             ON  \
