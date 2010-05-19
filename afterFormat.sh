@@ -15,10 +15,12 @@
 #   v1.2, 08-05-2010, Hugo Maia Vieira:
 #       - Colocado o pacote de dicionários no downloads do projeto e mudado o
 #       script para baixar de lá se for necessário.
+#   v1.3, 19-05-2010, Hugo Maia Vieira:
+#       - Fechada release depois de serem feitos vários testes e ajustes.
 #
 # ------------------------------------------------------------------------------
 #
-# Autor     : Hugo Henriques Maia Vieira <hugouenf@gmail.com>
+# Autor     : Hugo Henriques Maia Vieira <hugomaiavieira@gmail.com>
 #
 # Licença: GPL.
 #
@@ -27,6 +29,7 @@
 
 # Mandinga para pegar o diretório onde o script foi executado
 FOLDER=$(cd $(dirname $0); pwd -P)
+
 ruby18=0
 ruby19=0
 rails=0
@@ -39,7 +42,7 @@ vim=0
 sudo apt-get install -y dialog > /dev/null
 
 opcoes=$( dialog --stdout --separate-output                                                     \
-    --title "afterFormat - Pós Formatação para Ubuntu 9.10 LST"                                 \
+    --title "afterFormat - Pós Formatação para Ubuntu 10.04 LST"                                \
     --checklist 'Selecione os softwares que deseja instalar:' 0 0 0                             \
     Desktop         "Muda \"Área de Trabalho\" para \"Desktop\" *(Apenas ptBR)"             ON  \
     Botões          "Muda os botões minimizar, maximizar e fechar para a direita"           ON  \
@@ -60,7 +63,7 @@ opcoes=$( dialog --stdout --separate-output                                     
     StarDict        "Dicionário multi-línguas (inclui dicionario PTbr-En/En-PTbr)"          ON  \
     Xournal         "Software para fazer anotações e marcar texto em pdf"                   ON  \
     Media           "Codecs, flashplayer e compactadores de arquivos"                       ON  \
-    Gimp            "Software para instalação de drivers Nvidia e ATI"                      ON  \
+    Gimp            "Software para manipulação de imagens"                                  ON  \
     Inkscape        "Software para desenho vetorial"                                        ON  \
     RecordMyDesktop "Ferramenta para gravação do video e áudio do computador"               ON  \
     XChat           "Cliente IRC"                                                           ON  \
@@ -191,7 +194,6 @@ do
         echo "export WORKON_HOME=\$HOME/envs" >> $HOME/.bashrc
         echo "source /usr/local/bin/virtualenvwrapper.sh"  >> $HOME/.bashrc
         python=1
-        # TODO: Colocar no readme o que esta instalando e as configurações de variaveis ambiente
     fi
 
     if [ "$opcao" = 'MySql' ]
