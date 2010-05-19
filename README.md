@@ -92,9 +92,17 @@ SOFTWARES E CONFIGURA&Ccedil;&Otilde;ES
 EXECUTANDO O SCRIPT
 -------------------
 
-Para executar o script afterFormat.sh, estando no diret&oacute;rio onde se oncontra o
-arquivo, basta rodar o seguinte comando no terminal:
+Primeiramente, fa&ccedil;a o download do script clicando no link **Download Source** no
+topo desta p&aacute;gina e escolhendo a op&ccedil;&atilde;o TAR.
 
+Em seguida, descompacte o arquivo rodando no terminal:
+
+    $ cd Download
+    $ tar xzfv hugomaiavieira-afterFormat-*.tar.gz
+
+Finalmente para executar o script afterFormat.sh:
+
+    $ cd hugomaiavieira-afterFormat-*.tar.gz
     $ ./afterFormat.sh
 
 
