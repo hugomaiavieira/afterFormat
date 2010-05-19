@@ -57,10 +57,10 @@ opcoes=$( dialog --stdout --separate-output                                     
     GitMeldDiff     "Torna o Meld o software para visualização do diff do git"              ON  \
     VIM             "Editor de texto, com configurações úteis"                              ON  \
     Gedit           "Plugins oficiais, Gmate e configurações úteis"                         ON  \
-    EnvyNG          "Software para instalação de drivers Nvidia e ATI"                      OFF \
     StarDict        "Dicionário multi-línguas (inclui dicionario PTbr-En/En-PTbr)"          ON  \
     Xournal         "Software para fazer anotações e marcar texto em pdf"                   ON  \
     Media           "Codecs, flashplayer e compactadores de arquivos"                       ON  \
+    Gimp            "Software para instalação de drivers Nvidia e ATI"                      ON  \
     Inkscape        "Software para desenho vetorial"                                        ON  \
     RecordMyDesktop "Ferramenta para gravação do video e áudio do computador"               ON  \
     XChat           "Cliente IRC"                                                           ON  \
@@ -318,7 +318,7 @@ do
 
     [ "$opcao" = 'Java' ]               && sudo apt-get install -y openjdk-6-jdk openjdk-6-jre
     [ "$opcao" = 'SVN' ]                && sudo apt-get install -y subversion
-    [ "$opcao" = 'EnvyNG' ]             && sudo apt-get install -y envyng-core envyng-gtk envyng-qt
+    [ "$opcao" = 'Gimp' ]               && sudo apt-get install -y gimp
     [ "$opcao" = 'Xournal' ]            && sudo apt-get install -y xournal
     [ "$opcao" = 'Inkscape' ]           && sudo apt-get install -y inkscape
     [ "$opcao" = 'RecordMyDesktop' ]    && sudo apt-get install -y gtk-recordmydesktop
