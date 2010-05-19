@@ -101,25 +101,26 @@ do
         sudo apt-get install -y ruby1.8 rubygems1.8 ruby1.8-dev libopenssl-ruby1.8 irb1.8
         sudo ./variaveis_ambiente.sh "ruby_on_rails1.8"
         echo "alias sudo='sudo env PATH=\$PATH'" >> $HOME/.bashrc
-        ruby18=1
         # rvm
         sudo apt-get install -y curl
         bash < <( curl http://rvm.beginrescueend.com/releases/rvm-install-latest )
         echo "if [[ -s \$HOME/.rvm/scripts/rvm ]] ; then source \$HOME/.rvm/scripts/rvm ; fi" >> $HOME/.bashrc
+        ruby18=1
     fi
 
     if [ "$opcao" = 'Ruby1.9' ]
     then
         sudo apt-get install -y ruby1.9.1-full rubygems1.9.1 ruby1.9.1-dev libopenssl-ruby1.9.1 irb1.9
         sudo ./variaveis_ambiente.sh "ruby_on_rails1.9"
-        test $ruby18 -ne 1 && echo "alias sudo='sudo env PATH=\$PATH'" >> $HOME/.bashrc
-        ruby19=1
         if [ "$ruby18" -ne 1 ]
         then
+            echo "alias sudo='sudo env PATH=\$PATH'" >> $HOME/.bashrc
+            # rvm
             sudo apt-get install -y curl
             bash < <( curl http://rvm.beginrescueend.com/releases/rvm-install-latest )
             echo "if [[ -s \$HOME/.rvm/scripts/rvm ]] ; then source \$HOME/.rvm/scripts/rvm ; fi" >> $HOME/.bashrc
         fi
+        ruby19=1
     fi
 
     if [ "$opcao" = 'Rails' ]
