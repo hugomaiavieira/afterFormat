@@ -31,6 +31,7 @@ ruby18=0
 ruby19=0
 rails=0
 python=0
+vim=0
 
 #================================ Menu =========================================
 
@@ -217,6 +218,7 @@ do
     then
         sudo apt-get install -y vim
         sudo cp $FOLDER/vimrc.local /etc/vim/
+        vim=1
     fi
 
     if [ "$opcao" = 'Gedit' ]
@@ -300,8 +302,21 @@ do
         sudo firefox
     fi
 
+    if [ "$opcao" = 'Git' ]
+    then
+        sudo apt-get install -y git-core
+        # Cores
+        git config --global color.ui auto
+        # Alias
+        git config --global alias.br branch
+        git config --global alias.ci commit
+        git config --global alias.co checkout
+        git config --global alias.st status
+        # Editor
+        [ "$vim" -eq 1] && git config --global core.editor vim
+    fi
+
     [ "$opcao" = 'Java' ]               && sudo apt-get install -y openjdk-6-jdk openjdk-6-jre
-    [ "$opcao" = 'Git' ]                && sudo apt-get install -y git-core
     [ "$opcao" = 'SVN' ]                && sudo apt-get install -y subversion
     [ "$opcao" = 'EnvyNG' ]             && sudo apt-get install -y envyng-core envyng-gtk envyng-qt
     [ "$opcao" = 'Xournal' ]            && sudo apt-get install -y xournal
