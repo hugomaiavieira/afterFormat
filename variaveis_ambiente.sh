@@ -3,7 +3,7 @@
 # variaveis_ambiente - Cria variáveis ambiente necessárias para os softwares
 #                      instalados pelo script installLab.
 #
-# Autor     : Hugo Henriques Maia Vieira <hugouenf@gmail.com>
+# Autor     : Hugo Henriques Maia Vieira <hugomaiavieira@gmail.com>
 #
 # ------------------------------------------------------------------------------
 #

@@ -3,7 +3,7 @@
 # repositorios - Adiciona repositórios necessários para a instalação de alguns
 #                pacotes.
 #
-# Autor     : Hugo Henriques Maia Vieira <hugouenf@gmail.com>
+# Autor     : Hugo Henriques Maia Vieira <hugomaiavieira@gmail.com>
 #
 # ------------------------------------------------------------------------------
 #
