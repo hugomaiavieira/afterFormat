@@ -55,7 +55,7 @@ SOFTWARES E CONFIGURA&Ccedil;&Otilde;ES
     * Configura o git para exibir com cores as sa&iacute;das de seus comandos
     * Cria as abrevia&ccedil;&otilde;es
         * br para branch
-        * cm para commit
+        * ci para commit
         * co para checkout
         * st status
     * Caso seja escolhida tamb&eacute;m a op&ccedil;&atilde;o Vim, configura o Vim para ser o editor padr&atilde;o do git
