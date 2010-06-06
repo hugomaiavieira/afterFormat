@@ -70,7 +70,7 @@ SOFTWARES E CONFIGURA&Ccedil;&Otilde;ES
 * **StarDict**          - Dicion&aacute;rio multi-l&iacute;nguas
     * Inclui dicion&aacute;rios Ingl&ecirc;s-Portugu&ecirc;s e Portugu&ecirc;s-Ingl&ecirc;s
 * **Xournal**           - Software para fazer anota&ccedil;&otilde;es e marcar texto em pdf
-* **Media**             - Codecs, flashplayer e compactadores
+* **Media**             - Codecs, flashplayer (32 e 64 bits) e compactadores
     * Instala os pacotes: *ubuntu-restricted-extras, non-free-codecs, libdvdcss2, arj, lha, rar, unace-nonfree, unrar, p7zip, p7zip-full, p7zip-rar*
     * Verifica se o Ubuntu &eacute; de 32 ou 64 bits e instala o pacote w32codecs ou w64codecs
 * **Gimp**              - Software para manipula&ccedil;&atilde;o de imagens
@@ -81,13 +81,20 @@ SOFTWARES E CONFIGURA&Ccedil;&Otilde;ES
 * **Chromium**          - Vers&atilde;o opensouce do navegador web Google Chrome
     * Adiciona o reposit&oacute;rio *chromium-daily*
     * Instala o pacote: *chromium-browser*
+* **GoogleChrome**      - Navegador web Google Chrome
+    * Adiciona o reposit&oacute;rio da Google
+    * Instala a vers&atilde;o *estável* do navegador da Google
+* **Skype**             - Cliente do Skype: cliente de (video)conferencia
+    * Instala o pacote deb oficial direto do site (32 ou 64 bits)
+* **VirtualBox**        - Sistema de virtualizacao da Oracle
+    * Adiciona o reposit&oacute;rio do VirtualBox
+    * Instala o pacote *virtualbox-3.2*
 * **Pidgin**            - Cliente de mensagens instant&acirc;neas
 * **Jdownloader**       - Baixa automaticamente do rapidshare, megaupload e etc
 * **Firefox**           - Complementos para o firefox
     * **FireBug**               - Ferramenta para desenvolvimento web
     * **Video DownloadHelper**  - DownloadHelper &eacute; uma ferramenta para extra&ccedil;&atilde;o de v&iacute;deos e arquivos de imagens dos sites
     * **DownThemAll**           - Acelerador de downloads
-
 
 EXECUTANDO O SCRIPT
 -------------------
