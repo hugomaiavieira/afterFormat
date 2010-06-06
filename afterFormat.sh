@@ -335,7 +335,7 @@ do
     then
 
         sudo ./repositorios.sh "virtualbox"
-        sudo apt-get install virtualbox-3.2
+        sudo apt-get install -y virtualbox-3.2
 
     fi
 
