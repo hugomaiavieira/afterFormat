@@ -69,11 +69,11 @@ opcoes=$( dialog --stdout --separate-output                                     
     MySql           "Banco de dados + interface para ruby e python (caso forem escolhidos)" ON  \
     PostgreSQL      "Banco de dados + interface para ruby e python (caso forem escolhidos)" OFF \
     Java            "Java Development Kit e Java Runtime Environment"                       ON  \
+    VIM             "Editor de texto, com configurações úteis"                              ON  \
+    Gedit           "Plugins oficiais, Gmate e configurações úteis"                         ON  \
     SVN             "Sistema de controle de versão"                                         ON  \
     Git             "Sistema de controle de versão com configurações úteis"                 ON  \
     GitMeldDiff     "Torna o Meld o software para visualização do diff do git"              ON  \
-    VIM             "Editor de texto, com configurações úteis"                              ON  \
-    Gedit           "Plugins oficiais, Gmate e configurações úteis"                         ON  \
     StarDict        "Dicionário multi-línguas (inclui dicionario PTbr-En/En-PTbr)"          ON  \
     Xournal         "Software para fazer anotações e marcar texto em pdf"                   ON  \
     Media           "Codecs, flashplayer (32/64 bits, nativo) e compactadores de arquivos"  ON  \
