@@ -312,7 +312,7 @@ do
     then
 
         # Baixando dependencias
-        sudo apt-get install sudo apt-get install libqt4-dbus libqt4-network libqt4-xml libasound2
+        sudo apt-get install -y libqt4-dbus libqt4-network libqt4-xml libasound2
 
         if [ "$arquitetura" = 'x86' ]
         then
