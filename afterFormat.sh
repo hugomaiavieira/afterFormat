@@ -273,9 +273,7 @@ do
         if [ "$arquitetura" = "x86" ]
         then
             sudo apt-get install --force-yes -y w32codecs
-        fi
-
-        if [ "$arquitetura" = "x86_64" ]
+        elif [ "$arquitetura" = "x86_64" ]
         then
             sudo apt-get install --force-yes -y w64codecs
             # Removendo qualquer versão do Flashplayer 32 bits para que não haja conflitos
@@ -298,9 +296,7 @@ do
         then
             wget -O /tmp/google-chrome-stable-i386.deb http://dl.google.com/linux/direct/google-chrome-stable_current_i386.deb
             sudo dpkg -i /tmp/google-chrome-stable-i386.deb
-        fi
-
-        if [ "$arquitetura" = 'x86_64' ]
+        elif [ "$arquitetura" = 'x86_64' ]
         then
             wget -O /tmp/google-chrome-stable-amd64.deb http://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
             sudo dpkg -i /tmp/google-chrome-stable-amd64.deb
@@ -311,22 +307,20 @@ do
     if [ "$opcao" = 'Skype' ]
     then
 
-        # Baixando dependencias
+        # Baixando dependências
         sudo apt-get install -y libqt4-dbus libqt4-network libqt4-xml libasound2
 
         if [ "$arquitetura" = 'x86' ]
         then
             wget -O /tmp/skype-i386.deb http://www.skype.com/go/getskype-linux-beta-ubuntu-32
             sudo dpkg -i /tmp/skype-i386.deb
-        fi
-
-        if [ "$arquitetura" = 'x86_64' ]
+        elif [ "$arquitetura" = 'x86_64' ]
         then
             wget -O /tmp/skype-amd64.deb http://www.skype.com/go/getskype-linux-beta-ubuntu-64
             sudo dpkg -i /tmp/skype-amd64.deb
         fi
 
-        # Mandinga necessaria devido a algumas dependencias que fazem cu doce
+        # Já que algumas dependências não instalam por bem, instalam a força
         sudo apt-get -f install
 
     fi
