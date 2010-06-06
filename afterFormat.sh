@@ -278,11 +278,9 @@ do
         if [ "$arquitetura" = "x86_64" ]
         then
             sudo apt-get install --force-yes -y w64codecs
-            # PPA para Flashplayer 64 bits
-            sudo add-apt-repository ppa:sevenmachines/flash
             # Removendo qualquer versão do Flashplayer 32 bits para que não haja conflitos
             sudo apt-get purge -y flashplugin-nonfree gnash gnash-common mozilla-plugin-gnash swfdec-mozilla
-            # Instalando o dito cujo.
+            # Instalando o Flashplayer 64 bits
             sudo apt-get install -y flashplugin64-nonfree
         fi
     fi
