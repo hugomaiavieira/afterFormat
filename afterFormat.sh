@@ -36,6 +36,20 @@ rails=0
 python=0
 vim=0
 
+# ====================    Pegando arquitetura do sistema    ====================
+
+uname -a | grep i686 1>& /dev/null # Ubuntu 32 bits
+if [ $? = 0 ]
+    then
+        arquitetura=x86
+fi
+
+uname -a | grep x86_64 1>& /dev/null # Ubuntu 64 bits
+if [ $? = 0 ]
+    then
+        arquitetura=x86_64
+fi
+
 #================================ Menu =========================================
 
 # Instala o dialog
@@ -253,11 +267,15 @@ do
         sudo apt-get install --force-yes -y ubuntu-restricted-extras non-free-codecs libdvdcss2
         sudo apt-get install --force-yes -y arj lha rar unace-nonfree unrar p7zip p7zip-full p7zip-rar
 
-        uname -a | grep i686 1>& /dev/null # Ubuntu 32 bits
-        [ $? = 0 ] && sudo apt-get install --force-yes -y w32codecs
+        if [ "$arquitetura" = "x86" ]
+        then
+            sudo apt-get install --force-yes -y w32codecs
+        fi
 
-        uname -a | grep x86_64 1>& /dev/null # Ubuntu 64 bits
-        [ $? = 0 ] && sudo apt-get install --force-yes -y w64codecs
+        if [ "$arquitetura" = "x86_64" ]
+        then
+            sudo apt-get install --force-yes -y w64codecs
+        fi
     fi
 
     if [ "$opcao" = 'Chromium' ]
