@@ -76,7 +76,7 @@ opcoes=$( dialog --stdout --separate-output                                     
     Gedit           "Plugins oficiais, Gmate e configurações úteis"                         ON  \
     StarDict        "Dicionário multi-línguas (inclui dicionario PTbr-En/En-PTbr)"          ON  \
     Xournal         "Software para fazer anotações e marcar texto em pdf"                   ON  \
-    Media           "Codecs, flashplayer e compactadores de arquivos"                       ON  \
+    Media           "Codecs, flashplayer (32/64 bits, nativo) e compactadores de arquivos"  ON  \
     Gimp            "Software para manipulação de imagens"                                  ON  \
     Inkscape        "Software para desenho vetorial"                                        ON  \
     RecordMyDesktop "Ferramenta para gravação do video e áudio do computador"               ON  \
@@ -275,6 +275,12 @@ do
         if [ "$arquitetura" = "x86_64" ]
         then
             sudo apt-get install --force-yes -y w64codecs
+            # PPA para Flashplayer 64 bits
+            sudo add-apt-repository ppa:sevenmachines/flash
+            # Removendo qualquer versão do Flashplayer 32 bits para que não haja conflitos
+            sudo apt-get purge -y flashplugin-nonfree gnash gnash-common mozilla-plugin-gnash swfdec-mozilla
+            # Instalando o dito cujo.
+            sudo apt-get install -y flashplugin64-nonfree
         fi
     fi
 
