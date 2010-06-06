@@ -83,6 +83,7 @@ opcoes=$( dialog --stdout --separate-output                                     
     XChat           "Cliente IRC"                                                           ON  \
     Dia             "Editor de diagramas"                                                   ON  \
     Chromium        "Versão opensouce do navegador web Google Chrome"                       ON  \
+    GoogleChrome   "Navegador web Google Chrome (versao estavel)"                           ON  \
     Pidgin          "Cliente de mensagens instantâneas"                                     ON  \
     Jdownloader     "Baixa automaticamente do rapidshare, megaupload e etc"                 ON  \
     Firefox         "Complementos para o firefox"                                           ON  )
@@ -288,6 +289,23 @@ do
     then
         sudo ./repositorios.sh "chromium"
         sudo apt-get install --force-yes -y chromium-browser
+    fi
+
+    if [ "$opcao" = 'GoogleChrome' ]
+    then
+
+        if [ "$arquitetura" = 'x86' ]
+        then
+            wget -O /tmp/google-chrome-stable-i386.deb http://dl.google.com/linux/direct/google-chrome-stable_current_i386.deb
+            sudo dpkg -i /tmp/google-chrome-stable-i386.deb
+        fi
+
+        if [ "$arquitetura" = 'x86_64' ]
+        then
+            wget -O /tmp/google-chrome-stable-amd64.deb http://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+            sudo dpkg -i /tmp/google-chrome-stable-amd64.deb
+        fi
+
     fi
 
     if [ "$opcao" = 'StarDict' ]
