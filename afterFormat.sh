@@ -84,6 +84,7 @@ opcoes=$( dialog --stdout --separate-output                                     
     Dia             "Editor de diagramas"                                                   ON  \
     Chromium        "Versão opensouce do navegador web Google Chrome"                       ON  \
     GoogleChrome   "Navegador web Google Chrome (versao estavel)"                           ON  \
+    Skype           "Cliente para rede Skype nativo para Ubuntu"                            ON  \
     Pidgin          "Cliente de mensagens instantâneas"                                     ON  \
     Jdownloader     "Baixa automaticamente do rapidshare, megaupload e etc"                 ON  \
     Firefox         "Complementos para o firefox"                                           ON  )
@@ -305,6 +306,29 @@ do
             wget -O /tmp/google-chrome-stable-amd64.deb http://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
             sudo dpkg -i /tmp/google-chrome-stable-amd64.deb
         fi
+
+    fi
+
+    if [ "$opcao" = 'Skype' ]
+    then
+
+        # Baixando dependencias
+        sudo apt-get install sudo apt-get install libqt4-dbus libqt4-network libqt4-xml libasound2
+
+        if [ "$arquitetura" = 'x86' ]
+        then
+            wget -O /tmp/skype-i386.deb http://www.skype.com/go/getskype-linux-beta-ubuntu-32
+            sudo dpkg -i /tmp/skype-i386.deb
+        fi
+
+        if [ "$arquitetura" = 'x86_64' ]
+        then
+            wget -O /tmp/skype-amd64.deb http://www.skype.com/go/getskype-linux-beta-ubuntu-64
+            sudo dpkg -i /tmp/skype-amd64.deb
+        fi
+
+        # Mandinga necessaria devido a algumas dependencias que fazem cu doce
+        sudo apt-get -f install
 
     fi
 
