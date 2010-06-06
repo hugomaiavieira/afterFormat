@@ -83,8 +83,9 @@ opcoes=$( dialog --stdout --separate-output                                     
     XChat           "Cliente IRC"                                                           ON  \
     Dia             "Editor de diagramas"                                                   ON  \
     Chromium        "Versão opensouce do navegador web Google Chrome"                       ON  \
-    GoogleChrome   "Navegador web Google Chrome (versao estavel)"                           ON  \
+    GoogleChrome    "Navegador web Google Chrome (versao estavel)"                          ON  \
     Skype           "Cliente para rede Skype nativo para Ubuntu"                            ON  \
+    VirtualBox      "Sistema de virtualização da Oracle (não Open Source)"                  ON  \
     Pidgin          "Cliente de mensagens instantâneas"                                     ON  \
     Jdownloader     "Baixa automaticamente do rapidshare, megaupload e etc"                 ON  \
     Firefox         "Complementos para o firefox"                                           ON  )
@@ -329,6 +330,14 @@ do
 
         # Mandinga necessaria devido a algumas dependencias que fazem cu doce
         sudo apt-get -f install
+
+    fi
+
+    if [ "$opcao" = 'VirtualBox' ]
+    then
+
+        sudo ./repositorios.sh "virtualbox"
+        sudo apt-get install virtualbox-3.2
 
     fi
 
