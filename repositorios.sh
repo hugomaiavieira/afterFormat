@@ -41,6 +41,10 @@ then
     sudo wget http://www.medibuntu.org/sources.list.d/$(lsb_release -cs).list --output-document=/etc/apt/sources.list.d/medibuntu.list
     sudo apt-get update
     sudo apt-get -y --allow-unauthenticated install medibuntu-keyring
+
+    # PPA para Flashplayer 64 bits
+    sudo add-apt-repository ppa:sevenmachines/flash
+
     sudo apt-get update
 fi
 
