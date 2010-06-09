@@ -55,40 +55,41 @@ fi
 # Instala o dialog
 sudo apt-get install -y dialog > /dev/null
 
-opcoes=$( dialog --stdout --separate-output                                                     \
-    --title "afterFormat - Pós Formatação para Ubuntu 10.04 LST"                                \
-    --checklist 'Selecione os softwares que deseja instalar:' 0 0 0                             \
-    Desktop         "Muda \"Área de Trabalho\" para \"Desktop\" *(Apenas ptBR)"             ON  \
-    Botões          "Muda os botões minimizar, maximizar e fechar para a direita"           ON  \
-    PS1             "\$PS1 no formato: usuário ~/diretório/atual (BranchGit)"                ON  \
-    SSH             "SSH server e client"                                                   ON  \
-    Ruby1.8         "Ambiente para desenvolvimento com Ruby1.8"                             ON  \
-    Ruby1.9         "Ambiente para desenvolvimento com Ruby1.9"                             ON  \
-    Rails           "Ambiente para desenvolvimento com Rails (para cada Ruby)"              ON  \
-    Python          "Ferramentas para desenvolvimento python"                               ON  \
-    MySql           "Banco de dados + interface para ruby e python (caso forem escolhidos)" ON  \
-    PostgreSQL      "Banco de dados + interface para ruby e python (caso forem escolhidos)" OFF \
-    Java            "Java Development Kit e Java Runtime Environment"                       ON  \
-    VIM             "Editor de texto, com configurações úteis"                              ON  \
-    Gedit           "Plugins oficiais, Gmate e configurações úteis"                         ON  \
-    SVN             "Sistema de controle de versão"                                         ON  \
-    Git             "Sistema de controle de versão com configurações úteis"                 ON  \
-    GitMeldDiff     "Torna o Meld o software para visualização do diff do git"              ON  \
-    StarDict        "Dicionário multi-línguas (inclui dicionario PTbr-En/En-PTbr)"          ON  \
-    Xournal         "Software para fazer anotações e marcar texto em pdf"                   ON  \
-    Media           "Codecs, flashplayer (32/64 bits, nativo) e compactadores de arquivos"  ON  \
-    Gimp            "Software para manipulação de imagens"                                  ON  \
-    Inkscape        "Software para desenho vetorial"                                        ON  \
-    RecordMyDesktop "Ferramenta para gravação do video e áudio do computador"               ON  \
-    XChat           "Cliente IRC"                                                           ON  \
-    Dia             "Editor de diagramas"                                                   ON  \
-    Chromium        "Versão opensouce do navegador web Google Chrome"                       ON  \
-    GoogleChrome    "Navegador web Google Chrome (versao estavel)"                          ON  \
-    Skype           "Cliente para rede Skype nativo para Ubuntu"                            ON  \
-    VirtualBox      "Sistema de virtualização da Oracle (não Open Source)"                  ON  \
-    Pidgin          "Cliente de mensagens instantâneas"                                     ON  \
-    Jdownloader     "Baixa automaticamente do rapidshare, megaupload e etc"                 ON  \
-    Firefox         "Complementos para o firefox"                                           ON  )
+opcoes=$( dialog --stdout --separate-output                                                               \
+    --title "afterFormat - Pós Formatação para Ubuntu 10.04 LST"                                            \
+    --checklist 'Selecione os softwares que deseja instalar:' 0 0 0                                         \
+    Desktop         "Muda \"Área de Trabalho\" para \"Desktop\" *(Apenas ptBR)"                         ON  \
+    Botões          "Muda os botões minimizar, maximizar e fechar para a direita"                       ON  \
+    PS1             "\$PS1 no formato: usuário ~/diretório/atual (BranchGit)"                           ON  \
+    Monaco          "Adiciona fonte Monaco (padrão do TextMate) e seleciona para o Gedit e o Terminal " ON  \
+    SSH             "SSH server e client"                                                               ON  \
+    Ruby1.8         "Ambiente para desenvolvimento com Ruby1.8"                                         ON  \
+    Ruby1.9         "Ambiente para desenvolvimento com Ruby1.9"                                         ON  \
+    Rails           "Ambiente para desenvolvimento com Rails (para cada Ruby)"                          ON  \
+    Python          "Ferramentas para desenvolvimento python"                                           ON  \
+    MySql           "Banco de dados + interface para ruby e python (caso forem escolhidos)"             ON  \
+    PostgreSQL      "Banco de dados + interface para ruby e python (caso forem escolhidos)"             OFF \
+    Java            "Java Development Kit e Java Runtime Environment"                                   ON  \
+    VIM             "Editor de texto, com configurações úteis"                                          ON  \
+    Gedit           "Plugins oficiais, Gmate e configurações úteis"                                     ON  \
+    SVN             "Sistema de controle de versão"                                                     ON  \
+    Git             "Sistema de controle de versão com configurações úteis"                             ON  \
+    GitMeldDiff     "Torna o Meld o software para visualização do diff do git"                          ON  \
+    StarDict        "Dicionário multi-línguas (inclui dicionario PTbr-En/En-PTbr)"                      ON  \
+    Xournal         "Software para fazer anotações e marcar texto em pdf"                               ON  \
+    Media           "Codecs, flashplayer (32/64 bits, nativo) e compactadores de arquivos"              ON  \
+    Gimp            "Software para manipulação de imagens"                                              ON  \
+    Inkscape        "Software para desenho vetorial"                                                    ON  \
+    RecordMyDesktop "Ferramenta para gravação do video e áudio do computador"                           ON  \
+    XChat           "Cliente IRC"                                                                       ON  \
+    Dia             "Editor de diagramas"                                                               ON  \
+    Chromium        "Versão opensouce do navegador web Google Chrome"                                   ON  \
+    GoogleChrome    "Navegador web Google Chrome (versao estavel)"                                      ON  \
+    Skype           "Cliente para rede Skype nativo para Ubuntu"                                        ON  \
+    VirtualBox      "Sistema de virtualização da Oracle (não Open Source)"                              ON  \
+    Pidgin          "Cliente de mensagens instantâneas"                                                 ON  \
+    Jdownloader     "Baixa automaticamente do rapidshare, megaupload e etc"                             ON  \
+    Firefox         "Complementos para o firefox"                                                       ON  )
 
 #=============================== Processamento =================================
 
@@ -112,6 +113,19 @@ do
     [ "$opcao" = 'PS1' ] && echo 'export PS1="\[\033[36m\]\u \[\033[33m\]\w \[\033[34m\]\`branch=\$(git branch 2> /dev/null | grep \"\* .*\" | grep -Pwo \".*\") && test -n \$branch && echo \"(\$branch) \"\`\[\033[00m\]$ "' >> $HOME/.bashrc
 
     [ "$opcao" = 'SHH' ] && sudo apt-get install -y openssh-server openssh-client
+
+    if [ "$opcao" = 'Monaco' ]
+    then
+        sudo mkdir /usr/share/fonts/macfonts
+        sudo wget -O /usr/share/fonts/macfonts/Monaco_Linux.ttf http://github.com/downloads/hugomaiavieira/afterFormat/Monaco_Linux.ttf
+        sudo fc-cache -f -v
+        # Configura para o terminal
+        `gconftool-2 --set /apps/gnome-terminal/profiles/Default/use_system_font -t bool false`
+        `gconftool-2 --set /apps/gnome-terminal/profiles/Default/font -t str Monaco\ 12`
+        # Configura para o Gedit
+        `gconftool-2 --set /apps/gedit-2/preferences/editor/font/use_default_font -t bool false`
+        `gconftool-2 --set /apps/gedit-2/preferences/editor/font/editor_font -t str Monaco\ 10`
+    fi
 
     if [ "$opcao" = 'Ruby1.8' ]
     then
