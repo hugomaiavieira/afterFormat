@@ -30,10 +30,10 @@
 # Mandinga para pegar o diretório onde o script foi executado
 FOLDER=$(cd $(dirname $0); pwd -P)
 
+mysql=0
+postgre=0
 ruby18=0
 ruby19=0
-rails=0
-python=0
 vim=0
 
 # ====================    Pegando arquitetura do sistema    ====================
@@ -63,12 +63,12 @@ opcoes=$( dialog --stdout --separate-output                                     
     PS1             "\$PS1 no formato: usuário ~/diretório/atual (BranchGit)"                           ON  \
     Monaco          "Adiciona fonte Monaco (padrão do TextMate) e seleciona para o Gedit e o Terminal " ON  \
     SSH             "SSH server e client"                                                               ON  \
+    MySql           "Banco de dados + interface para ruby e python (caso forem escolhidos)"             ON  \
+    PostgreSQL      "Banco de dados + interface para ruby e python (caso forem escolhidos)"             OFF \
     Ruby1.8         "Ambiente para desenvolvimento com Ruby1.8"                                         ON  \
     Ruby1.9         "Ambiente para desenvolvimento com Ruby1.9"                                         ON  \
     Rails           "Ambiente para desenvolvimento com Rails (para cada Ruby)"                          ON  \
     Python          "Ferramentas para desenvolvimento python"                                           ON  \
-    MySql           "Banco de dados + interface para ruby e python (caso forem escolhidos)"             ON  \
-    PostgreSQL      "Banco de dados + interface para ruby e python (caso forem escolhidos)"             OFF \
     Java            "Java Development Kit e Java Runtime Environment"                                   ON  \
     VIM             "Editor de texto, com configurações úteis"                                          ON  \
     Gedit           "Plugins oficiais, Gmate e configurações úteis"                                     ON  \
@@ -125,6 +125,18 @@ do
         # Configura para o Gedit
         `gconftool-2 --set /apps/gedit-2/preferences/editor/font/use_default_font -t bool false`
         `gconftool-2 --set /apps/gedit-2/preferences/editor/font/editor_font -t str Monaco\ 10`
+    fi
+
+    if [ "$opcao" = 'MySql' ]
+    then
+        sudo apt-get install -y mysql-server-5.1 libmysqlclient16-dev
+        mysql=1
+    fi
+
+    if [ "$opcao" = 'PostgreSQL' ]
+    then
+        sudo apt-get install -y postgresql
+        postgre=1
     fi
 
     if [ "$opcao" = 'Ruby1.8' ]
@@ -186,12 +198,15 @@ do
             if [ "$ruby18" -eq 1 ]
             then
                 rvm 1.8.7 gem install rake rails haml formtastic inherited_resources database_cleaner bcrypt-ruby will_paginate factory_girl brazilian-rails gherkin cucumber-rails webrat rspec-rails mongrel capistrano authlogic remarkable_rails --no-rdoc --no-ri
+                [ "$mysql" -eq 1 ] rvm 1.8.7 gem install mysql && sudo apt-get install -y libmysql-ruby1.8
+                [ "$postgre" -eq 1 ] rvm 1.8.7 gem install pg
             fi
             if [ "$ruby19" -eq 1 ]
             then
                 rvm 1.9.1 gem install rake rails haml formtastic inherited_resources database_cleaner bcrypt-ruby will_paginate factory_girl brazilian-rails gherkin cucumber-rails webrat rspec-rails mongrel capistrano authlogic remarkable_rails --no-rdoc --no-ri
+                [ "$mysql" -eq 1 ] rvm 1.9.1 gem install mysql && sudo apt-get install -y libmysql-ruby1.9
+                [ "$postgre" -eq 1 ] rvm 1.9.1 gem install pg
             fi
-            rails=1
         else
             dialog --title 'Aviso' \
             --msgbox 'O ambiente de desenvolvimento Rails só pode ser instalado em conjunto com \nalguma versão do Ruby.\n\nPara isto, após o script terminar de rodar, rode-o novamente o marcando apenas a opção Rails e a(s) versão(ões) do Ruby que deseja instalar.' \
@@ -213,27 +228,6 @@ do
         mkdir -p $HOME/.virtualenvs
         echo "export WORKON_HOME=\$HOME/.virtualenvs" >> $HOME/.bashrc
         echo "source /usr/local/bin/virtualenvwrapper.sh"  >> $HOME/.bashrc
-        python=1
-    fi
-
-    if [ "$opcao" = 'MySql' ]
-    then
-        sudo apt-get install -y mysql-server-5.1 libmysqlclient16-dev
-        test "$python" -eq 1 && sudo apt-get install -y python-mysqldb
-        test "$ruby18" -eq 1 && sudo apt-get install -y libmysql-ruby1.8
-        test "$ruby19" -eq 1 && sudo apt-get install -y libmysql-ruby1.9.1
-        test "$rails"  -eq 1 && test "$ruby18" -eq 1 && sudo gem1.8 install mysql
-        test "$rails"  -eq 1 && test "$ruby19" -eq 1 && sudo gem1.9.1 install mysql
-    fi
-
-    if [ "$opcao" = 'PostgreSQL' ]
-    then
-        sudo apt-get install -y postgresql
-        test "$python" -eq 1 && sudo apt-get install -y python-pgsql
-        test "$ruby18" -eq 1 && sudo apt-get install -y libpgsql-ruby1.8
-        test "$ruby19" -eq 1 && sudo apt-get install -y libpgsql-ruby1.9
-        test "$rails"  -eq 1 && test "$ruby18" -eq 1 && sudo gem1.8 install pg
-        test "$rails"  -eq 1 && test "$ruby19" -eq 1 && sudo gem1.9.1 install pg
     fi
 
     if [ "$opcao" = 'VIM' ]
