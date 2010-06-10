@@ -129,28 +129,52 @@ do
 
     if [ "$opcao" = 'Ruby1.8' ]
     then
-        sudo apt-get install -y ruby1.8 rubygems1.8 ruby1.8-dev libopenssl-ruby1.8 irb1.8
-        sudo ./variaveis_ambiente.sh "ruby_on_rails1.8"
-        echo "alias sudo='sudo env PATH=\$PATH'" >> $HOME/.bashrc
+        sudo apt-get install -y libssl-dev libreadline5-dev
         # rvm
         sudo apt-get install -y curl
-        bash < <( curl http://rvm.beginrescueend.com/releases/rvm-install-latest )
-        echo "if [[ -s \$HOME/.rvm/scripts/rvm ]] ; then source \$HOME/.rvm/scripts/rvm ; fi" >> $HOME/.bashrc
+        bash < <( wget http://rvm.beginrescueend.com/releases/rvm-install-latest )
+        echo "[ -s \$HOME/.rvm/scripts/rvm ] && source \$HOME/.rvm/scripts/rvm" >> $HOME/.bashrc
+        source $HOME/.bashrc
+        rvm install ruby-1.8.7
+        # Instalar o openssl
+        rvm 1.8.7
+        cd $HOME/.rvm/src/ruby-1.8.7*/ext/openssl
+        ruby extconf.rb
+        make && make install
+        cd -
+        # Instalar o readline
+        cd $HOME/.rvm/src/ruby-1.8.7*/ext/readline
+        ruby extconf.rb
+        make && make install
+        cd -
+        rvm system
         ruby18=1
     fi
 
     if [ "$opcao" = 'Ruby1.9' ]
     then
-        sudo apt-get install -y ruby1.9.1-full rubygems1.9.1 ruby1.9.1-dev libopenssl-ruby1.9.1 irb1.9
-        sudo ./variaveis_ambiente.sh "ruby_on_rails1.9"
         if [ "$ruby18" -ne 1 ]
         then
-            echo "alias sudo='sudo env PATH=\$PATH'" >> $HOME/.bashrc
+            sudo apt-get install -y libssl-dev libreadline5-dev
             # rvm
             sudo apt-get install -y curl
-            bash < <( curl http://rvm.beginrescueend.com/releases/rvm-install-latest )
-            echo "if [[ -s \$HOME/.rvm/scripts/rvm ]] ; then source \$HOME/.rvm/scripts/rvm ; fi" >> $HOME/.bashrc
+            bash < <( wget http://rvm.beginrescueend.com/releases/rvm-install-latest )
+            echo "[ -s \$HOME/.rvm/scripts/rvm ] && source \$HOME/.rvm/scripts/rvm" >> $HOME/.bashrc
+            source $HOME/.bashrc
         fi
+        rvm install ruby-1.9.1
+        # Instalar o openssl
+        rvm 1.9.1
+        cd $HOME/.rvm/src/ruby-1.9.1*/ext/openssl
+        ruby extconf.rb
+        make && make install
+        cd -
+        # Instalar o readline
+        cd $HOME/.rvm/src/ruby-1.9.1*/ext/readline
+        ruby extconf.rb
+        make && make install
+        cd -
+        rvm system
         ruby19=1
     fi
 
@@ -158,52 +182,16 @@ do
     then
         if [ "$ruby18" -eq 1 ] || [ "$ruby19" -eq 1 ]
         then
+            sudo apt-get install -y bcrypt libxml2 libxml2-dev libxslt1-dev
             if [ "$ruby18" -eq 1 ]
             then
-                sudo apt-get install -y bcrypt libxml2 libxml2-dev libxslt1-dev
-                sudo gem1.8 install rake
-                sudo gem1.8 install rails
-                sudo gem1.8 install haml
-                sudo gem1.8 install formtastic
-                sudo gem1.8 install inherited_resources
-                sudo gem1.8 install database_cleaner
-                sudo gem1.8 install bcrypt-ruby
-                sudo gem1.8 install will_paginate
-                sudo gem1.8 install factory_girl
-                sudo gem1.8 install brazilian-rails
-                sudo gem1.8 install gherkin
-                sudo gem1.8 install cucumber-rails
-                sudo gem1.8 install webrat
-                sudo gem1.8 install rspec-rails
-                sudo gem1.8 install mongrel
-                sudo gem1.8 install capistrano
-                sudo gem1.8 install authlogic
-                sudo gem1.8 install remarkable_rails
-                rails=1
+                rvm 1.8.7 gem install rake rails haml formtastic inherited_resources database_cleaner bcrypt-ruby will_paginate factory_girl brazilian-rails gherkin cucumber-rails webrat rspec-rails mongrel capistrano authlogic remarkable_rails --no-rdoc --no-ri
             fi
             if [ "$ruby19" -eq 1 ]
             then
-                sudo apt-get install -y bcrypt libxml2 libxml2-dev libxslt1-dev
-                sudo gem1.9.1 install rake
-                sudo gem1.9.1 install rails
-                sudo gem1.9.1 install haml
-                sudo gem1.9.1 install formtastic
-                sudo gem1.9.1 install inherited_resources
-                sudo gem1.9.1 install database_cleaner
-                sudo gem1.9.1 install bcrypt-ruby
-                sudo gem1.9.1 install will_paginate
-                sudo gem1.9.1 install factory_girl
-                sudo gem1.9.1 install brazilian-rails
-                sudo gem1.9.1 install gherkin
-                sudo gem1.9.1 install cucumber-rails
-                sudo gem1.9.1 install webrat
-                sudo gem1.9.1 install rspec-rails
-                sudo gem1.9.1 install mongrel
-                sudo gem1.9.1 install capistrano
-                sudo gem1.9.1 install authlogic
-                sudo gem1.9.1 install remarkable_rails
-                rails=1
+                rvm 1.9.1 gem install rake rails haml formtastic inherited_resources database_cleaner bcrypt-ruby will_paginate factory_girl brazilian-rails gherkin cucumber-rails webrat rspec-rails mongrel capistrano authlogic remarkable_rails --no-rdoc --no-ri
             fi
+            rails=1
         else
             dialog --title 'Aviso' \
             --msgbox 'O ambiente de desenvolvimento Rails só pode ser instalado em conjunto com \nalguma versão do Ruby.\n\nPara isto, após o script terminar de rodar, rode-o novamente o marcando apenas a opção Rails e a(s) versão(ões) do Ruby que deseja instalar.' \
