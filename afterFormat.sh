@@ -136,23 +136,28 @@ do
     if [ "$opcao" = 'Ruby1.8' ]
     then
         sudo apt-get install -y libssl-dev libreadline5-dev
-        # rvm
+
+        # rvm geral
         sudo apt-get install -y curl
         bash < <( wget http://rvm.beginrescueend.com/releases/rvm-install-latest )
         echo "[ -s \$HOME/.rvm/scripts/rvm ] && source \$HOME/.rvm/scripts/rvm" >> $HOME/.bashrc
         source $HOME/.bashrc
+        # ruby 1.8.7 no rvm
         rvm install ruby-1.8.7
+
         # Instalar o openssl
         rvm 1.8.7
         cd $HOME/.rvm/src/ruby-1.8.7*/ext/openssl
         ruby extconf.rb
         make && make install
         cd -
+
         # Instalar o readline
         cd $HOME/.rvm/src/ruby-1.8.7*/ext/readline
         ruby extconf.rb
         make && make install
         cd -
+
         rvm system
         ruby18=1
     fi
@@ -162,24 +167,30 @@ do
         if [ "$ruby18" -ne 1 ]
         then
             sudo apt-get install -y libssl-dev libreadline5-dev
-            # rvm
+
+            # rvm geral
             sudo apt-get install -y curl
             bash < <( wget http://rvm.beginrescueend.com/releases/rvm-install-latest )
             echo "[ -s \$HOME/.rvm/scripts/rvm ] && source \$HOME/.rvm/scripts/rvm" >> $HOME/.bashrc
             source $HOME/.bashrc
         fi
+
+        # ruby 1.8.7 no rvm
         rvm install ruby-1.9.1
+
         # Instalar o openssl
         rvm 1.9.1
         cd $HOME/.rvm/src/ruby-1.9.1*/ext/openssl
         ruby extconf.rb
         make && make install
         cd -
+
         # Instalar o readline
         cd $HOME/.rvm/src/ruby-1.9.1*/ext/readline
         ruby extconf.rb
         make && make install
         cd -
+
         rvm system
         ruby19=1
     fi
