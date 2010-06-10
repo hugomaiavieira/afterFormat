@@ -39,16 +39,10 @@ vim=0
 # ====================    Pegando arquitetura do sistema    ====================
 
 uname -a | grep i686 1>& /dev/null # Ubuntu 32 bits
-if [ $? = 0 ]
-    then
-        arquitetura=x86
-fi
+[ $? = 0 ] && arquitetura=x86
 
 uname -a | grep x86_64 1>& /dev/null # Ubuntu 64 bits
-if [ $? = 0 ]
-    then
-        arquitetura=x86_64
-fi
+[ $? = 0 ] && arquitetura=x86_64
 
 #================================ Menu =========================================
 
@@ -94,7 +88,7 @@ opcoes=$( dialog --stdout --separate-output                                     
 #=============================== Processamento =================================
 
 # Termina o programa se apertar cancelar
-[ "$?" -eq 1 ] &&  exit 1
+[ "$?" -eq 1 ] && exit 1
 
 echo "$opcoes" |
 while read opcao
