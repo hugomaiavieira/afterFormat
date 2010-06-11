@@ -18,18 +18,18 @@ SOFTWARES E CONFIGURA&Ccedil;&Otilde;ES
 * **SSH**               - Instala o ssh cliente e servidor
     * Instala os pacotes: *openssh-server, openssh-client*
 * **Ruby1.8**           - Ambiente para desenvolvimento com Ruby1.8
-    * Instala os pacotes: *ruby1.8, rubygems1.8, ruby1.8-dev, libopenssl-ruby1.8, irb1.8*
-    * Adiciona o diret&oacute;rio `/var/lib/gems/1.8/bin` na vari&aacute;vel *$PATH*
+    * Instala os pacotes: *libssl-dev, libreadline5-dev*
     * Instala o *rvm*
-    * Adiciona a linha `alias sudo='sudo env PATH=\$PATH'` ao arquivo `~/.bashrc` para possibilitar a chamada de comandos como `rake` com o `sudo`
+    * Instala o *ruby-1.8.7* no *rvm*
+    * Adiciona a versão do ruby ativa na variável PS1.
 * **Ruby1.9**           - Ambiente para desenvolvimento com Ruby1.9
-    * Instala os pacotes: *ruby1.8, rubygems1.8, ruby1.8-dev, libopenssl-ruby1.8, irb1.8*
-    * Adiciona o diret&oacute;rio `/var/lib/gems/1.8/bin` na vari&aacute;vel *$PATH*
+    * Instala os pacotes: *libssl-dev, libreadline5-dev*
     * Instala o *rvm*
-    * Adiciona a linha `alias sudo='sudo env PATH=\$PATH'` ao arquivo `~/.bashrc` para possibilitar a chamada de comandos como `rake` com o `sudo`
+    * Instala o *ruby-1.9.1* no *rvm*
+    * Adiciona a versão do ruby ativa na variável PS1.
 * **Rails**             - Ambiente para desenvolvimento com Rails (para cada Ruby escolhido)
     * Instala os pacotes: *bcrypt, libxml2, libxml2-dev, libxslt1-dev*
-    * Instala as gems: *rake, rails, haml, formtastic, inherited_resources, database_cleaner, bcrypt-ruby, will_paginate, factory_girl, brazilian-rails, gherkin, cucumber-rails, webrat, rspec-rails, mongrel, capistrano, authlogic, remarkable_rails*
+    * Instala (para cada versãodo ruby) as gems: *rake, rails, haml, formtastic, inherited_resources, database_cleaner, bcrypt-ruby, will_paginate, factory_girl, brazilian-rails, gherkin, cucumber-rails, webrat, rspec-rails, mongrel, capistrano, authlogic, remarkable_rails*
 * **Python**            - Ferramentas para desenvolvimento python
     * Instala os pacotes: *ipython, python-dev*
     * Instala o distribute, pip, virtualenv e virtualenvwrapper
