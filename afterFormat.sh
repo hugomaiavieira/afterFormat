@@ -115,7 +115,7 @@ do
         sudo fc-cache -f -v
         # Configura para o terminal
         `gconftool-2 --set /apps/gnome-terminal/profiles/Default/use_system_font -t bool false`
-        `gconftool-2 --set /apps/gnome-terminal/profiles/Default/font -t str Monaco\ 12`
+        `gconftool-2 --set /apps/gnome-terminal/profiles/Default/font -t str Monaco\ 10`
         # Configura para o Gedit
         `gconftool-2 --set /apps/gedit-2/preferences/editor/font/use_default_font -t bool false`
         `gconftool-2 --set /apps/gedit-2/preferences/editor/font/editor_font -t str Monaco\ 10`
@@ -139,26 +139,14 @@ do
 
         # rvm geral
         sudo apt-get install -y curl
-        bash < <( wget http://rvm.beginrescueend.com/releases/rvm-install-latest )
+        bash < <( curl http://rvm.beginrescueend.com/releases/rvm-install-latest )
         echo "[ -s \$HOME/.rvm/scripts/rvm ] && source \$HOME/.rvm/scripts/rvm" >> $HOME/.bashrc
-        source $HOME/.bashrc
+        [ -s $HOME/.rvm/scripts/rvm ] && source $HOME/.rvm/scripts/rvm
+        # mostra versão do ruby que está ativa no inicio da variável PS1
+        echo 'export PS1="\`ruby=\$(which ruby 1> /dev/null && ruby -v 2> /dev/null | grep -oP \"^.+?[0-9]+(\.[0-9]+)+\") && echo \"(\$ruby) \"\`$PS1"'  >> $HOME/.bashrc
+
         # ruby 1.8.7 no rvm
         rvm install ruby-1.8.7
-
-        # Instalar o openssl
-        rvm 1.8.7
-        cd $HOME/.rvm/src/ruby-1.8.7*/ext/openssl
-        ruby extconf.rb
-        make && make install
-        cd -
-
-        # Instalar o readline
-        cd $HOME/.rvm/src/ruby-1.8.7*/ext/readline
-        ruby extconf.rb
-        make && make install
-        cd -
-
-        rvm system
         ruby18=1
     fi
 
@@ -170,28 +158,15 @@ do
 
             # rvm geral
             sudo apt-get install -y curl
-            bash < <( wget http://rvm.beginrescueend.com/releases/rvm-install-latest )
+            bash < <( curl http://rvm.beginrescueend.com/releases/rvm-install-latest )
             echo "[ -s \$HOME/.rvm/scripts/rvm ] && source \$HOME/.rvm/scripts/rvm" >> $HOME/.bashrc
-            source $HOME/.bashrc
+            [ -s $HOME/.rvm/scripts/rvm ] && source $HOME/.rvm/scripts/rvm
+            # mostra versão do ruby que está ativa no inicio da variável PS1
+            echo 'export PS1="\`ruby=\$(which ruby 1> /dev/null && ruby -v 2> /dev/null | grep -oP \"^.+?[0-9]+(\.[0-9]+)+\") && echo \"(\$ruby) \"\`$PS1"'  >> $HOME/.bashrc
         fi
 
         # ruby 1.8.7 no rvm
         rvm install ruby-1.9.1
-
-        # Instalar o openssl
-        rvm 1.9.1
-        cd $HOME/.rvm/src/ruby-1.9.1*/ext/openssl
-        ruby extconf.rb
-        make && make install
-        cd -
-
-        # Instalar o readline
-        cd $HOME/.rvm/src/ruby-1.9.1*/ext/readline
-        ruby extconf.rb
-        make && make install
-        cd -
-
-        rvm system
         ruby19=1
     fi
 
@@ -203,14 +178,14 @@ do
             if [ "$ruby18" -eq 1 ]
             then
                 rvm 1.8.7 gem install rake rails haml formtastic inherited_resources database_cleaner bcrypt-ruby will_paginate factory_girl brazilian-rails gherkin cucumber-rails webrat rspec-rails mongrel capistrano authlogic remarkable_rails --no-rdoc --no-ri
-                [ "$mysql" -eq 1 ] rvm 1.8.7 gem install mysql && sudo apt-get install -y libmysql-ruby1.8
-                [ "$postgre" -eq 1 ] rvm 1.8.7 gem install pg
+                [ "$mysql" -eq 1 ] && rvm 1.8.7 gem install mysql #&& sudo apt-get install -y libmysql-ruby1.8
+                [ "$postgre" -eq 1 ] && rvm 1.8.7 gem install pg
             fi
             if [ "$ruby19" -eq 1 ]
             then
                 rvm 1.9.1 gem install rake rails haml formtastic inherited_resources database_cleaner bcrypt-ruby will_paginate factory_girl brazilian-rails gherkin cucumber-rails webrat rspec-rails mongrel capistrano authlogic remarkable_rails --no-rdoc --no-ri
-                [ "$mysql" -eq 1 ] rvm 1.9.1 gem install mysql && sudo apt-get install -y libmysql-ruby1.9
-                [ "$postgre" -eq 1 ] rvm 1.9.1 gem install pg
+                [ "$mysql" -eq 1 ] && rvm 1.9.1 gem install mysql #&& sudo apt-get install -y libmysql-ruby1.9
+                [ "$postgre" -eq 1 ] && rvm 1.9.1 gem install pg
             fi
         else
             dialog --title 'Aviso' \
@@ -321,7 +296,7 @@ do
             sudo dpkg -i /tmp/skype-amd64.deb
         fi
 
-        # Já que algumas dependências não instalam por bem, instalam a força
+        # Já que algumas dependências não instalam por bem, instalarão a força
         sudo apt-get -f install
 
     fi
