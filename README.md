@@ -34,16 +34,8 @@ SOFTWARES E CONFIGURA&Ccedil;&Otilde;ES
     * Adiciona a linha `source /usr/local/bin/virtualenvwrapper.sh` no arquivo` `~/bashrc`, para sempre habilitar os comandos do virtualenvwrapper
 * **MySql**             - Banco de dados + interface para ruby e python (caso forem escolhidos)
     * Instala os pacotes: *mysql-server-5.1, libmysqlclient16-dev*
-    * Caso seja escolhida tamb&eacute;m a op&ccedil;&atilde;o Python, instala o pacote *python-mysqldb*
-    * Caso seja escolhida tamb&eacute;m a op&ccedil;&atilde;o Ruby1.8, instala o pacote *libmysql-ruby1.8*
-    * Caso seja escolhida tamb&eacute;m a op&ccedil;&atilde;o Ruby1.9, instala o pacote *libmysql-ruby1.9.1*
-    * Caso seja escolhida tamb&eacute;m a op&ccedil;&atilde;o Rails, instala a gem *mysql* para cada vers&atilde;o do Ruby
 * **PostgreSQL**        - Banco de dados + interface para ruby e python (caso forem escolhidos)
     * Instala o pacote: *postgresql*
-    * Caso seja escolhida tamb&eacute;m a op&ccedil;&atilde;o Python, instala o pacote *python-pgsql*
-    * Caso seja escolhida tamb&eacute;m a op&ccedil;&atilde;o Ruby1.8, instala o pacote *libpgsql-ruby1.8*
-    * Caso seja escolhida tamb&eacute;m a op&ccedil;&atilde;o Ruby1.9, instala o pacote *libpgsql-ruby1.9.1*
-    * Caso seja escolhida tamb&eacute;m a op&ccedil;&atilde;o Rails, instala a gem *pg* para cada vers&atilde;o do Ruby
 * **Java**              - Java Development Kit e Java Runtime Environment
     * Instala os pacotes: *openjdk-6-jdk, openjdk-6-jre*
 * **SVN**               - Sistema de controle de vers&atilde;o

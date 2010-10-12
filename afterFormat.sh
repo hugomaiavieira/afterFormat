@@ -32,8 +32,6 @@
 # Mandinga para pegar o diretório onde o script foi executado
 FOLDER=$(cd $(dirname $0); pwd -P)
 
-mysql=0
-postgre=0
 ruby18=0
 ruby19=0
 vim=0
@@ -61,8 +59,8 @@ opcoes=$( dialog --stdout --separate-output                                     
     SSH             "SSH server e client"                                                               ON  \
     MySql           "Banco de dados + interface para ruby e python (caso forem escolhidos)"             ON  \
     PostgreSQL      "Banco de dados + interface para ruby e python (caso forem escolhidos)"             OFF \
-    Ruby1.8         "Ambiente para desenvolvimento com Ruby1.8"                                         ON  \
-    Ruby1.9         "Ambiente para desenvolvimento com Ruby1.9"                                         ON  \
+    Ruby1.8.7       "Ambiente para desenvolvimento com Ruby1.8.7"                                       ON  \
+    Ruby1.9.2       "Ambiente para desenvolvimento com Ruby1.9.2"                                       ON  \
     Python          "Ferramentas para desenvolvimento python"                                           ON  \
     Java            "Java Development Kit e Java Runtime Environment"                                   ON  \
     VIM             "Editor de texto, com configurações úteis"                                          ON  \
@@ -120,18 +118,6 @@ do
         # Configura para o Gedit
         `gconftool-2 --set /apps/gedit-2/preferences/editor/font/use_default_font -t bool false`
         `gconftool-2 --set /apps/gedit-2/preferences/editor/font/editor_font -t str Monaco\ 10`
-    fi
-
-    if [ "$opcao" = 'MySql' ]
-    then
-        sudo apt-get install -y mysql-server-5.1 libmysqlclient16-dev
-        mysql=1
-    fi
-
-    if [ "$opcao" = 'PostgreSQL' ]
-    then
-        sudo apt-get install -y postgresql
-        postgre=1
     fi
 
     if [ "$opcao" = 'Ruby1.8' ]
@@ -339,6 +325,8 @@ do
         [ "$vim" -eq 1 ] && git config --global core.editor vim
     fi
 
+    [ "$opcao" = 'MySql' ]              && sudo apt-get install -y mysql-server-5.1 libmysqlclient16-dev
+    [ "$opcao" = 'PostgreSQL' ]         && sudo apt-get install -y postgresql
     [ "$opcao" = 'Java' ]               && sudo apt-get install -y openjdk-6-jdk openjdk-6-jre
     [ "$opcao" = 'SVN' ]                && sudo apt-get install -y subversion
     [ "$opcao" = 'Gimp' ]               && sudo apt-get install -y gimp
