@@ -76,8 +76,7 @@ opcoes=$( dialog --stdout --separate-output                                     
     RecordMyDesktop "Ferramenta para gravação do video e áudio do computador"                           ON  \
     XChat           "Cliente IRC"                                                                       ON  \
     Dia             "Editor de diagramas"                                                               ON  \
-    Chromium        "Versão opensouce do navegador web Google Chrome"                                   ON  \
-    GoogleChrome    "Navegador web Google Chrome (versao estavel)"                                      ON  \
+    GoogleChrome    "Navegador web Google Chrome"                                                       ON  \
     Skype           "Cliente para rede Skype nativo para Ubuntu"                                        ON  \
     VirtualBox      "Sistema de virtualização da Oracle (não Open Source)"                              ON  \
     Pidgin          "Cliente de mensagens instantâneas"                                                 ON  \
@@ -220,12 +219,6 @@ do
             # Instalando o Flashplayer 64 bits
             sudo apt-get install -y flashplugin64-nonfree
         fi
-    fi
-
-    if [ "$opcao" = 'Chromium' ]
-    then
-        sudo ./repositorios.sh "chromium"
-        sudo apt-get install --force-yes -y chromium-browser
     fi
 
     if [ "$opcao" = 'GoogleChrome' ]

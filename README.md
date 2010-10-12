@@ -5,7 +5,7 @@ Instala automaticamente diversos softwares b&aacute;sicos que sempre s&atilde;o 
 ap&oacute;s uma formata&ccedil;&atilde;o. O PC deve estar conectado &agrave; internet. O tempo de
 instala&ccedil;&atilde;o depender&aacute; da velocidade de sua conex&atilde;o.
 
-**Obs**.: Este script est&aacute; validado apenas para o **Ubuntu 10.04 LST**.
+**Obs**.: Este script est&aacute; validado apenas para o **Ubuntu 10.10**.
 Para outras vers&otilde;es do Ubuntu verifique os branches.
 
 
@@ -17,20 +17,20 @@ SOFTWARES E CONFIGURA&Ccedil;&Otilde;ES
 * **PS1**               - $PS1 no formato: <span style="padding: 2px; font-family: monospace"><span style="color: #06989A;">usu&aacute;rio</span> <span style="color: #B8A000;">~/diret&oacute;rio/atual</span> <span style="color: #3465a4;">(git_branch_atual)</span> $</span>
 * **SSH**               - Instala o ssh cliente e servidor
     * Instala os pacotes: *openssh-server, openssh-client*
-* **Ruby1.8**           - Ambiente para desenvolvimento com Ruby1.8
+* **Ruby1.8.7**           - Ambiente para desenvolvimento com Ruby1.8.7
     * Instala os pacotes: *libssl-dev, libreadline5-dev*
     * Instala o *rvm*
     * Instala o *ruby-1.8.7* no *rvm*
     * Adiciona a versão do ruby ativa na variável PS1.
-* **Ruby1.9**           - Ambiente para desenvolvimento com Ruby1.9
+* **Ruby1.9.2**           - Ambiente para desenvolvimento com Ruby1.9.2
     * Instala os pacotes: *libssl-dev, libreadline5-dev*
     * Instala o *rvm*
-    * Instala o *ruby-1.9.1* no *rvm*
+    * Instala o *ruby-1.9.2* no *rvm*
     * Adiciona a versão do ruby ativa na variável PS1.
 * **Python**            - Ferramentas para desenvolvimento python
     * Instala os pacotes: *ipython, python-dev*
     * Instala o distribute, pip, virtualenv e virtualenvwrapper
-    * Configura a vari&aacute;vel WORKON_HOME, usada pelo virtualenvwrapper como diret&oacute;rio que concentra os ambientes virtuais, como ~/envs
+    * Configura a vari&aacute;vel WORKON_HOME, usada pelo virtualenvwrapper como diret&oacute;rio que concentra os ambientes virtuais, para ser ~/envs
     * Adiciona a linha `source /usr/local/bin/virtualenvwrapper.sh` no arquivo` `~/bashrc`, para sempre habilitar os comandos do virtualenvwrapper
 * **MySql**             - Banco de dados + interface para ruby e python (caso forem escolhidos)
     * Instala os pacotes: *mysql-server-5.1, libmysqlclient16-dev*
@@ -67,11 +67,7 @@ SOFTWARES E CONFIGURA&Ccedil;&Otilde;ES
 * **RecordMyDesktop**   - Ferramenta para grava&ccedil;&atilde;o do video e &aacute;udio do computador (perfeito para fazer screencasts)
 * **XChat**             - Cliente IRC
 * **Dia**               - Editor de diagramas
-* **Chromium**          - Vers&atilde;o opensouce do navegador web Google Chrome
-    * Adiciona o reposit&oacute;rio *chromium-daily*
-    * Instala o pacote: *chromium-browser*
 * **GoogleChrome**      - Navegador web Google Chrome
-    * Adiciona o reposit&oacute;rio da Google
     * Instala a vers&atilde;o *estável* do navegador da Google
 * **Skype**             - Cliente do Skype: cliente de (video)conferencia
     * Instala o pacote deb oficial direto do site (32 ou 64 bits)
@@ -91,7 +87,9 @@ EXECUTANDO O SCRIPT
 Primeiramente, fa&ccedil;a o download do script clicando no link **Download Source** no
 topo desta p&aacute;gina e escolhendo a op&ccedil;&atilde;o TAR.
 
-Em seguida, descompacte o arquivo rodando no terminal:
+**Obs.:** Nunca rode o script a partir da Área de Trabalho
+
+Em seguida, descompacte o arquivo rodando no terminal (supondo que você baixou o arquivo na pasta Download):
 
     $ cd Download
     $ tar xzfv hugomaiavieira-afterFormat-*.tar.gz
@@ -135,5 +133,5 @@ AUTOR
 
   Hugo Henriques Maia Vieira <hugomaiavieira@gmail.com>
 
-  19 de Maio de 2010
+  12 de Outubro de 2010
 

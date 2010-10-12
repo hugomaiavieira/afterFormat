@@ -30,12 +30,6 @@ then
     sudo apt-get update
 fi
 
-if [ "$1" = "chromium" ]
-then
-    sudo add-apt-repository ppa:chromium-daily
-    sudo apt-get update
-fi
-
 if [ "$1" = "media" ]
 then
     sudo wget http://www.medibuntu.org/sources.list.d/$(lsb_release -cs).list --output-document=/etc/apt/sources.list.d/medibuntu.list
