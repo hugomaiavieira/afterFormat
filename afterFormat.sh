@@ -17,12 +17,14 @@
 #       script para baixar de lá se for necessário.
 #   v1.3, 19-05-2010, Hugo Maia Vieira:
 #       - Fechada release depois de serem feitos vários testes e ajustes.
+#   v2.0, 12-10-2010, Hugo Maia Vieira:
+#       - Migrado para ubuntu 10.10.
 #
 # ------------------------------------------------------------------------------
 #
 # Autor     : Hugo Henriques Maia Vieira <hugomaiavieira@gmail.com>
 #
-# Licença: GPL.
+# Licença: MIT.
 #
 
 # ==========================    Variáveis    ===================================
@@ -61,7 +63,6 @@ opcoes=$( dialog --stdout --separate-output                                     
     PostgreSQL      "Banco de dados + interface para ruby e python (caso forem escolhidos)"             OFF \
     Ruby1.8         "Ambiente para desenvolvimento com Ruby1.8"                                         ON  \
     Ruby1.9         "Ambiente para desenvolvimento com Ruby1.9"                                         ON  \
-    Rails           "Ambiente para desenvolvimento com Rails (para cada Ruby)"                          ON  \
     Python          "Ferramentas para desenvolvimento python"                                           ON  \
     Java            "Java Development Kit e Java Runtime Environment"                                   ON  \
     VIM             "Editor de texto, com configurações úteis"                                          ON  \
@@ -165,33 +166,9 @@ do
             echo 'export PS1="\`ruby=\$(which ruby 1> /dev/null && ruby -v 2> /dev/null | grep -oP \"^.+?[0-9]+(\.[0-9]+)+\") && echo \"(\$ruby) \"\`$PS1"'  >> $HOME/.bashrc
         fi
 
-        # ruby 1.8.7 no rvm
-        rvm install ruby-1.9.1
+        # ruby 1.9.2 no rvm
+        rvm install ruby-1.9.2
         ruby19=1
-    fi
-
-    if [ "$opcao" = 'Rails' ]
-    then
-        if [ "$ruby18" -eq 1 ] || [ "$ruby19" -eq 1 ]
-        then
-            sudo apt-get install -y bcrypt libxml2 libxml2-dev libxslt1-dev
-            if [ "$ruby18" -eq 1 ]
-            then
-                rvm 1.8.7 gem install rake rails haml formtastic inherited_resources database_cleaner bcrypt-ruby will_paginate factory_girl brazilian-rails gherkin cucumber-rails webrat rspec-rails mongrel capistrano authlogic remarkable_rails --no-rdoc --no-ri
-                [ "$mysql" -eq 1 ] && rvm 1.8.7 gem install mysql #&& sudo apt-get install -y libmysql-ruby1.8
-                [ "$postgre" -eq 1 ] && rvm 1.8.7 gem install pg
-            fi
-            if [ "$ruby19" -eq 1 ]
-            then
-                rvm 1.9.1 gem install rake rails haml formtastic inherited_resources database_cleaner bcrypt-ruby will_paginate factory_girl brazilian-rails gherkin cucumber-rails webrat rspec-rails mongrel capistrano authlogic remarkable_rails --no-rdoc --no-ri
-                [ "$mysql" -eq 1 ] && rvm 1.9.1 gem install mysql #&& sudo apt-get install -y libmysql-ruby1.9
-                [ "$postgre" -eq 1 ] && rvm 1.9.1 gem install pg
-            fi
-        else
-            dialog --title 'Aviso' \
-            --msgbox 'O ambiente de desenvolvimento Rails só pode ser instalado em conjunto com \nalguma versão do Ruby.\n\nPara isto, após o script terminar de rodar, rode-o novamente o marcando apenas a opção Rails e a(s) versão(ões) do Ruby que deseja instalar.' \
-            0 0
-        fi
     fi
 
     if [ "$opcao" = 'Python' ]

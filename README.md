@@ -27,9 +27,6 @@ SOFTWARES E CONFIGURA&Ccedil;&Otilde;ES
     * Instala o *rvm*
     * Instala o *ruby-1.9.1* no *rvm*
     * Adiciona a versão do ruby ativa na variável PS1.
-* **Rails**             - Ambiente para desenvolvimento com Rails (para cada Ruby escolhido)
-    * Instala os pacotes: *bcrypt, libxml2, libxml2-dev, libxslt1-dev*
-    * Instala (para cada versãodo ruby) as gems: *rake, rails, haml, formtastic, inherited_resources, database_cleaner, bcrypt-ruby, will_paginate, factory_girl, brazilian-rails, gherkin, cucumber-rails, webrat, rspec-rails, mongrel, capistrano, authlogic, remarkable_rails*
 * **Python**            - Ferramentas para desenvolvimento python
     * Instala os pacotes: *ipython, python-dev*
     * Instala o distribute, pip, virtualenv e virtualenvwrapper
