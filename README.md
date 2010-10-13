@@ -86,10 +86,10 @@ SOFTWARES E CONFIGURA&Ccedil;&Otilde;ES
 EXECUTANDO O SCRIPT
 -------------------
 
-Primeiramente, fa&ccedil;a o download do script clicando no link **Download Source** no
-topo desta p&aacute;gina e escolhendo a op&ccedil;&atilde;o TAR.
+Primeiramente, fa&ccedil;a o download do script clicando no link **Download** no
+topo desta p&aacute;gina. Na tela que abrirá, clique em **Download .tar.gz**.
 
-**Obs.:** Nunca rode o script a partir da Área de Trabalho
+**Obs.: Nunca rode o script a partir da Área de Trabalho**
 
 Em seguida, descompacte o arquivo rodando no terminal (supondo que você baixou o arquivo na pasta Download):
 
