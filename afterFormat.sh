@@ -151,7 +151,7 @@ do
         ruby18=1
     fi
 
-    if [ "$opcao" = 'Ruby1.9.7' ]
+    if [ "$opcao" = 'Ruby1.9.2' ]
     then
         if [ "$ruby18" -ne 1 ]
         then
