@@ -1,8 +1,8 @@
 #!/bin/bash
 #
-# instalar.sh - Instala todos os softwares selecionados. O PC deve estar
-#               conectado à internet. O tempo de instalação dependerá da
-#               velocidade de sua conexão.
+# afterFormat.sh - Instala todos os softwares selecionados. O PC deve estar
+#                  conectado à internet. O tempo de instalação dependerá da
+#                  velocidade de sua conexão.
 #
 # ------------------------------------------------------------------------------
 #
