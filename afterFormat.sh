@@ -22,9 +22,24 @@
 #
 # ------------------------------------------------------------------------------
 #
-# Autor     : Hugo Henriques Maia Vieira <hugomaiavieira@gmail.com>
+# The MIT License
 #
-# Licença: MIT.
+# Copyright (c) 2010 Hugo Henriques Maia Vieira
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+# THE SOFTWARE.
 #
 
 # ==========================    Variáveis    ===================================
@@ -57,18 +72,18 @@ opcoes=$( dialog --stdout --separate-output                                     
     PS1             "\$PS1 no formato: usuário ~/diretório/atual (BranchGit)"                           ON  \
     Monaco          "Adiciona fonte Monaco (padrão do TextMate) e seleciona para o Gedit e o Terminal " ON  \
     SSH             "SSH server e client"                                                               ON  \
-    MySql           "Banco de dados + interface para ruby e python (caso forem escolhidos)"             ON  \
-    PostgreSQL      "Banco de dados + interface para ruby e python (caso forem escolhidos)"             OFF \
-    Ruby1.8.7       "Ambiente para desenvolvimento com Ruby1.8.7"                                       ON  \
-    Ruby1.9.2       "Ambiente para desenvolvimento com Ruby1.9.2"                                       ON  \
+    MySql           "Banco de dados"                                                                    ON  \
+    PostgreSQL      "Banco de dados"                                                                    ON  \
+    Ruby1.8.7       "rvm com Ruby1.8.7"                                                                 ON  \
+    Ruby1.9.2       "rvm com Ruby1.9.2"                                                                 ON  \
     Python          "Ferramentas para desenvolvimento python"                                           ON  \
     Java            "Java Development Kit e Java Runtime Environment"                                   ON  \
-    VIM             "Editor de texto, com configurações úteis"                                          ON  \
-    Gedit           "Plugins oficiais, Gmate e configurações úteis"                                     ON  \
+    VIM             "Editor de texto + configurações úteis"                                             ON  \
+    Gedit           "Plugins oficiais, Gmate + configurações úteis"                                     ON  \
     SVN             "Sistema de controle de versão"                                                     ON  \
-    Git             "Sistema de controle de versão com configurações úteis"                             ON  \
+    Git             "Sistema de controle de versão + configurações úteis"                               ON  \
     GitMeldDiff     "Torna o Meld o software para visualização do diff do git"                          ON  \
-    StarDict        "Dicionário multi-línguas (inclui dicionario PTbr-En/En-PTbr)"                      ON  \
+    StarDict        "Dicionário multi-línguas (inclui dicionário PTbr-En/En-PTbr)"                      ON  \
     Xournal         "Software para fazer anotações e marcar texto em pdf"                               ON  \
     Media           "Codecs, flashplayer (32/64 bits, nativo) e compactadores de arquivos"              ON  \
     Gimp            "Software para manipulação de imagens"                                              ON  \
@@ -77,7 +92,7 @@ opcoes=$( dialog --stdout --separate-output                                     
     XChat           "Cliente IRC"                                                                       ON  \
     Dia             "Editor de diagramas"                                                               ON  \
     GoogleChrome    "Navegador web Google Chrome"                                                       ON  \
-    Skype           "Cliente para rede Skype nativo para Ubuntu"                                        ON  \
+    Skype           "Cliente para rede Skype"                                                           ON  \
     VirtualBox      "Sistema de virtualização da Oracle (não Open Source)"                              ON  \
     Pidgin          "Cliente de mensagens instantâneas"                                                 ON  \
     Jdownloader     "Baixa automaticamente do rapidshare, megaupload e etc"                             ON  \

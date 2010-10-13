@@ -31,7 +31,7 @@ SOFTWARES E CONFIGURA&Ccedil;&Otilde;ES
     * Instala os pacotes: *ipython, python-dev*
     * Instala o distribute, pip, virtualenv e virtualenvwrapper
     * Configura a vari&aacute;vel WORKON_HOME, usada pelo virtualenvwrapper como diret&oacute;rio que concentra os ambientes virtuais, para ser ~/envs
-    * Adiciona a linha `source /usr/local/bin/virtualenvwrapper.sh` no arquivo` `~/bashrc`, para sempre habilitar os comandos do virtualenvwrapper
+    * Adiciona a linha `source /usr/local/bin/virtualenvwrapper.sh` no arquivo` ~/bashrc, para sempre habilitar os comandos do virtualenvwrapper
 * **MySql**             - Banco de dados + interface para ruby e python (caso forem escolhidos)
     * Instala os pacotes: *mysql-server-5.1, libmysqlclient16-dev*
 * **PostgreSQL**        - Banco de dados + interface para ruby e python (caso forem escolhidos)
@@ -39,8 +39,8 @@ SOFTWARES E CONFIGURA&Ccedil;&Otilde;ES
 * **Java**              - Java Development Kit e Java Runtime Environment
     * Instala os pacotes: *openjdk-6-jdk, openjdk-6-jre*
 * **SVN**               - Sistema de controle de vers&atilde;o
-* **Git**               - Sistema de controle de vers&atilde;o com configura&ccedil;&otilde;es &uacute;teis
-    * Instala o pacote: *git-cire*
+* **Git**               - Sistema de controle de vers&atilde;o + configura&ccedil;&otilde;es &uacute;teis
+    * Instala o pacote: *git-core*
     * Configura o git para exibir com cores as sa&iacute;das de seus comandos
     * Cria as abrevia&ccedil;&otilde;es
         * br para branch
@@ -49,10 +49,10 @@ SOFTWARES E CONFIGURA&Ccedil;&Otilde;ES
         * st status
     * Caso seja escolhida tamb&eacute;m a op&ccedil;&atilde;o Vim, configura o Vim para ser o editor padr&atilde;o do git
 * **GitMeldDiff**       - Torna o Meld o software para visualiza&ccedil;&atilde;o do diff do git
-* **VIM**               - Editor de texto, com configura&ccedil;&otilde;es &uacute;teis
+* **VIM**               - Editor de texto + configura&ccedil;&otilde;es &uacute;teis
     * Instala o pacote: *vim*
     * Criar o arquivo `/etc/vim/vimrc.local` com diversas configura&ccedil;&otilde;es &uacute;teis
-* **Gedit**             - Plugins oficiais, Gmate e configura&ccedil;&otilde;es &uacute;teis
+* **Gedit**             - Plugins oficiais, Gmate + configura&ccedil;&otilde;es &uacute;teis
     * Adiciona o reposit&oacute;rio *ubuntu-on-rails*
     * Instala os pacotes: *gedit-plugins, gedit-gmate*
     * Seleciona os plugins mais &uacute;teis e faz algumas configura&ccedil;&otilde;es no editor
@@ -71,7 +71,7 @@ SOFTWARES E CONFIGURA&Ccedil;&Otilde;ES
     * Instala a vers&atilde;o *estável* do navegador da Google
 * **Skype**             - Cliente do Skype: cliente de (video)conferencia
     * Instala o pacote deb oficial direto do site (32 ou 64 bits)
-* **VirtualBox**        - Sistema de virtualizacao da Oracle
+* **VirtualBox**        - Sistema de virtualização da Oracle
     * Adiciona o reposit&oacute;rio do VirtualBox
     * Instala o pacote *virtualbox-3.2*
 * **Pidgin**            - Cliente de mensagens instant&acirc;neas
