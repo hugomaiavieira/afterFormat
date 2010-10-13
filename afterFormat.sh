@@ -18,7 +18,7 @@
 #   v1.3, 19-05-2010, Hugo Maia Vieira:
 #       - Fechada release depois de serem feitos vários testes e ajustes.
 #   v2.0, 12-10-2010, Hugo Maia Vieira:
-#       - Migrado para ubuntu 10.10.
+#       - Release para versões 10.x do Ubuntu.
 #
 # ------------------------------------------------------------------------------
 #
@@ -50,7 +50,7 @@ uname -a | grep x86_64 1>& /dev/null # Ubuntu 64 bits
 sudo apt-get install -y dialog > /dev/null
 
 opcoes=$( dialog --stdout --separate-output                                                               \
-    --title "afterFormat - Pós Formatação para Ubuntu 10.04 LST"                                            \
+    --title "afterFormat - Pós Formatação para as versões 10.x do Ubuntu"                                   \
     --checklist 'Selecione os softwares que deseja instalar:' 0 0 0                                         \
     Desktop         "Muda \"Área de Trabalho\" para \"Desktop\" *(Apenas ptBR)"                         ON  \
     Botões          "Muda os botões minimizar, maximizar e fechar para a direita"                       ON  \
@@ -293,8 +293,8 @@ do
     if [ "$opcao" = 'Firefox' ]
     then
         wget -O /tmp/firefox-firebug.xpi https://addons.mozilla.org/pt-BR/firefox/downloads/latest/1843/addon-1843-latest.xpi?src=addondetail
-        # A versão 1.1.8 (atual neste momento) não é compatível com o Firefox 3.6.3 padrão do Ubuntu 10.04
-        #wget -O /tmp/firefox-webDeveloper.xpi https://addons.mozilla.org/pt-BR/firefox/downloads/latest/60/addon-60-latest.xpi?src=addondetail
+        wget -O /tmp/firefox-yslow.xpi https://addons.mozilla.org/pt-BR/firefox/downloads/latest/5369/addon-5369-latest.xpi?src=addondetail
+        wget -O /tmp/firefox-webDeveloper.xpi https://addons.mozilla.org/pt-BR/firefox/downloads/latest/60/addon-60-latest.xpi?src=addondetail
         wget -O /tmp/firefox-downloadHelper.xpi https://addons.mozilla.org/pt-BR/firefox/downloads/latest/3006/addon-3006-latest.xpi?src=addondetail
         wget -O /tmp/firefox-downThemAll.xpi https://addons.mozilla.org/en-US/firefox/downloads/latest/201/addon-201-latest.xpi?src=addondetail
         sudo mv /tmp/firefox-* /usr/lib/firefox-3*/extensions

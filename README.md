@@ -5,7 +5,7 @@ Instala automaticamente diversos softwares b&aacute;sicos que sempre s&atilde;o 
 ap&oacute;s uma formata&ccedil;&atilde;o. O PC deve estar conectado &agrave; internet. O tempo de
 instala&ccedil;&atilde;o depender&aacute; da velocidade de sua conex&atilde;o.
 
-**Obs**.: Este script est&aacute; validado apenas para o **Ubuntu 10.10**.
+**Obs**.: Este script est&aacute; validado apenas as versões **10.x do Ubuntu**.
 Para outras vers&otilde;es do Ubuntu verifique os branches.
 
 
@@ -78,8 +78,10 @@ SOFTWARES E CONFIGURA&Ccedil;&Otilde;ES
 * **Jdownloader**       - Baixa automaticamente do rapidshare, megaupload e etc
 * **Firefox**           - Complementos para o firefox
     * **FireBug**               - Ferramenta para desenvolvimento web
-    * **Video DownloadHelper**  - DownloadHelper &eacute; uma ferramenta para extra&ccedil;&atilde;o de v&iacute;deos e arquivos de imagens dos sites
-    * **DownThemAll**           - Acelerador de downloads
+    * **WebDeveloper**          - Ferramenta para desenvolvimento web
+    * **YSlow**                 - Ferramenta para desenvolvimento web
+    * **Video DownloadHelper**  - Ferramenta para extra&ccedil;&atilde;o de v&iacute;deos e arquivos de imagens dos sites
+    * **DownThemAll**           - Acelerador e gerenciador de downloads
 
 EXECUTANDO O SCRIPT
 -------------------
