@@ -134,7 +134,7 @@ do
         `gconftool-2 --set /apps/gedit-2/preferences/editor/font/editor_font -t str Monaco\ 10`
     fi
 
-    if [ "$opcao" = 'Ruby1.8' ]
+    if [ "$opcao" = 'Ruby1.8.7' ]
     then
         sudo apt-get install -y libssl-dev libreadline5-dev
 
@@ -151,7 +151,7 @@ do
         ruby18=1
     fi
 
-    if [ "$opcao" = 'Ruby1.9' ]
+    if [ "$opcao" = 'Ruby1.9.7' ]
     then
         if [ "$ruby18" -ne 1 ]
         then
