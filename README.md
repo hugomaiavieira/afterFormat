@@ -31,7 +31,7 @@ SOFTWARES E CONFIGURA&Ccedil;&Otilde;ES
     * Instala os pacotes: *ipython, python-dev*
     * Instala o distribute, pip, virtualenv e virtualenvwrapper
     * Configura a vari&aacute;vel WORKON_HOME, usada pelo virtualenvwrapper como diret&oacute;rio que concentra os ambientes virtuais, para ser ~/envs
-    * Adiciona a linha `source /usr/local/bin/virtualenvwrapper.sh` no arquivo` ~/bashrc, para sempre habilitar os comandos do virtualenvwrapper
+    * Adiciona a linha `source /usr/local/bin/virtualenvwrapper.sh` no arquivo ~/bashrc, para sempre habilitar os comandos do virtualenvwrapper
 * **MySql**             - Banco de dados + interface para ruby e python (caso forem escolhidos)
     * Instala os pacotes: *mysql-server-5.1, libmysqlclient16-dev*
 * **PostgreSQL**        - Banco de dados + interface para ruby e python (caso forem escolhidos)
