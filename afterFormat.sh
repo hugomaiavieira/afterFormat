@@ -119,7 +119,7 @@ do
 
     [ "$opcao" = 'PS1' ] && echo 'export PS1="\[\033[36m\]\u \[\033[33m\]\w \[\033[34m\]\`branch=\$(git branch 2> /dev/null | grep \"\* .*\" | grep -Pwo \".*\") && test -n \$branch && echo \"(\$branch) \"\`\[\033[00m\]$ "' >> $HOME/.bashrc
 
-    [ "$opcao" = 'SHH' ] && sudo apt-get install -y openssh-server openssh-client
+    [ "$opcao" = 'SSH' ] && sudo apt-get install -y openssh-server openssh-client
 
     if [ "$opcao" = 'Monaco' ]
     then
