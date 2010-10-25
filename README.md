@@ -1,20 +1,20 @@
 AFTER FORMAT
 ============
 
-Instala automaticamente diversos softwares b&aacute;sicos que sempre s&atilde;o necess&aacute;rios
-ap&oacute;s uma formata&ccedil;&atilde;o. O PC deve estar conectado &agrave; internet. O tempo de
-instala&ccedil;&atilde;o depender&aacute; da velocidade de sua conex&atilde;o.
+Instala automaticamente diversos softwares básicos que sempre são necessários
+após uma formatação. O PC deve estar conectado à internet. O tempo de
+instalação dependerá da velocidade de sua conexão.
 
-**Obs**.: Este script est&aacute; validado apenas as versões **10.x do Ubuntu**.
-Para outras vers&otilde;es do Ubuntu verifique os branches.
+**Obs**.: Este script está validado apenas as versões **10.x do Ubuntu**.
+Para outras versões do Ubuntu verifique os branches.
 
 
-SOFTWARES E CONFIGURA&Ccedil;&Otilde;ES
+SOFTWARES E CONFIGURAÇÕES
 ---------------------------------------
 
-* **Desktop**           - Muda "&Aacute;rea de Trabalho" para "Desktop"
-* **Bot&otilde;es**     - Muda os bot&otilde;es minimizar, maximizar e fechar para a direita
-* **PS1**               - $PS1 no formato: <span style="padding: 2px; font-family: monospace"><span style="color: #06989A;">usu&aacute;rio</span> <span style="color: #B8A000;">~/diret&oacute;rio/atual</span> <span style="color: #3465a4;">(git_branch_atual)</span> $</span>
+* **Desktop**           - Muda "Área de Trabalho" para "Desktop"
+* **Botões**     - Muda os botões minimizar, maximizar e fechar para a direita
+* **PS1**               - $PS1 no formato: <span style="padding: 2px; font-family: monospace"><span style="color: #06989A;">usuário</span> <span style="color: #B8A000;">~/diretório/atual</span> <span style="color: #3465a4;">(git_branch_atual)</span> $</span>
 * **SSH**               - Instala o ssh cliente e servidor
     * Instala os pacotes: *openssh-server, openssh-client*
 * **Ruby1.8.7**           - Ambiente para desenvolvimento com Ruby1.8.7
@@ -30,7 +30,7 @@ SOFTWARES E CONFIGURA&Ccedil;&Otilde;ES
 * **Python**            - Ferramentas para desenvolvimento python
     * Instala os pacotes: *ipython, python-dev*
     * Instala o distribute, pip, virtualenv e virtualenvwrapper
-    * Configura a vari&aacute;vel WORKON_HOME, usada pelo virtualenvwrapper como diret&oacute;rio que concentra os ambientes virtuais, para ser ~/envs
+    * Configura a variável WORKON_HOME, usada pelo virtualenvwrapper como diretório que concentra os ambientes virtuais, para ser ~/envs
     * Adiciona a linha `source /usr/local/bin/virtualenvwrapper.sh` no arquivo ~/bashrc, para sempre habilitar os comandos do virtualenvwrapper
 * **MySql**             - Banco de dados + interface para ruby e python (caso forem escolhidos)
     * Instala os pacotes: *mysql-server-5.1, libmysqlclient16-dev*
@@ -38,59 +38,59 @@ SOFTWARES E CONFIGURA&Ccedil;&Otilde;ES
     * Instala o pacote: *postgresql*
 * **Java**              - Java Development Kit e Java Runtime Environment
     * Instala os pacotes: *openjdk-6-jdk, openjdk-6-jre*
-* **SVN**               - Sistema de controle de vers&atilde;o
-* **Git**               - Sistema de controle de vers&atilde;o + configura&ccedil;&otilde;es &uacute;teis
+* **SVN**               - Sistema de controle de versão
+* **Git**               - Sistema de controle de versão + configurações úteis
     * Instala o pacote: *git-core*
-    * Configura o git para exibir com cores as sa&iacute;das de seus comandos
-    * Cria as abrevia&ccedil;&otilde;es
+    * Configura o git para exibir com cores as saídas de seus comandos
+    * Cria as abreviações
         * br para branch
         * ci para commit
         * co para checkout
         * st status
-    * Caso seja escolhida tamb&eacute;m a op&ccedil;&atilde;o Vim, configura o Vim para ser o editor padr&atilde;o do git
-* **GitMeldDiff**       - Torna o Meld o software para visualiza&ccedil;&atilde;o do diff do git
-* **VIM**               - Editor de texto + configura&ccedil;&otilde;es &uacute;teis
+    * Caso seja escolhida também a opção Vim, configura o Vim para ser o editor padrão do git
+* **GitMeldDiff**       - Torna o Meld o software para visualização do diff do git
+* **VIM**               - Editor de texto + configurações úteis
     * Instala o pacote: *vim*
-    * Criar o arquivo `/etc/vim/vimrc.local` com diversas configura&ccedil;&otilde;es &uacute;teis
-* **Gedit**             - Plugins oficiais, Gmate + configura&ccedil;&otilde;es &uacute;teis
-    * Adiciona o reposit&oacute;rio *ubuntu-on-rails*
+    * Criar o arquivo `/etc/vim/vimrc.local` com diversas configurações úteis
+* **Gedit**             - Plugins oficiais, Gmate + configurações úteis
+    * Adiciona o repositório *ubuntu-on-rails*
     * Instala os pacotes: *gedit-plugins, gedit-gmate*
-    * Seleciona os plugins mais &uacute;teis e faz algumas configura&ccedil;&otilde;es no editor
+    * Seleciona os plugins mais úteis e faz algumas configurações no editor
     * Instala o Batraquio (coleção de snippets e tools para desenvolvimento com BDD usando)
 * **Refactoring**       - Conjunto de scripts para refatoração de código
     * Instala os scripts, criando links simbólicos e ativando os comandos: change-file-name, find-replace, html-characters e remove-temps
-* **StarDict**          - Dicion&aacute;rio multi-l&iacute;nguas
-    * Inclui dicion&aacute;rios Ingl&ecirc;s-Portugu&ecirc;s e Portugu&ecirc;s-Ingl&ecirc;s
-* **Xournal**           - Software para fazer anota&ccedil;&otilde;es e marcar texto em pdf
+* **StarDict**          - Dicionário multi-línguas
+    * Inclui dicionários Inglês-Português e Português-Inglês
+* **Xournal**           - Software para fazer anotações e marcar texto em pdf
 * **Media**             - Codecs, flashplayer (32 e 64 bits) e compactadores
     * Instala os pacotes: *ubuntu-restricted-extras, non-free-codecs, libdvdcss2, arj, lha, rar, unace-nonfree, unrar, p7zip, p7zip-full, p7zip-rar*
-    * Verifica se o Ubuntu &eacute; de 32 ou 64 bits e instala o pacote w32codecs ou w64codecs
-* **Gimp**              - Software para manipula&ccedil;&atilde;o de imagens
+    * Verifica se o Ubuntu é de 32 ou 64 bits e instala o pacote w32codecs ou w64codecs
+* **Gimp**              - Software para manipulação de imagens
 * **Inkscape**          - Software para desenho vetorial
-* **RecordMyDesktop**   - Ferramenta para grava&ccedil;&atilde;o do video e &aacute;udio do computador (perfeito para fazer screencasts)
+* **RecordMyDesktop**   - Ferramenta para gravação do video e áudio do computador (perfeito para fazer screencasts)
 * **XChat**             - Cliente IRC
 * **Dia**               - Editor de diagramas
 * **GoogleChrome**      - Navegador web Google Chrome
-    * Instala a vers&atilde;o *estável* do navegador da Google
+    * Instala a versão *estável* do navegador da Google
 * **Skype**             - Cliente do Skype: cliente de (video)conferencia
     * Instala o pacote deb oficial direto do site (32 ou 64 bits)
 * **VirtualBox**        - Sistema de virtualização da Oracle
-    * Adiciona o reposit&oacute;rio do VirtualBox
+    * Adiciona o repositório do VirtualBox
     * Instala o pacote *virtualbox-3.2*
-* **Pidgin**            - Cliente de mensagens instant&acirc;neas
+* **Pidgin**            - Cliente de mensagens instantâneas
 * **Jdownloader**       - Baixa automaticamente do rapidshare, megaupload e etc
 * **Firefox**           - Complementos para o firefox
     * **FireBug**               - Ferramenta para desenvolvimento web
     * **WebDeveloper**          - Ferramenta para desenvolvimento web
     * **YSlow**                 - Ferramenta para desenvolvimento web
-    * **Video DownloadHelper**  - Ferramenta para extra&ccedil;&atilde;o de v&iacute;deos e arquivos de imagens dos sites
+    * **Video DownloadHelper**  - Ferramenta para extração de vídeos e arquivos de imagens dos sites
     * **DownThemAll**           - Acelerador e gerenciador de downloads
 
 EXECUTANDO O SCRIPT
 -------------------
 
-Primeiramente, fa&ccedil;a o download do script clicando no link **Download** no
-topo desta p&aacute;gina. Na tela que abrirá, clique em **Download .tar.gz**.
+Primeiramente, faça o download do script clicando no link **Download** no
+topo desta página. Na tela que abrirá, clique em **Download .tar.gz**.
 
 **Obs.: Nunca rode o script a partir da Área de Trabalho**
 
@@ -105,26 +105,26 @@ Finalmente para executar o script afterFormat.sh:
     $ ./afterFormat.sh
 
 
-INFORMA&Ccedil;&Atilde;O
+INFORMAÇÃO
 ------------------------
 
-Ao executar o script todos os softwares ser&atilde;o instalados automaticamente,
-sendo que o MySql pedir&aacute; para escolher a senha de root durante a
-instala&ccedil;&atilde;o. Os softwares s&atilde;o instalados na ordem em que aparecem na
+Ao executar o script todos os softwares serão instalados automaticamente,
+sendo que o MySql pedirá para escolher a senha de root durante a
+instalação. Os softwares são instalados na ordem em que aparecem na
 lista.
 
 
 CONFIGURANDO O STARDICT
 -----------------------
 
-V&aacute; em Aplicativos->Acess&oacute;rios->StarDict
+Vá em Aplicativos->Acessórios->StarDict
 
-1. No canto inferior direito clique no &iacute;cone "Prefer&ecirc;ncias". V&aacute; em
-    Dicion&aacute;rio->Leitura e sele&ccedil;&atilde;o, marque "Somente ler se uma tecla ..." e
-    escolha uma tecla modificadora (a tecla Win &eacute; a tecla com o logo do
+1. No canto inferior direito clique no ícone "Preferências". Vá em
+    Dicionário->Leitura e seleção, marque "Somente ler se uma tecla ..." e
+    escolha uma tecla modificadora (a tecla Win é a tecla com o logo do
     Windowns). Clique em fechar.
 
-2. No canto inferior direito clique no &iacute;cone "Administrar dicion&aacute;rios". Na
+2. No canto inferior direito clique no ícone "Administrar dicionários". Na
     aba Administrar Dic desmarque todas as entradas "QQWry", "Man" e
     "Dict.cn". Clique em fechar
 
