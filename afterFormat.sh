@@ -215,6 +215,9 @@ do
         `gconftool-2 --set /apps/gedit-2/preferences/editor/wrap_mode/wrap_mode -t str GTK_WRAP_NONE`
         `gconftool-2 --set /apps/gedit-2/preferences/ui/bottom_panel/bottom_panel_visible -t bool true`
         `gconftool-2 --set /apps/gedit-2/preferences/ui/side_pane/side_pane_visible -t bool true`
+        wget -O /tmp/batraquio.tar.gz http://github.com/hugomaiavieira/batraquio/tarball/master
+        tar zxvf /tmp/batraquio.tar.gz -C /tmp
+        /tmp/hugomaiavieira-batraquio*/install.sh --yes
     fi
 
     if [ "$opcao" = 'Media' ]

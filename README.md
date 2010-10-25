@@ -56,6 +56,7 @@ SOFTWARES E CONFIGURA&Ccedil;&Otilde;ES
     * Adiciona o reposit&oacute;rio *ubuntu-on-rails*
     * Instala os pacotes: *gedit-plugins, gedit-gmate*
     * Seleciona os plugins mais &uacute;teis e faz algumas configura&ccedil;&otilde;es no editor
+    * Instala o Batraquio (coleção de snippets e tools para desenvolvimento com BDD usando)
 * **StarDict**          - Dicion&aacute;rio multi-l&iacute;nguas
     * Inclui dicion&aacute;rios Ingl&ecirc;s-Portugu&ecirc;s e Portugu&ecirc;s-Ingl&ecirc;s
 * **Xournal**           - Software para fazer anota&ccedil;&otilde;es e marcar texto em pdf
