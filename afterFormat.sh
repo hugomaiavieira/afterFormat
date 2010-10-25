@@ -80,6 +80,7 @@ opcoes=$( dialog --stdout --separate-output                                     
     Java            "Java Development Kit e Java Runtime Environment"                                   ON  \
     VIM             "Editor de texto + configurações úteis"                                             ON  \
     Gedit           "Plugins oficiais, Gmate + configurações úteis"                                     ON  \
+    Refactoring     "Conjunto de scripts para refatoração de código"                                    ON  \
     SVN             "Sistema de controle de versão"                                                     ON  \
     Git             "Sistema de controle de versão + configurações úteis"                               ON  \
     GitMeldDiff     "Torna o Meld o software para visualização do diff do git"                          ON  \
@@ -218,6 +219,13 @@ do
         wget -O /tmp/batraquio.tar.gz http://github.com/hugomaiavieira/batraquio/tarball/master
         tar zxvf /tmp/batraquio.tar.gz -C /tmp
         /tmp/hugomaiavieira-batraquio*/install.sh --yes
+    fi
+
+    if [ "$opcao" = 'Refactoring' ]
+    then
+        wget -O /tmp/refactoring-scripts.tar.gz http://github.com/hugomaiavieira/refactoring-scripts/tarball/master
+        tar zxvf /tmp/refactoring-scripts.tar.gz -C /tmp
+        /tmp/hugomaiavieira-refactoring-scripts*/install.sh
     fi
 
     if [ "$opcao" = 'Media' ]

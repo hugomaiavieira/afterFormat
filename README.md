@@ -57,6 +57,8 @@ SOFTWARES E CONFIGURA&Ccedil;&Otilde;ES
     * Instala os pacotes: *gedit-plugins, gedit-gmate*
     * Seleciona os plugins mais &uacute;teis e faz algumas configura&ccedil;&otilde;es no editor
     * Instala o Batraquio (coleção de snippets e tools para desenvolvimento com BDD usando)
+* **Refactoring**       - Conjunto de scripts para refatoração de código
+    * Instala os scripts, criando links simbólicos e ativando os comandos: change-file-name, find-replace, html-characters e remove-temps
 * **StarDict**          - Dicion&aacute;rio multi-l&iacute;nguas
     * Inclui dicion&aacute;rios Ingl&ecirc;s-Portugu&ecirc;s e Portugu&ecirc;s-Ingl&ecirc;s
 * **Xournal**           - Software para fazer anota&ccedil;&otilde;es e marcar texto em pdf
