@@ -125,7 +125,7 @@ do
     if [ "$opcao" = 'Monaco' ]
     then
         sudo mkdir /usr/share/fonts/macfonts
-        sudo wget -O /usr/share/fonts/macfonts/Monaco_Linux.ttf http://github.com/downloads/hugomaiavieira/afterFormat/Monaco_Linux.ttf
+        sudo wget -O /usr/share/fonts/macfonts/Monaco_Linux.ttf http://github.com/downloads/hugomaiavieira/afterFormat/Monaco_Linux.ttf --no-check-certificate
         sudo fc-cache -f -v
         # Configura para o terminal
         `gconftool-2 --set /apps/gnome-terminal/profiles/Default/use_system_font -t bool false`
