@@ -101,7 +101,7 @@ Em seguida, descompacte o arquivo rodando no terminal (supondo que você baixou 
 
 Finalmente para executar o script afterFormat.sh:
 
-    $ cd hugomaiavieira-afterFormat-*.tar.gz
+    $ cd hugomaiavieira-afterFormat-*
     $ ./afterFormat.sh
 
 
@@ -139,4 +139,3 @@ AUTOR
   Hugo Henriques Maia Vieira <hugomaiavieira@gmail.com>
 
   12 de Outubro de 2010
-
