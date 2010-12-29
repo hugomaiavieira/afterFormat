@@ -53,18 +53,18 @@ vim=0
 
 # ====================    Pegando arquitetura do sistema    ====================
 
-uname -a | grep i686 1>& /dev/null # Ubuntu 32 bits
-[ $? = 0 ] && arquitetura=x86
-
-uname -a | grep x86_64 1>& /dev/null # Ubuntu 64 bits
-[ $? = 0 ] && arquitetura=x86_64
+if [ `uname -m` = 'i686' ]; then    # Ubuntu 32 bits
+    arquitetura='x86'
+else                                # Ubuntu 64 bits
+    arquitetura='x86_64'
+fi
 
 #================================ Menu =========================================
 
 # Instala o dialog
 sudo apt-get install -y dialog > /dev/null
 
-opcoes=$( dialog --stdout --separate-output                                                               \
+opcoes=$( dialog --stdout --separate-output                                                                 \
     --title "afterFormat - Pós Formatação para as versões 10.x do Ubuntu"                                   \
     --checklist 'Selecione os softwares que deseja instalar:' 0 0 0                                         \
     Desktop         "Muda \"Área de Trabalho\" para \"Desktop\" *(Apenas ptBR)"                         ON  \
@@ -365,4 +365,3 @@ done
 dialog --title 'Aviso' \
         --msgbox 'Instalação concluída!' \
 0 0
-
