@@ -64,7 +64,6 @@ SOFTWARES E CONFIGURAÇÕES
 * **Gimp**              - Software para manipulação de imagens
 * **Inkscape**          - Software para desenho vetorial
 * **XChat**             - Cliente IRC
-* **Dia**               - Editor de diagramas
 * **GoogleChrome**      - Navegador web Google Chrome
     * Instala a versão *estável* do navegador da Google
 * **Skype**             - Cliente do Skype: cliente de (video)conferencia
