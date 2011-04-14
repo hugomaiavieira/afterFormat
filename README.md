@@ -74,13 +74,6 @@ SOFTWARES E CONFIGURAÇÕES
     * Adiciona o repositório do VirtualBox
     * Instala o pacote *virtualbox-3.2*
 * **Pidgin**            - Cliente de mensagens instantâneas
-* **Jdownloader**       - Baixa automaticamente do rapidshare, megaupload e etc
-* **Firefox**           - Complementos para o firefox
-    * **FireBug**               - Ferramenta para desenvolvimento web
-    * **WebDeveloper**          - Ferramenta para desenvolvimento web
-    * **YSlow**                 - Ferramenta para desenvolvimento web
-    * **Video DownloadHelper**  - Ferramenta para extração de vídeos e arquivos de imagens dos sites
-    * **DownThemAll**           - Acelerador e gerenciador de downloads
 
 EXECUTANDO O SCRIPT
 -------------------

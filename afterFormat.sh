@@ -92,9 +92,7 @@ opcoes=$( dialog --stdout --separate-output                                     
     GoogleChrome    "Navegador web Google Chrome"                                                       ON  \
     Skype           "Cliente para rede Skype"                                                           ON  \
     VirtualBox      "Sistema de virtualização da Oracle (não Open Source)"                              ON  \
-    Pidgin          "Cliente de mensagens instantâneas"                                                 ON  \
-    Jdownloader     "Baixa automaticamente do rapidshare, megaupload e etc"                             ON  \
-    Firefox         "Complementos para o firefox"                                                       ON  )
+    Pidgin          "Cliente de mensagens instantâneas"                                                 ON  )
 
 #=============================== Processamento =================================
 
@@ -290,19 +288,6 @@ do
         fi
     fi
 
-    if [ "$opcao" = 'Firefox' ]
-    then
-        wget -O /tmp/firefox-firebug.xpi https://addons.mozilla.org/pt-BR/firefox/downloads/latest/1843/addon-1843-latest.xpi?src=addondetail
-        wget -O /tmp/firefox-yslow.xpi https://addons.mozilla.org/pt-BR/firefox/downloads/latest/5369/addon-5369-latest.xpi?src=addondetail
-        wget -O /tmp/firefox-downloadHelper.xpi https://addons.mozilla.org/pt-BR/firefox/downloads/latest/3006/addon-3006-latest.xpi?src=addondetail
-        wget -O /tmp/firefox-downThemAll.xpi https://addons.mozilla.org/en-US/firefox/downloads/latest/201/addon-201-latest.xpi?src=addondetail
-        sudo mv /tmp/firefox-* /usr/lib/firefox-3*/extensions
-        dialog --title 'Complementos do Firefox' \
-            --msgbox 'Aceite a instalação dos complementos e em seguida o encerre o Firefox.' \
-        0 0
-        sudo firefox
-    fi
-
     if [ "$opcao" = 'Git' ]
     then
         sudo apt-get install -y git-core
@@ -329,11 +314,6 @@ do
     [ "$opcao" = 'Dia' ]                && sudo apt-get install -y dia
     [ "$opcao" = 'Pidgin' ]             && sudo apt-get install -y pidgin
 
-    if [ "$opcao" = 'Jdownloader' ]
-    then
-        sudo ./repositorios.sh "jdownloader"
-        sudo apt-get install --force-yes -y jdownloader
-    fi
 done
 
 dialog --title 'Aviso' \

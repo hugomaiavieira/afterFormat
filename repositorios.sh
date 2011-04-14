@@ -61,16 +61,9 @@ then
     sudo apt-get update
 fi
 
-if [ "$1" = "jdownloader" ]
-then
-    sudo add-apt-repository ppa:jd-team/jdownloader
-    sudo apt-get update
-fi
-
 if [ "$1" = "virtualbox" ]
 then
     sudo echo deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) non-free > /etc/apt/sources.list.d/virtualbox.list
     sudo apt-key add oracle_vbox.asc
     sudo apt-get update
 fi
-
