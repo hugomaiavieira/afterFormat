@@ -82,7 +82,6 @@ opcoes=$( dialog --stdout --separate-output                                     
     Git             "Sistema de controle de versão + configurações úteis"                               ON  \
     GitMeldDiff     "Torna o Meld o software para visualização do diff do git"                          ON  \
     StarDict        "Dicionário multi-línguas (inclui dicionário PTbr-En/En-PTbr)"                      ON  \
-    Xournal         "Software para fazer anotações e marcar texto em pdf"                               ON  \
     Media           "Codecs, flashplayer (32/64 bits, nativo) e compactadores de arquivos"              ON  \
     Gimp            "Software para manipulação de imagens"                                              ON  \
     Inkscape        "Software para desenho vetorial"                                                    ON  \
