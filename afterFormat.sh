@@ -68,7 +68,8 @@ opcoes=$( dialog --stdout --separate-output                                     
     Desktop         "Muda \"Área de Trabalho\" para \"Desktop\" *(Apenas ptBR)"                         ON  \
     Botões          "Muda os botões minimizar, maximizar e fechar para a direita"                       ON  \
     PS1             "\$PS1 no formato: usuário ~/diretório/atual (BranchGit)"                           ON  \
-    Monaco          "Adiciona fonte Monaco (padrão do TextMate) e seleciona para o Gedit e o Terminal " ON  \
+    Monaco          "Adiciona fonte Monaco (padrão do TextMate) e seleciona para o Gedit e o Terminal"  ON  \
+    GnomeDO         "Abra rapidamente aplicativos e arquivos, navegue por seus diretórios e muito mais" ON  \
     SSH             "SSH server e client"                                                               ON  \
     MySql           "Banco de dados"                                                                    ON  \
     PostgreSQL      "Banco de dados"                                                                    ON  \
@@ -85,9 +86,7 @@ opcoes=$( dialog --stdout --separate-output                                     
     Media           "Codecs, flashplayer (32/64 bits, nativo) e compactadores de arquivos"              ON  \
     Gimp            "Software para manipulação de imagens"                                              ON  \
     Inkscape        "Software para desenho vetorial"                                                    ON  \
-    RecordMyDesktop "Ferramenta para gravação do video e áudio do computador"                           ON  \
     XChat           "Cliente IRC"                                                                       ON  \
-    Dia             "Editor de diagramas"                                                               ON  \
     GoogleChrome    "Navegador web Google Chrome"                                                       ON  \
     Skype           "Cliente para rede Skype"                                                           ON  \
     VirtualBox      "Sistema de virtualização da Oracle (não Open Source)"                              ON  \
@@ -301,6 +300,7 @@ do
         [ "$vim" -eq 1 ] && git config --global core.editor vim
     fi
 
+    [ "$opcao" = 'GnomeDO' ]            && sudo apt-get install -y gnome-do gnome-do-plugins
     [ "$opcao" = 'MySql' ]              && sudo apt-get install -y mysql-server-5.1 libmysqlclient16-dev
     [ "$opcao" = 'PostgreSQL' ]         && sudo apt-get install -y postgresql
     [ "$opcao" = 'Java' ]               && sudo apt-get install -y openjdk-6-jdk openjdk-6-jre

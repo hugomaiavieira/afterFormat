@@ -17,6 +17,8 @@ SOFTWARES E CONFIGURAÇÕES
 * **PS1**               - $PS1 no formato:
     * Sem ruby instalado: **usuário ~/diretório/atual (git_branch_atual) $**
     * Com ruby instalado: **(versao_do_ruby_ativa@gemset_ativa) usuário ~/diretório/atual (git_branch_atual) $**
+* **GnomeDO**           - Abra rapidamente aplicativos e arquivos, navegue por seus diretórios e muito mais
+    * Instala os pacotes: *gnome-do e gnome-do-plugins*
 * **SSH**               - Instala o ssh cliente e servidor
     * Instala os pacotes: *openssh-server, openssh-client*
 * **Ruby1.9.2**           - Ambiente para desenvolvimento com Ruby1.9.2
