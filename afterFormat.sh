@@ -309,7 +309,6 @@ do
     [ "$opcao" = 'Gimp' ]               && sudo apt-get install -y gimp
     [ "$opcao" = 'Xournal' ]            && sudo apt-get install -y xournal
     [ "$opcao" = 'Inkscape' ]           && sudo apt-get install -y inkscape
-    [ "$opcao" = 'RecordMyDesktop' ]    && sudo apt-get install -y gtk-recordmydesktop
     [ "$opcao" = 'XChat' ]              && sudo apt-get install -y xchat
     [ "$opcao" = 'Dia' ]                && sudo apt-get install -y dia
     [ "$opcao" = 'Pidgin' ]             && sudo apt-get install -y pidgin

@@ -63,7 +63,6 @@ SOFTWARES E CONFIGURAÇÕES
     * Verifica se o Ubuntu é de 32 ou 64 bits e instala o pacote w32codecs ou w64codecs
 * **Gimp**              - Software para manipulação de imagens
 * **Inkscape**          - Software para desenho vetorial
-* **RecordMyDesktop**   - Ferramenta para gravação do video e áudio do computador (perfeito para fazer screencasts)
 * **XChat**             - Cliente IRC
 * **Dia**               - Editor de diagramas
 * **GoogleChrome**      - Navegador web Google Chrome
