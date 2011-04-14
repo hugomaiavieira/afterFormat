@@ -47,8 +47,6 @@
 # Mandinga para pegar o diretório onde o script foi executado
 FOLDER=$(cd $(dirname $0); pwd -P)
 
-ruby18=0
-ruby19=0
 vim=0
 
 # ====================    Pegando arquitetura do sistema    ====================
@@ -74,7 +72,6 @@ opcoes=$( dialog --stdout --separate-output                                     
     SSH             "SSH server e client"                                                               ON  \
     MySql           "Banco de dados"                                                                    ON  \
     PostgreSQL      "Banco de dados"                                                                    ON  \
-    Ruby1.8.7       "rvm com Ruby1.8.7"                                                                 ON  \
     Ruby1.9.2       "rvm com Ruby1.9.2"                                                                 ON  \
     Python          "Ferramentas para desenvolvimento python"                                           ON  \
     Java            "Java Development Kit e Java Runtime Environment"                                   ON  \
@@ -135,41 +132,18 @@ do
         `gconftool-2 --set /apps/gedit-2/preferences/editor/font/editor_font -t str Monaco\ 10`
     fi
 
-    if [ "$opcao" = 'Ruby1.8.7' ]
+    if [ "$opcao" = 'Ruby1.9.2' ]
     then
         sudo apt-get install -y libssl-dev libreadline5-dev
 
-        # rvm geral
+        # instala o rvm
         sudo apt-get install -y curl
         bash < <( curl http://rvm.beginrescueend.com/releases/rvm-install-latest )
         echo "[ -s \$HOME/.rvm/scripts/rvm ] && source \$HOME/.rvm/scripts/rvm" >> $HOME/.bashrc
         [ -s $HOME/.rvm/scripts/rvm ] && source $HOME/.rvm/scripts/rvm
-        # mostra versão do ruby que está ativa no inicio da variável PS1
-        echo 'export PS1="\`ruby=\$(which ruby 1> /dev/null && ruby -v 2> /dev/null | grep -oP \"^.+?[0-9]+(\.[0-9]+)+\") && echo \"(\$ruby) \"\`$PS1"'  >> $HOME/.bashrc
 
-        # ruby 1.8.7 no rvm
-        rvm install ruby-1.8.7
-        ruby18=1
-    fi
-
-    if [ "$opcao" = 'Ruby1.9.2' ]
-    then
-        if [ "$ruby18" -ne 1 ]
-        then
-            sudo apt-get install -y libssl-dev libreadline5-dev
-
-            # rvm geral
-            sudo apt-get install -y curl
-            bash < <( curl http://rvm.beginrescueend.com/releases/rvm-install-latest )
-            echo "[ -s \$HOME/.rvm/scripts/rvm ] && source \$HOME/.rvm/scripts/rvm" >> $HOME/.bashrc
-            [ -s $HOME/.rvm/scripts/rvm ] && source $HOME/.rvm/scripts/rvm
-            # mostra versão do ruby que está ativa no inicio da variável PS1
-            echo 'export PS1="\`ruby=\$(which ruby 1> /dev/null && ruby -v 2> /dev/null | grep -oP \"^.+?[0-9]+(\.[0-9]+)+\") && echo \"(\$ruby) \"\`$PS1"'  >> $HOME/.bashrc
-        fi
-
-        # ruby 1.9.2 no rvm
+        # intala o ruby 1.9.2 no rvm
         rvm install ruby-1.9.2
-        ruby19=1
     fi
 
     if [ "$opcao" = 'Python' ]

@@ -13,20 +13,16 @@ SOFTWARES E CONFIGURAÇÕES
 ---------------------------------------
 
 * **Desktop**           - Muda "Área de Trabalho" para "Desktop"
-* **Botões**     - Muda os botões minimizar, maximizar e fechar para a direita
-* **PS1**               - $PS1 no formato: <span style="padding: 2px; font-family: monospace"><span style="color: #06989A;">usuário</span> <span style="color: #B8A000;">~/diretório/atual</span> <span style="color: #3465a4;">(git_branch_atual)</span> $</span>
+* **Botões**            - Muda os botões minimizar, maximizar e fechar para a direita
+* **PS1**               - $PS1 no formato:
+    * Sem ruby instalado: **usuário ~/diretório/atual (git_branch_atual) $**
+    * Com ruby instalado: **(versao_do_ruby_ativa@gemset_ativa) usuário ~/diretório/atual (git_branch_atual) $**
 * **SSH**               - Instala o ssh cliente e servidor
     * Instala os pacotes: *openssh-server, openssh-client*
-* **Ruby1.8.7**           - Ambiente para desenvolvimento com Ruby1.8.7
-    * Instala os pacotes: *libssl-dev, libreadline5-dev*
-    * Instala o *rvm*
-    * Instala o *ruby-1.8.7* no *rvm*
-    * Adiciona a versão do ruby ativa na variável PS1.
 * **Ruby1.9.2**           - Ambiente para desenvolvimento com Ruby1.9.2
     * Instala os pacotes: *libssl-dev, libreadline5-dev*
     * Instala o *rvm*
     * Instala o *ruby-1.9.2* no *rvm*
-    * Adiciona a versão do ruby ativa na variável PS1.
 * **Python**            - Ferramentas para desenvolvimento python
     * Instala os pacotes: *ipython, python-dev*
     * Instala o distribute, pip, virtualenv e virtualenvwrapper
