@@ -268,6 +268,21 @@ do
         sudo tar zxvf /tmp/Dicionarios_StarDict.tar.gz -C /usr/share/stardict/dic
     fi
 
+    if [ "$opcao" = 'Git' ]
+    then
+        sudo apt-get install -y git-core
+        # Cores
+        git config --global color.ui auto
+        # Alias
+        git config --global alias.br branch
+        git config --global alias.ci commit
+        git config --global alias.co checkout
+        git config --global alias.st status
+        git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+        # Editor
+        [ "$vim" -eq 1 ] && git config --global core.editor vim
+    fi
+
     if [ "$opcao" = 'GitMeldDiff' ]
     then
         git --version 2> /dev/null
@@ -284,20 +299,6 @@ do
             --msgbox 'Para tornar o Meld o software para visualização do diff do git, o git deve estar instalado. Para isto, rode novamente o script marcando as opções Git e GitMeldDiff.' \
             0 0
         fi
-    fi
-
-    if [ "$opcao" = 'Git' ]
-    then
-        sudo apt-get install -y git-core
-        # Cores
-        git config --global color.ui auto
-        # Alias
-        git config --global alias.br branch
-        git config --global alias.ci commit
-        git config --global alias.co checkout
-        git config --global alias.st status
-        # Editor
-        [ "$vim" -eq 1 ] && git config --global core.editor vim
     fi
 
     [ "$opcao" = 'GnomeDO' ]            && sudo apt-get install -y gnome-do gnome-do-plugins
