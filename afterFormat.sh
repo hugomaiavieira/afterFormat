@@ -47,15 +47,10 @@
 # Mandinga para pegar o diretório onde o script foi executado
 FOLDER=$(cd $(dirname $0); pwd -P)
 
+# Pegando arquitetura do sistema. Valores de retorno: '32-bit' ou '64-bit'
+arquitetura=`file /bin/bash | cut -d' ' -f3`
+
 vim=0
-
-# ====================    Pegando arquitetura do sistema    ====================
-
-if [ `uname -m` = 'i686' ]; then    # Ubuntu 32 bits
-    arquitetura='x86'
-else                                # Ubuntu 64 bits
-    arquitetura='x86_64'
-fi
 
 #================================ Menu =========================================
 
@@ -204,10 +199,10 @@ do
         sudo apt-get install --force-yes -y ubuntu-restricted-extras non-free-codecs libdvdcss2
         sudo apt-get install --force-yes -y arj lha rar unace-nonfree unrar p7zip p7zip-full p7zip-rar
 
-        if [ "$arquitetura" = "x86" ]
+        if [ "$arquitetura" = "32-bit" ]
         then
             sudo apt-get install --force-yes -y w32codecs
-        elif [ "$arquitetura" = "x86_64" ]
+        elif [ "$arquitetura" = "64-bit" ]
         then
             sudo apt-get install --force-yes -y w64codecs
             # Removendo qualquer versão do Flashplayer 32 bits para que não haja conflitos
@@ -220,11 +215,11 @@ do
     if [ "$opcao" = 'GoogleChrome' ]
     then
 
-        if [ "$arquitetura" = 'x86' ]
+        if [ "$arquitetura" = '32-bit' ]
         then
             wget -O /tmp/google-chrome-stable-i386.deb http://dl.google.com/linux/direct/google-chrome-stable_current_i386.deb
             sudo dpkg -i /tmp/google-chrome-stable-i386.deb
-        elif [ "$arquitetura" = 'x86_64' ]
+        elif [ "$arquitetura" = '64-bit' ]
         then
             wget -O /tmp/google-chrome-stable-amd64.deb http://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
             sudo dpkg -i /tmp/google-chrome-stable-amd64.deb
@@ -238,11 +233,11 @@ do
         # Baixando dependências
         sudo apt-get install -y libqtgui4 libqt4-dbus libqt4-network libqt4-xml libasound2
 
-        if [ "$arquitetura" = 'x86' ]
+        if [ "$arquitetura" = '32-bit' ]
         then
             wget -O /tmp/skype-i386.deb http://www.skype.com/go/getskype-linux-beta-ubuntu-32
             sudo dpkg -i /tmp/skype-i386.deb
-        elif [ "$arquitetura" = 'x86_64' ]
+        elif [ "$arquitetura" = '64-bit' ]
         then
             wget -O /tmp/skype-amd64.deb http://www.skype.com/go/getskype-linux-beta-ubuntu-64
             sudo dpkg -i /tmp/skype-amd64.deb
