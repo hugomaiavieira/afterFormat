@@ -68,10 +68,7 @@ SOFTWARES E CONFIGURAÇÕES
     * Instala a versão *estável* do navegador da Google
 * **Skype**             - Cliente do Skype: cliente de (video)conferencia
     * Instala o pacote deb oficial direto do site (32 ou 64 bits)
-* **VirtualBox**        - Sistema de virtualização da Oracle
-    * Adiciona o repositório do VirtualBox
-    * Instala o pacote *virtualbox-3.2*
-* **Pidgin**            - Cliente de mensagens instantâneas
+
 
 EXECUTANDO O SCRIPT
 -------------------

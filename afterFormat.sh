@@ -83,9 +83,7 @@ opcoes=$( dialog --stdout --separate-output                                     
     Inkscape        "Software para desenho vetorial"                                                    ON  \
     XChat           "Cliente IRC"                                                                       ON  \
     GoogleChrome    "Navegador web Google Chrome"                                                       ON  \
-    Skype           "Cliente para rede Skype"                                                           ON  \
-    VirtualBox      "Sistema de virtualização da Oracle (não Open Source)"                              ON  \
-    Pidgin          "Cliente de mensagens instantâneas"                                                 ON  )
+    Skype           "Cliente para rede Skype"                                                           ON  )
 
 #=============================== Processamento =================================
 
@@ -162,7 +160,7 @@ do
 
     if [ "$opcao" = 'Gedit' ]
     then
-        sudo ./repositorios.sh "gmate"
+        sudo add-apt-repository ppa:ubuntu-on-rails/ppa && sudo apt-get update
         sudo apt-get install -y gedit-plugins
         sudo apt-get install --force-yes -y gedit-gmate
         # Preferências do gedit
@@ -233,7 +231,6 @@ do
 
     if [ "$opcao" = 'GoogleChrome' ]
     then
-
         if [ "$arquitetura" = '32-bit' ]
         then
             wget -O /tmp/google-chrome-stable-i386.deb http://dl.google.com/linux/direct/google-chrome-stable_current_i386.deb
@@ -243,12 +240,10 @@ do
             wget -O /tmp/google-chrome-stable-amd64.deb http://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
             sudo dpkg -i /tmp/google-chrome-stable-amd64.deb
         fi
-
     fi
 
     if [ "$opcao" = 'Skype' ]
     then
-
         # Baixando dependências
         sudo apt-get install -y libqtgui4 libqt4-dbus libqt4-network libqt4-xml libasound2
 
@@ -264,15 +259,6 @@ do
 
         # Já que algumas dependências não instalam por bem, instalarão a força
         sudo apt-get -f install
-
-    fi
-
-    if [ "$opcao" = 'VirtualBox' ]
-    then
-
-        sudo ./repositorios.sh "virtualbox"
-        sudo apt-get install -y virtualbox-3.2
-
     fi
 
     if [ "$opcao" = 'StarDict' ]
@@ -324,7 +310,6 @@ do
     [ "$opcao" = 'Xournal' ]            && sudo apt-get install -y xournal
     [ "$opcao" = 'Inkscape' ]           && sudo apt-get install -y inkscape
     [ "$opcao" = 'XChat' ]              && sudo apt-get install -y xchat
-    [ "$opcao" = 'Pidgin' ]             && sudo apt-get install -y pidgin
 
 done
 
