@@ -78,7 +78,7 @@ opcoes=$( dialog --stdout --separate-output                                     
     Git             "Sistema de controle de versão + configurações úteis"                               ON  \
     GitMeldDiff     "Torna o Meld o software para visualização do diff do git"                          ON  \
     StarDict        "Dicionário multi-línguas (inclui dicionário PTbr-En/En-PTbr)"                      ON  \
-    Media           "Codecs, flashplayer (32/64 bits, nativo) e compactadores de arquivos"              ON  \
+    Media           "Codecs, flashplayer (32 ou 64 bits) e compactadores de arquivos"                   ON  \
     Gimp            "Software para manipulação de imagens"                                              ON  \
     Inkscape        "Software para desenho vetorial"                                                    ON  \
     XChat           "Cliente IRC"                                                                       ON  \
@@ -195,20 +195,39 @@ do
 
     if [ "$opcao" = 'Media' ]
     then
-        sudo ./repositorios.sh "media"
-        sudo apt-get install --force-yes -y ubuntu-restricted-extras non-free-codecs libdvdcss2
-        sudo apt-get install --force-yes -y arj lha rar unace-nonfree unrar p7zip p7zip-full p7zip-rar
+        # A referência para a instalação desses pacotes foi o http://ubuntued.info/
+
+        # Adiciona o repositório Medibuntu
+        sudo wget --output-document=/etc/apt/sources.list.d/medibuntu.list http://www.medibuntu.org/sources.list.d/$(lsb_release -cs).list &&
+             sudo apt-get update &&
+             sudo apt-get -y --allow-unauthenticated install medibuntu-keyring &&
+             sudo apt-get update
+
+        # Adiciona o repositório Partner. É um repositório oficial que contém os
+        # pacotes de instalação do Java da Sun.
+        sudo add-apt-repository "deb http://archive.canonical.com/ubuntu natty partner" && sudo apt-get update
+
+        # Pacotes de codecs de áudio e vídeo
+        sudo apt-get install -y non-free-codecs libdvdcss2 faac faad ffmpeg    \
+             ffmpeg2theora flac icedax id3v2 lame libflac++6 libjpeg-progs     \
+             libmpeg3-1 mencoder mjpegtools mp3gain mpeg2dec mpeg3-utils       \
+             mpegdemux mpg123 mpg321 regionset sox uudeview vorbis-tools x264
+
+        # Pacotes de compactadores de ficheiros
+        sudo apt-get install -y arj lha p7zip p7zip-full p7zip-rar rar unrar unace-nonfree
 
         if [ "$arquitetura" = "32-bit" ]
         then
-            sudo apt-get install --force-yes -y w32codecs
+            # Instalar o flash e o java
+            sudo apt-get install -y flashplugin-nonfree sun-java6-fonts sun-java6-jre sun-java6-plugin
         elif [ "$arquitetura" = "64-bit" ]
         then
-            sudo apt-get install --force-yes -y w64codecs
-            # Removendo qualquer versão do Flashplayer 32 bits para que não haja conflitos
+            # Adiciona o repositório oficial da Adobe para o Flash
+            sudo add-apt-repository ppa:sevenmachines/flash && sudo apt-get update
+            # Remover qualquer versão do Flashplayer 32 bits para que não haja conflitos
             sudo apt-get purge -y flashplugin-nonfree gnash gnash-common mozilla-plugin-gnash swfdec-mozilla
-            # Instalando o Flashplayer 64 bits
-            sudo apt-get install -y flashplugin64-nonfree
+            # Instalar o flash e o java
+            sudo apt-get install -y flashplugin64-installer sun-java6-fonts sun-java6-jre sun-java6-plugin
         fi
     fi
 

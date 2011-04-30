@@ -59,9 +59,8 @@ SOFTWARES E CONFIGURAÇÕES
     * Instala os scripts, criando links simbólicos e ativando os comandos: change-file-name, find-replace, html-characters e remove-temps
 * **StarDict**          - Dicionário multi-línguas
     * Inclui dicionários Inglês-Português e Português-Inglês
-* **Media**             - Codecs, flashplayer (32 e 64 bits) e compactadores
-    * Instala os pacotes: *ubuntu-restricted-extras, non-free-codecs, libdvdcss2, arj, lha, rar, unace-nonfree, unrar, p7zip, p7zip-full, p7zip-rar*
-    * Verifica se o Ubuntu é de 32 ou 64 bits e instala o pacote w32codecs ou w64codecs
+* **Media**             - Codecs, flashplayer (32 ou 64 bits) e compactadores
+    * Instala diversos pacotes, verifica se o sistema é 32 ou 64 bits e instala o flashplayer correspondente.
 * **Gimp**              - Software para manipulação de imagens
 * **Inkscape**          - Software para desenho vetorial
 * **XChat**             - Cliente IRC

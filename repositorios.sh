@@ -48,19 +48,6 @@ then
     sudo apt-get update
 fi
 
-if [ "$1" = "media" ]
-then
-    sudo wget http://www.medibuntu.org/sources.list.d/$(lsb_release -cs).list --output-document=/etc/apt/sources.list.d/medibuntu.list
-    sudo apt-get update
-    sudo apt-get -y --allow-unauthenticated install medibuntu-keyring
-
-    # PPA para Flashplayer 64 bits
-    uname -a | grep x86_64 1>& /dev/null
-    [ $? = 0 ] && sudo add-apt-repository ppa:sevenmachines/flash
-
-    sudo apt-get update
-fi
-
 if [ "$1" = "virtualbox" ]
 then
     sudo echo deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) non-free > /etc/apt/sources.list.d/virtualbox.list
