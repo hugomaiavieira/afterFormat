@@ -73,7 +73,6 @@ opcoes=$( dialog --stdout --separate-output                                     
     VIM             "Editor de texto + configurações úteis"                                             ON  \
     Gedit           "Plugins oficiais, Gmate + configurações úteis"                                     ON  \
     Refactoring     "Conjunto de scripts para refatoração de código"                                    ON  \
-    SVN             "Sistema de controle de versão"                                                     ON  \
     Git             "Sistema de controle de versão + configurações úteis"                               ON  \
     GitMeldDiff     "Torna o Meld o software para visualização do diff do git"                          ON  \
     StarDict        "Dicionário multi-línguas (inclui dicionário PTbr-En/En-PTbr)"                      ON  \
@@ -303,7 +302,6 @@ do
     [ "$opcao" = 'GnomeDO' ]            && sudo apt-get install -y gnome-do gnome-do-plugins
     [ "$opcao" = 'MySql' ]              && sudo apt-get install -y mysql-server-5.1 libmysqlclient16-dev
     [ "$opcao" = 'PostgreSQL' ]         && sudo apt-get install -y postgresql
-    [ "$opcao" = 'SVN' ]                && sudo apt-get install -y subversion
     [ "$opcao" = 'Gimp' ]               && sudo apt-get install -y gimp
     [ "$opcao" = 'Xournal' ]            && sudo apt-get install -y xournal
     [ "$opcao" = 'Inkscape' ]           && sudo apt-get install -y inkscape
