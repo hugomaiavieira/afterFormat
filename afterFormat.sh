@@ -69,7 +69,7 @@ opcoes=$( dialog --stdout --separate-output                                     
     MySql           "Banco de dados"                                                                    ON  \
     PostgreSQL      "Banco de dados"                                                                    ON  \
     Ruby1.9.2       "rvm com Ruby1.9.2"                                                                 ON  \
-    Python          "Ferramentas para desenvolvimento python"                                           ON  \
+    Python          "Ambiente para desenvolvimento com python"                                          ON  \
     VIM             "Editor de texto + configurações úteis"                                             ON  \
     Gedit           "Plugins oficiais, Gmate + configurações úteis"                                     ON  \
     Refactoring     "Conjunto de scripts para refatoração de código"                                    ON  \

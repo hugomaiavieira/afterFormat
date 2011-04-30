@@ -5,12 +5,12 @@ Instala automaticamente diversos softwares básicos que sempre são necessários
 após uma formatação. O PC deve estar conectado à internet. O tempo de
 instalação dependerá da velocidade de sua conexão.
 
-**Obs**.: Este script está validado apenas as versões **10.x do Ubuntu**.
+**Obs**.: Este script está validado apenas as versões **11.04 do Ubuntu**.
 Para outras versões do Ubuntu verifique os branches.
 
 
 SOFTWARES E CONFIGURAÇÕES
----------------------------------------
+-------------------------
 
 * **Desktop**           - Muda "Área de Trabalho" para "Desktop"
 * **Botões**            - Muda os botões minimizar, maximizar e fechar para a direita
@@ -25,7 +25,7 @@ SOFTWARES E CONFIGURAÇÕES
     * Instala os pacotes: *libssl-dev, libreadline5-dev*
     * Instala o *rvm*
     * Instala o *ruby-1.9.2* no *rvm*
-* **Python**            - Ferramentas para desenvolvimento python
+* **Python**            - Ambiente para desenvolvimento com python
     * Instala os pacotes: *ipython, python-dev*
     * Instala o distribute, pip, virtualenv e virtualenvwrapper
     * Configura a variável WORKON_HOME, usada pelo virtualenvwrapper como diretório que concentra os ambientes virtuais, para ser ~/envs
@@ -34,7 +34,6 @@ SOFTWARES E CONFIGURAÇÕES
     * Instala os pacotes: *mysql-server-5.1, libmysqlclient16-dev*
 * **PostgreSQL**        - Banco de dados + interface para ruby e python (caso forem escolhidos)
     * Instala o pacote: *postgresql*
-* **SVN**               - Sistema de controle de versão
 * **Git**               - Sistema de controle de versão + configurações úteis
     * Instala o pacote: *git-core*
     * Configura o git para exibir com cores as saídas de seus comandos
@@ -81,14 +80,18 @@ Em seguida, descompacte o arquivo rodando no terminal (supondo que você baixou 
     $ cd Download
     $ tar xzfv hugomaiavieira-afterFormat-*.tar.gz
 
-Finalmente para executar o script afterFormat.sh:
+Dê permissão de execução ao script:
 
     $ cd hugomaiavieira-afterFormat-*
+    $ chmod +x afterFormat.sh
+
+Finalmente para executar:
+
     $ ./afterFormat.sh
 
 
 INFORMAÇÃO
-------------------------
+-----------
 
 Ao executar o script todos os softwares serão instalados automaticamente,
 sendo que o MySql pedirá para escolher a senha de root durante a
@@ -120,4 +123,4 @@ AUTOR
 
   Hugo Henriques Maia Vieira <hugomaiavieira@gmail.com>
 
-  12 de Outubro de 2010
+  30 de Abril de 2011
