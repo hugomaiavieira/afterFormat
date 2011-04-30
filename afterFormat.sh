@@ -70,7 +70,6 @@ opcoes=$( dialog --stdout --separate-output                                     
     PostgreSQL      "Banco de dados"                                                                    ON  \
     Ruby1.9.2       "rvm com Ruby1.9.2"                                                                 ON  \
     Python          "Ferramentas para desenvolvimento python"                                           ON  \
-    Java            "Java Development Kit e Java Runtime Environment"                                   ON  \
     VIM             "Editor de texto + configurações úteis"                                             ON  \
     Gedit           "Plugins oficiais, Gmate + configurações úteis"                                     ON  \
     Refactoring     "Conjunto de scripts para refatoração de código"                                    ON  \
@@ -78,7 +77,7 @@ opcoes=$( dialog --stdout --separate-output                                     
     Git             "Sistema de controle de versão + configurações úteis"                               ON  \
     GitMeldDiff     "Torna o Meld o software para visualização do diff do git"                          ON  \
     StarDict        "Dicionário multi-línguas (inclui dicionário PTbr-En/En-PTbr)"                      ON  \
-    Media           "Codecs, flashplayer (32 ou 64 bits) e compactadores de arquivos"                   ON  \
+    Media           "Codecs, flashplayer (32 ou 64 bits), JRE e compactadores de arquivos"              ON  \
     Gimp            "Software para manipulação de imagens"                                              ON  \
     Inkscape        "Software para desenho vetorial"                                                    ON  \
     XChat           "Cliente IRC"                                                                       ON  \
@@ -304,7 +303,6 @@ do
     [ "$opcao" = 'GnomeDO' ]            && sudo apt-get install -y gnome-do gnome-do-plugins
     [ "$opcao" = 'MySql' ]              && sudo apt-get install -y mysql-server-5.1 libmysqlclient16-dev
     [ "$opcao" = 'PostgreSQL' ]         && sudo apt-get install -y postgresql
-    [ "$opcao" = 'Java' ]               && sudo apt-get install -y openjdk-6-jdk openjdk-6-jre
     [ "$opcao" = 'SVN' ]                && sudo apt-get install -y subversion
     [ "$opcao" = 'Gimp' ]               && sudo apt-get install -y gimp
     [ "$opcao" = 'Xournal' ]            && sudo apt-get install -y xournal

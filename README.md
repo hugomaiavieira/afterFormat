@@ -34,8 +34,6 @@ SOFTWARES E CONFIGURAÇÕES
     * Instala os pacotes: *mysql-server-5.1, libmysqlclient16-dev*
 * **PostgreSQL**        - Banco de dados + interface para ruby e python (caso forem escolhidos)
     * Instala o pacote: *postgresql*
-* **Java**              - Java Development Kit e Java Runtime Environment
-    * Instala os pacotes: *openjdk-6-jdk, openjdk-6-jre*
 * **SVN**               - Sistema de controle de versão
 * **Git**               - Sistema de controle de versão + configurações úteis
     * Instala o pacote: *git-core*
@@ -60,7 +58,7 @@ SOFTWARES E CONFIGURAÇÕES
 * **StarDict**          - Dicionário multi-línguas
     * Inclui dicionários Inglês-Português e Português-Inglês
 * **Media**             - Codecs, flashplayer (32 ou 64 bits) e compactadores
-    * Instala diversos pacotes, verifica se o sistema é 32 ou 64 bits e instala o flashplayer correspondente.
+    * Instala diversos pacotes de codecs, compactadores de arquivos, JRE e verifica se o sistema é 32 ou 64 bits e instala o flashplayer correspondente.
 * **Gimp**              - Software para manipulação de imagens
 * **Inkscape**          - Software para desenho vetorial
 * **XChat**             - Cliente IRC
