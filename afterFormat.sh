@@ -302,13 +302,22 @@ do
         fi
     fi
 
+    if [ "$opcao" = 'Thunderbird' ]
+    then
+        sudo apt-get install -y thunderbird thunderbird-locale-pt-br
+        # TODO: Arrumar uma maneira de instalar a extensão pelo console
+        # Enquanto o ubuntu instala o thunderbird 3.1.* usar esse link
+        # wget -O /tmp/thunderbirdConversations.xpi https://addons.mozilla.org/thunderbird/downloads/latest/54035/addon-54035-latest.xpi?src=addondetail
+        # Quando o ubuntu instala o thunderbird +3.3.* usar esse link
+        # wget -O /tmp/thunderbirdConversations.xpi https://addons.mozilla.org/thunderbird/downloads/file/95271/gmail_conversation_view-1.1.2-tb.xpi?src=version-history
+    fi
+
     [ "$opcao" = 'MySql' ]              && sudo apt-get install -y mysql-server-5.1 libmysqlclient16-dev
     [ "$opcao" = 'PostgreSQL' ]         && sudo apt-get install -y postgresql
     [ "$opcao" = 'Gimp' ]               && sudo apt-get install -y gimp
     [ "$opcao" = 'Xournal' ]            && sudo apt-get install -y xournal
     [ "$opcao" = 'Inkscape' ]           && sudo apt-get install -y inkscape
     [ "$opcao" = 'XChat' ]              && sudo apt-get install -y xchat
-    [ "$opcao" = 'Thunderbird' ]        && sudo apt-get install -y thunderbird thunderbird-locale-pt-br
 
 done
 
