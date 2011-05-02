@@ -64,7 +64,6 @@ opcoes=$( dialog --stdout --separate-output                                     
     Botões          "Muda os botões minimizar, maximizar e fechar para a direita"                       ON  \
     PS1             "\$PS1 no formato: usuário ~/diretório/atual (BranchGit)"                           ON  \
     Monaco          "Adiciona fonte Monaco (padrão do TextMate) e seleciona para o Gedit e o Terminal"  ON  \
-    GnomeDO         "Abra rapidamente aplicativos e arquivos, navegue por seus diretórios e muito mais" ON  \
     SSH             "SSH server e client"                                                               ON  \
     MySql           "Banco de dados"                                                                    ON  \
     PostgreSQL      "Banco de dados"                                                                    ON  \
@@ -300,7 +299,6 @@ do
         fi
     fi
 
-    [ "$opcao" = 'GnomeDO' ]            && sudo apt-get install -y gnome-do gnome-do-plugins
     [ "$opcao" = 'MySql' ]              && sudo apt-get install -y mysql-server-5.1 libmysqlclient16-dev
     [ "$opcao" = 'PostgreSQL' ]         && sudo apt-get install -y postgresql
     [ "$opcao" = 'Gimp' ]               && sudo apt-get install -y gimp
@@ -311,6 +309,6 @@ do
 done
 
 dialog --title 'Aviso' \
-        --msgbox 'Instalação concluída!' \
+       --msgbox 'Instalação concluída!' \
 0 0
 
