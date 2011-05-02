@@ -308,7 +308,7 @@ do
     [ "$opcao" = 'Xournal' ]            && sudo apt-get install -y xournal
     [ "$opcao" = 'Inkscape' ]           && sudo apt-get install -y inkscape
     [ "$opcao" = 'XChat' ]              && sudo apt-get install -y xchat
-    [ "$opcao" = 'Thunderbird' ]        && sudo apt-get install -y thunderbird
+    [ "$opcao" = 'Thunderbird' ]        && sudo apt-get install -y thunderbird thunderbird-locale-pt-br
 
 done
 
