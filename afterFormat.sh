@@ -123,9 +123,10 @@ do
     then
         sudo apt-get install -y libssl-dev libreadline5-dev
 
-        # instala o rvm
-        sudo apt-get install -y curl
-        bash < <( curl http://rvm.beginrescueend.com/releases/rvm-install-latest )
+	    # Dependências do rvm
+        sudo apt-get install -y curl git-core
+        # Instala o rvm
+	    bash < <(curl -s https://rvm.beginrescueend.com/install/rvm)
         echo "[ -s \$HOME/.rvm/scripts/rvm ] && source \$HOME/.rvm/scripts/rvm" >> $HOME/.bashrc
         [ -s $HOME/.rvm/scripts/rvm ] && source $HOME/.rvm/scripts/rvm
 
@@ -312,3 +313,4 @@ done
 dialog --title 'Aviso' \
         --msgbox 'Instalação concluída!' \
 0 0
+
