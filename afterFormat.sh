@@ -61,7 +61,6 @@ opcoes=$( dialog --stdout --separate-output                                     
     --title "afterFormat - Pós Formatação para as versões 10.x do Ubuntu"                                   \
     --checklist 'Selecione os softwares que deseja instalar:' 0 0 0                                         \
     Desktop         "Muda \"Área de Trabalho\" para \"Desktop\" *(Apenas ptBR)"                         ON  \
-    Botões          "Muda os botões minimizar, maximizar e fechar para a direita"                       ON  \
     PS1             "\$PS1 no formato: usuário ~/diretório/atual (BranchGit)"                           ON  \
     Monaco          "Adiciona fonte Monaco (padrão do TextMate) e seleciona para o Gedit e o Terminal"  ON  \
     SSH             "SSH server e client"                                                               ON  \
@@ -98,8 +97,6 @@ do
         xdg-user-dirs-gtk-update
         xdg-user-dirs-update
     fi
-
-    [ "$opcao" = 'Botões' ] && gconftool-2 --set "/apps/metacity/general/button_layout" --type string ":minimize,maximize,close"
 
     [ "$opcao" = 'PS1' ] && cat $FOLDER/PS1 >> $HOME/.bashrc
 

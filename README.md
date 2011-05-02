@@ -13,7 +13,6 @@ SOFTWARES E CONFIGURAÇÕES
 -------------------------
 
 * **Desktop**           - Muda "Área de Trabalho" para "Desktop"
-* **Botões**            - Muda os botões minimizar, maximizar e fechar para a direita
 * **PS1**               - $PS1 no formato:
     * Sem ruby instalado: **usuário ~/diretório/atual (git_branch_atual) $**
     * Com ruby instalado: **(versao_do_ruby_ativa@gemset_ativa) usuário ~/diretório/atual (git_branch_atual) $**
