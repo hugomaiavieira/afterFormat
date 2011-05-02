@@ -79,6 +79,7 @@ opcoes=$( dialog --stdout --separate-output                                     
     Inkscape        "Software para desenho vetorial"                                                    ON  \
     XChat           "Cliente IRC"                                                                       ON  \
     GoogleChrome    "Navegador web Google Chrome"                                                       ON  \
+    Thunderbird     "Gerenciador de e-mails"                                                            ON  \
     Skype           "Cliente para rede Skype"                                                           ON  )
 
 #=============================== Processamento =================================
@@ -302,6 +303,7 @@ do
     [ "$opcao" = 'Xournal' ]            && sudo apt-get install -y xournal
     [ "$opcao" = 'Inkscape' ]           && sudo apt-get install -y inkscape
     [ "$opcao" = 'XChat' ]              && sudo apt-get install -y xchat
+    [ "$opcao" = 'Thunderbird' ]        && sudo apt-get install -y thunderbird
 
 done
 
