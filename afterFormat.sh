@@ -58,7 +58,7 @@ vim=0
 sudo apt-get install -y dialog > /dev/null
 
 opcoes=$( dialog --stdout --separate-output                                                                 \
-    --title "afterFormat - Pós Formatação para as versões 10.x do Ubuntu"                                   \
+    --title "afterFormat - Pós Formatação para as versão 11.04 do Ubuntu"                                   \
     --checklist 'Selecione os softwares que deseja instalar:' 0 0 0                                         \
     Desktop         "Muda \"Área de Trabalho\" para \"Desktop\" *(Apenas ptBR)"                         ON  \
     PS1             "\$PS1 no formato: usuário ~/diretório/atual (BranchGit)"                           ON  \
