@@ -16,10 +16,11 @@ SOFTWARES E CONFIGURAÇÕES
 * **PS1**               - $PS1 no formato:
     * Sem ruby instalado: **usuário ~/diretório/atual (git_branch_atual) $**
     * Com ruby instalado: **(versao_do_ruby_ativa@gemset_ativa) usuário ~/diretório/atual (git_branch_atual) $**
+    * Instala a pacote *git-core*
 * **SSH**               - Instala o ssh cliente e servidor
     * Instala os pacotes: *openssh-server, openssh-client*
 * **Ruby1.9.2**           - Ambiente para desenvolvimento com Ruby1.9.2
-    * Instala os pacotes: *libssl-dev, libreadline5-dev*
+    * Instala os pacotes: *libssl-dev, libreadline5-dev, git-core, curl*
     * Instala o *rvm*
     * Instala o *ruby-1.9.2* no *rvm*
 * **Python**            - Ambiente para desenvolvimento com python

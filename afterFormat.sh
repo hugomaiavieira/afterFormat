@@ -99,7 +99,12 @@ do
         xdg-user-dirs-update
     fi
 
-    [ "$opcao" = 'PS1' ] && cat $FOLDER/PS1 >> $HOME/.bashrc
+    if [ "$opcao" = 'PS1' ]
+    then
+        # Instala o git, que é dependência para a personalização
+        sudo apt-get install -y git-core
+        cat $FOLDER/PS1 >> $HOME/.bashrc
+    fi
 
     [ "$opcao" = 'SSH' ] && sudo apt-get install -y openssh-server openssh-client
 
