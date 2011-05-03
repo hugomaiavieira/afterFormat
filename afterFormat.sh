@@ -123,7 +123,7 @@ do
 
     if [ "$opcao" = 'Ruby1.9.2' ]
     then
-        sudo apt-get install -y libssl-dev libreadline5-dev
+        sudo apt-get install -y libssl-dev libreadline5-dev libxml2-dev libxslt-dev
 
 	    # Dependências do rvm
         sudo apt-get install -y curl git-core
