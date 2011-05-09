@@ -61,6 +61,7 @@ opcoes=$( dialog --stdout --separate-output                                     
     --title "afterFormat - Pós Formatação para as versão 11.04 do Ubuntu"                                   \
     --checklist 'Selecione os softwares que deseja instalar:' 0 0 0                                         \
     Desktop         "Muda \"Área de Trabalho\" para \"Desktop\" *(Apenas ptBR)"                         ON  \
+    UnityTray       "Habilita ícones de aplicações no tray (como nas versões anteriores) "              ON  \
     PS1             "\$PS1 no formato: usuário ~/diretório/atual (BranchGit)"                           ON  \
     Monaco          "Adiciona fonte Monaco (padrão do TextMate) e seleciona para o Gedit e o Terminal"  ON  \
     SSH             "SSH server e client"                                                               ON  \
@@ -318,6 +319,7 @@ do
     [ "$opcao" = 'Xournal' ]            && sudo apt-get install -y xournal
     [ "$opcao" = 'Inkscape' ]           && sudo apt-get install -y inkscape
     [ "$opcao" = 'XChat' ]              && sudo apt-get install -y xchat
+    [ "$opcao" = 'UnityTray' ]          && gsettings set com.canonical.Unity.Panel systray-whitelist "['all']"
 
 done
 
