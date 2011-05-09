@@ -13,6 +13,7 @@ SOFTWARES E CONFIGURAÇÕES
 -------------------------
 
 * **Desktop**           - Muda "Área de Trabalho" para "Desktop"
+* **UnityTray**         - Habilita a antiga 'bandeja' (tray) do sistema no Ubuntu com Unity
 * **PS1**               - $PS1 no formato:
     * Sem ruby instalado: **usuário ~/diretório/atual (git_branch_atual) $**
     * Com ruby instalado: **(versao_do_ruby_ativa@gemset_ativa) usuário ~/diretório/atual (git_branch_atual) $**
