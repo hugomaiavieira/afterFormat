@@ -80,7 +80,6 @@ opcoes=$( dialog --stdout --separate-output                                     
     Inkscape        "Software para desenho vetorial"                                                    ON  \
     XChat           "Cliente IRC"                                                                       ON  \
     GoogleChrome    "Navegador web Google Chrome"                                                       ON  \
-    Thunderbird     "Gerenciador de e-mails"                                                            ON  \
     Skype           "Cliente para rede Skype"                                                           ON  )
 
 #=============================== Processamento =================================
@@ -199,36 +198,15 @@ function instalar_media
 
     # Adiciona o repositório Medibuntu
     sudo wget --output-document=/etc/apt/sources.list.d/medibuntu.list http://www.medibuntu.org/sources.list.d/$(lsb_release -cs).list &&
-            sudo apt-get update &&
-            sudo apt-get -y --allow-unauthenticated install medibuntu-keyring &&
-            sudo apt-get update
+        sudo apt-get update &&
+        sudo apt-get -y --allow-unauthenticated install medibuntu-keyring &&
+        sudo apt-get update
 
-    # Adiciona o repositório Partner. É um repositório oficial que contém os
-    # pacotes de instalação do Java da Sun.
-    sudo add-apt-repository "deb http://archive.canonical.com/ubuntu natty partner" && sudo apt-get update
-
-    # Pacotes de codecs de áudio e vídeo
-    sudo apt-get install -y non-free-codecs libdvdcss2 faac faad ffmpeg    \
-            ffmpeg2theora flac icedax id3v2 lame libflac++6 libjpeg-progs     \
-            libmpeg3-1 mencoder mjpegtools mp3gain mpeg2dec mpeg3-utils       \
-            mpegdemux mpg123 mpg321 regionset sox uudeview vorbis-tools x264
-
-    # Pacotes de compactadores de ficheiros
-    sudo apt-get install -y arj lha p7zip p7zip-full p7zip-rar rar unrar unace-nonfree
-
-    if [ "$arquitetura" = "32-bit" ]
-    then
-        # Instalar o flash e o java
-        sudo apt-get install -y flashplugin-nonfree sun-java6-fonts sun-java6-jre sun-java6-plugin
-    elif [ "$arquitetura" = "64-bit" ]
-    then
-        # Adiciona o repositório oficial da Adobe para o Flash
-        sudo add-apt-repository ppa:sevenmachines/flash && sudo apt-get update
-        # Remover qualquer versão do Flashplayer 32 bits para que não haja conflitos
-        sudo apt-get purge -y flashplugin-nonfree gnash gnash-common mozilla-plugin-gnash swfdec-mozilla
-        # Instalar o flash e o java
-        sudo apt-get install -y flashplugin64-installer sun-java6-fonts sun-java6-jre sun-java6-plugin
-    fi
+    # Pacotes de compactadores de ficheiros, OpenJDK, flash e codecs de áudio e vídeo
+    sudo apt-get install faac faad ffmpeg ffmpeg2theora flac icedax id3v2 lame \
+        libflac++6 libjpeg-progs libmpeg3-1 mencoder mjpegtools mp3gain \
+        mpeg2dec mpeg3-utils mpegdemux mpg123 mpg321 regionset sox uudeview \
+        vorbis-tools x264 arj lha p7zip p7zip-full p7zip-rar rar unace-nonfree
 }
 
 function instalar_googlechrome
@@ -300,16 +278,6 @@ function instalar_gitmelddiff
         --msgbox 'Para tornar o Meld o software para visualização do diff do git, o git deve estar instalado. Para isto, rode novamente o script marcando as opções Git e GitMeldDiff.' \
         0 0
     fi
-}
-
-function instalar_thunderbird
-{
-	sudo apt-get install -y thunderbird thunderbird-locale-pt-br
-    # TODO: Arrumar uma maneira de instalar a extensão pelo console
-    # Enquanto o ubuntu instala o thunderbird 3.1.* usar esse link
-    # wget -O /tmp/thunderbirdConversations.xpi https://addons.mozilla.org/thunderbird/downloads/latest/54035/addon-54035-latest.xpi?src=addondetail
-    # Quando o ubuntu instala o thunderbird +3.3.* usar esse link
-    # wget -O /tmp/thunderbirdConversations.xpi https://addons.mozilla.org/thunderbird/downloads/file/95271/gmail_conversation_view-1.1.2-tb.xpi?src=version-history
 }
 
 function instalar_mysql

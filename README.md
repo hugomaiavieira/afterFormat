@@ -62,8 +62,6 @@ SOFTWARES E CONFIGURAÇÕES
 * **XChat**             - Cliente IRC
 * **GoogleChrome**      - Navegador web Google Chrome
     * Instala a versão *estável* do navegador da Google
-* **Thunderbird**       - Gerenciador de e-mails
-    * Instala o pacote *thunderbird e thunderbird-locale-pt-br*
 * **Skype**             - Cliente do Skype: cliente de (video)conferencia
     * Instala o pacote deb oficial direto do site (32 ou 64 bits)
 
