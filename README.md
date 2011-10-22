@@ -33,6 +33,8 @@ SOFTWARES E CONFIGURAÇÕES
     * Instala os pacotes: *mysql-server-5.1, libmysqlclient16-dev*
 * **PostgreSQL**        - Banco de dados + interface para ruby e python (caso forem escolhidos)
     * Instala o pacote: *postgresql*
+* **Sqlite3**           - Banco de dados
+    * Instala os pacotes: *sqlite3  e libsqlite3-dev*
 * **Git**               - Sistema de controle de versão + configurações úteis
     * Instala o pacote: *git-core*
     * Configura o git para exibir com cores as saídas de seus comandos

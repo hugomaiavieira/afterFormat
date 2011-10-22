@@ -67,6 +67,7 @@ opcoes=$( dialog --stdout --separate-output                                     
     SSH             "SSH server e client"                                                               ON  \
     MySql           "Banco de dados"                                                                    ON  \
     PostgreSQL      "Banco de dados"                                                                    ON  \
+    Sqlite3         "Banco de dados"                                                                    ON  \
     Ruby1.9.2       "rvm com Ruby1.9.2"                                                                 ON  \
     Python          "Ambiente para desenvolvimento com python"                                          ON  \
     VIM             "Editor de texto + configurações úteis"                                             ON  \
@@ -288,6 +289,11 @@ function instalar_mysql
 function instalar_postgresql
 {
     sudo apt-get install -y postgresql
+}
+
+function instalar_sqlite3
+{
+    sudo apt-get install -y sqlite3 libsqlite3-dev
 }
 
 function instalar_gimp
