@@ -162,9 +162,10 @@ function instalar_vim
 
 function instalar_gedit
 {
-	sudo add-apt-repository ppa:ubuntu-on-rails/ppa && sudo apt-get update
+	sudo apt-add-repository -y ppa:ubuntu-on-rails/ppa && sudo apt-get update
     sudo apt-get install -y gedit-plugins
     sudo apt-get install --force-yes -y gedit-gmate
+    # TODO: Ajustar lista de plugins. Para o gedit3, o gmate ainda tem poucos plugins.
     # Preferências do gedit
     `gconftool-2 --set /apps/gedit-2/plugins/active-plugins -t list --list-type=str [changecase,time,rubyonrailsloader,terminal,docinfo,filebrowser,smart_indent,rails_hotkeys,snippets,trailsave,smartspaces,rails_extract_partial,pastie,sort,text_tools,align,codecomment,colorpicker,sessionsaver,wordcompletion,gemini,rails_hotcommands,spell]`
     `gconftool-2 --set /apps/gedit-2/preferences/editor/auto_indent/auto_indent -t bool true`
