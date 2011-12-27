@@ -58,7 +58,7 @@ vim=0
 sudo apt-get install -y dialog > /dev/null
 
 opcoes=$( dialog --stdout --separate-output                                                                 \
-    --title "afterFormat - Pós Formatação para as versão 11.04 do Ubuntu"                                   \
+    --title "afterFormat - Pós Formatação para as versão 11.10 do Ubuntu"                                   \
     --checklist 'Selecione os softwares que deseja instalar:' 0 0 0                                         \
     Desktop         "Muda \"Área de Trabalho\" para \"Desktop\" *(Apenas ptBR)"                         ON  \
     UnityTray       "Habilita ícones de aplicações no tray (como nas versões anteriores) "              ON  \
@@ -90,8 +90,8 @@ opcoes=$( dialog --stdout --separate-output                                     
 
 function instalar_desktop
 {
-    mv $HOME/Área\ de\ Trabalho $HOME/Desktop
-    sed "s/"Área\ de\ Trabalho"/"Desktop"/g" $HOME/.config/user-dirs.dirs  > /tmp/user-dirs.dirs.modificado
+    mv $HOME/Área\ de\ trabalho $HOME/Desktop
+    sed "s/"Área\ de\ trabalho"/"Desktop"/g" $HOME/.config/user-dirs.dirs  > /tmp/user-dirs.dirs.modificado
     mv /tmp/user-dirs.dirs.modificado $HOME/.config/user-dirs.dirs
     xdg-user-dirs-gtk-update
     xdg-user-dirs-update
