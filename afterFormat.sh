@@ -199,16 +199,18 @@ function instalar_media
     # A referência para a instalação desses pacotes foi o http://ubuntued.info/
 
     # Adiciona o repositório Medibuntu
-    sudo wget --output-document=/etc/apt/sources.list.d/medibuntu.list http://www.medibuntu.org/sources.list.d/$(lsb_release -cs).list &&
-        sudo apt-get update &&
-        sudo apt-get -y --allow-unauthenticated install medibuntu-keyring &&
-        sudo apt-get update
+    sudo wget --output-document=/etc/apt/sources.list.d/medibuntu.list http://www.medibuntu.org/sources.list.d/$(lsb_release -cs).list
+    sudo apt-get update
+    sudo apt-get -y --allow-unauthenticated install medibuntu-keyring
+    sudo apt-get update
 
     # Pacotes de compactadores de ficheiros, OpenJDK, flash e codecs de áudio e vídeo
     sudo apt-get install faac faad ffmpeg ffmpeg2theora flac icedax id3v2 lame \
         libflac++6 libjpeg-progs libmpeg3-1 mencoder mjpegtools mp3gain \
         mpeg2dec mpeg3-utils mpegdemux mpg123 mpg321 regionset sox uudeview \
-        vorbis-tools x264 arj lha p7zip p7zip-full p7zip-rar rar unace-nonfree
+        vorbis-tools x264 arj lha p7zip p7zip-full p7zip-rar rar unace-nonfree \
+        # Adicionados por mim, não tem no tutorial do ubuntued
+        gstreamer0.10-ffmpeg gstreamer0.10-plugins-bad
 }
 
 function instalar_googlechrome
