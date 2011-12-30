@@ -210,7 +210,8 @@ function instalar_media
         mpeg2dec mpeg3-utils mpegdemux mpg123 mpg321 regionset sox uudeview \
         vorbis-tools x264 arj lha p7zip p7zip-full p7zip-rar rar unace-nonfree \
         # Adicionados por mim, não tem no tutorial do ubuntued
-        gstreamer0.10-ffmpeg gstreamer0.10-plugins-bad
+        gstreamer0.10-ffmpeg gstreamer0.10-plugins-bad \
+        gstreamer0.10-fluendo-mp3 gstreamer0.10-plugins-ugly
 }
 
 function instalar_googlechrome
