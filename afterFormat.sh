@@ -106,7 +106,10 @@ function instalar_ps1
 
 function instalar_ssh
 {
-    sudo apt-get install -y openssh-server openssh-client
+    sudo apt-get install -y openssh-server openssh-client && ssh-keygen -t rsa <<eof
+
+
+    eof
 }
 
 function instalar_monaco
