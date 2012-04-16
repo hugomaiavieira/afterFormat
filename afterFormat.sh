@@ -45,7 +45,7 @@
 # ==========================    Variáveis    ===================================
 
 # Mandinga para pegar o diretório onde o script foi executado
-FOLDER=$(cd $(dirname $0); pwd -P)
+FOLDER=$(dirname $(readlink -f $0))
 
 # Pegando arquitetura do sistema. Valores de retorno: '32-bit' ou '64-bit'
 arquitetura=`file /bin/bash | cut -d' ' -f3`
