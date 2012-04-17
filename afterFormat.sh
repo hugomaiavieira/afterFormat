@@ -45,7 +45,7 @@
 # ==========================    Variáveis    ===================================
 
 # Mandinga para pegar o diretório onde o script foi executado
-FOLDER=$(cd $(dirname $0); pwd -P)
+FOLDER=$(dirname $(readlink -f $0))
 
 # Pegando arquitetura do sistema. Valores de retorno: '32-bit' ou '64-bit'
 arquitetura=`file /bin/bash | cut -d' ' -f3`
@@ -106,7 +106,10 @@ function instalar_ps1
 
 function instalar_ssh
 {
-    sudo apt-get install -y openssh-server openssh-client
+    sudo apt-get install -y openssh-server openssh-client && ssh-keygen -t rsa <<eof
+
+
+    eof
 }
 
 function instalar_monaco
