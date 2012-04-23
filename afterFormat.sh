@@ -315,7 +315,7 @@ function instalar_xournal
     sudo apt-get install -y xournal
 }
 
-function instalar_inkspace
+function instalar_inkscape
 {
     sudo apt-get install -y inkscape
 }
