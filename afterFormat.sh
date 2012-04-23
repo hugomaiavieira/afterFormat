@@ -81,8 +81,8 @@ opcoes=$( dialog --stdout --separate-output                                     
     Inkscape        "Software para desenho vetorial"                                                    ON  \
     XChat           "Cliente IRC"                                                                       ON  \
     GoogleChrome    "Navegador web Google Chrome"                                                       ON  \
-    Skype           "Cliente para rede Skype"                                                           ON  )
-    Dropbox         "Cliente para Dropbox"                                                           ON  )
+    Skype           "Cliente para rede Skype"                                                           ON  \
+    Dropbox         "Cliente para Dropbox"                                                              ON  )
 
 #=============================== Processamento =================================
 
