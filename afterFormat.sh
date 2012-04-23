@@ -63,7 +63,6 @@ opcoes=$( dialog --stdout --separate-output                                     
     Desktop         "Muda \"Área de Trabalho\" para \"Desktop\" *(Apenas ptBR)"                         ON  \
     UnityTray       "Habilita ícones de aplicações no tray (como nas versões anteriores) "              ON  \
     PS1             "\$PS1 no formato: usuário ~/diretório/atual (BranchGit)"                           ON  \
-    Monaco          "Adiciona fonte Monaco (padrão do TextMate) e seleciona para o Gedit e o Terminal"  ON  \
     SSH             "SSH server e client"                                                               ON  \
     MySql           "Banco de dados"                                                                    ON  \
     PostgreSQL      "Banco de dados"                                                                    ON  \
@@ -111,19 +110,6 @@ function instalar_ssh
 
 
     eof
-}
-
-function instalar_monaco
-{
-    sudo mkdir /usr/share/fonts/macfonts
-    sudo wget -O /usr/share/fonts/macfonts/Monaco_Linux.ttf http://github.com/downloads/hugomaiavieira/afterFormat/Monaco_Linux.ttf --no-check-certificate
-    sudo fc-cache -f -v
-    # Configura para o terminal
-    `gconftool-2 --set /apps/gnome-terminal/profiles/Default/use_system_font -t bool false`
-    `gconftool-2 --set /apps/gnome-terminal/profiles/Default/font -t str Monaco\ 10`
-    # Configura para o Gedit
-    `gconftool-2 --set /apps/gedit-2/preferences/editor/font/use_default_font -t bool false`
-    `gconftool-2 --set /apps/gedit-2/preferences/editor/font/editor_font -t str Monaco\ 10`
 }
 
 function instalar_ruby1.9.2
