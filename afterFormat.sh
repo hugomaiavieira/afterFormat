@@ -296,11 +296,6 @@ function instalar_gimp
     sudo apt-get install -y gimp
 }
 
-function instalar_xournal
-{
-    sudo apt-get install -y xournal
-}
-
 function instalar_inkscape
 {
     sudo apt-get install -y inkscape
