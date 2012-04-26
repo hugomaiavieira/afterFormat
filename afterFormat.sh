@@ -150,9 +150,25 @@ function instalar_vim
 
 function instalar_gedit
 {
-	sudo apt-add-repository -y ppa:ubuntu-on-rails/ppa && sudo apt-get update
     sudo apt-get install -y gedit-plugins
+    sudo apt-add-repository -y ppa:ubuntu-on-rails/ppa && sudo apt-get update
     sudo apt-get install --force-yes -y gedit-gmate
+
+    # Preferências do gedit
+    sudo apt-get install -y dconf
+    dconf write /org/gnome/gedit/plugins/active-plugins "['zeitgeistplugin', 'colorpicker', 'restoretabs', 'docinfo', 'filebrowser', 'codecomment', 'joinlines', 'zencoding', 'wordcompletion', 'multiedit', 'snippets', 'whitespaceterminator', 'textsize', 'tabswitch', 'pair_char_completion', 'spell', 'sessionsaver']"
+    dconf write /org/gnome/gedit/preferences/editor/auto-indent true
+    dconf write /org/gnome/gedit/preferences/editor/bracket-matching true
+    dconf write /org/gnome/gedit/preferences/editor/scheme "'github'"
+    dconf write /org/gnome/gedit/preferences/editor/highlight-current-line true
+    dconf write /org/gnome/gedit/preferences/editor/restore-cursor-position true
+    dconf write /org/gnome/gedit/preferences/editor/display-line-numbers true
+    dconf write /org/gnome/gedit/preferences/editor/display-right-margin true
+    dconf write /org/gnome/gedit/preferences/editor/right-margin-position 80
+    dconf write /org/gnome/gedit/preferences/editor/create-backup-copy false
+    dconf write /org/gnome/gedit/preferences/editor/insert-spaces true
+    dconf write /org/gnome/gedit/preferences/editor/tabs-size 4
+    dconf write /org/gnome/gedit/preferences/ui/side-pane-visible true
 }
 
 function instalar_refactoring
