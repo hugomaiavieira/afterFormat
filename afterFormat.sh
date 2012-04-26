@@ -91,8 +91,8 @@ opcoes=$( dialog --stdout --separate-output                                     
 
 function instalar_desktop
 {
-    mv $HOME/Área\ de\ trabalho $HOME/Desktop
-    sed "s/"Área\ de\ trabalho"/"Desktop"/g" $HOME/.config/user-dirs.dirs  > /tmp/user-dirs.dirs.modificado
+    mv $HOME/Área\ de\ Trabalho $HOME/Desktop
+    sed "s/"Área\ de\ Trabalho"/"Desktop"/g" $HOME/.config/user-dirs.dirs  > /tmp/user-dirs.dirs.modificado
     mv /tmp/user-dirs.dirs.modificado $HOME/.config/user-dirs.dirs
     xdg-user-dirs-gtk-update
     xdg-user-dirs-update
