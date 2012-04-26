@@ -80,8 +80,7 @@ opcoes=$( dialog --stdout --separate-output                                     
     Inkscape        "Software para desenho vetorial"                                                    ON  \
     XChat           "Cliente IRC"                                                                       ON  \
     GoogleChrome    "Navegador web Google Chrome"                                                       ON  \
-    Skype           "Cliente para rede Skype"                                                           ON  \
-    Dropbox         "Cliente para Dropbox"                                                              ON  )
+    Skype           "Cliente para rede Skype"                                                           ON  )
 
 #=============================== Processamento =================================
 
@@ -306,14 +305,6 @@ function instalar_xchat
 function instalar_unitytray
 {
     gsettings set com.canonical.Unity.Panel systray-whitelist "['all']"
-}
-function instalar_dropbox
-{
-if [ $arquitetura == '32-bit' ]; then
-    cd ~ && wget -O - "http://www.dropbox.com/download?plat=lnx.x86" | tar xzf -
-else
-    cd ~ && wget -O - "http://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
-fi
 }
 
 echo "$opcoes" |
