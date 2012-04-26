@@ -51,8 +51,6 @@ SOFTWARES E CONFIGURAÇÕES
 * **Gedit**             - Plugins oficiais, Gmate + configurações úteis
     * Adiciona o repositório *ubuntu-on-rails*
     * Instala os pacotes: *gedit-plugins, gedit-gmate*
-    * Seleciona os plugins mais úteis e faz algumas configurações no editor
-    * Instala o Batraquio (coleção de snippets e tools para desenvolvimento com BDD usando)
 * **Refactoring**       - Conjunto de scripts para refatoração de código
     * Instala os scripts, criando links simbólicos e ativando os comandos: change-file-name, find-replace, html-characters e remove-temps
 * **StarDict**          - Dicionário multi-línguas

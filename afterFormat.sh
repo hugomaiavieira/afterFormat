@@ -153,26 +153,6 @@ function instalar_gedit
 	sudo apt-add-repository -y ppa:ubuntu-on-rails/ppa && sudo apt-get update
     sudo apt-get install -y gedit-plugins
     sudo apt-get install --force-yes -y gedit-gmate
-    # TODO: Ajustar lista de plugins. Para o gedit3, o gmate ainda tem poucos plugins.
-    # Preferências do gedit
-    `gconftool-2 --set /apps/gedit-2/plugins/active-plugins -t list --list-type=str [changecase,time,rubyonrailsloader,terminal,docinfo,filebrowser,smart_indent,rails_hotkeys,snippets,trailsave,smartspaces,rails_extract_partial,pastie,sort,text_tools,align,codecomment,colorpicker,sessionsaver,wordcompletion,gemini,rails_hotcommands,spell]`
-    `gconftool-2 --set /apps/gedit-2/preferences/editor/auto_indent/auto_indent -t bool true`
-    `gconftool-2 --set /apps/gedit-2/preferences/editor/bracket_matching/bracket_matching -t bool true`
-    `gconftool-2 --set /apps/gedit-2/preferences/editor/colors/scheme -t str ryanlight`
-    `gconftool-2 --set /apps/gedit-2/preferences/editor/current_line/highlight_current_line -t bool true`
-    `gconftool-2 --set /apps/gedit-2/preferences/editor/cursor_position/restore_cursor_position -t bool true`
-    `gconftool-2 --set /apps/gedit-2/preferences/editor/line_numbers/display_line_numbers -t bool true`
-    `gconftool-2 --set /apps/gedit-2/preferences/editor/right_margin/display_right_margin -t bool true`
-    `gconftool-2 --set /apps/gedit-2/preferences/editor/right_margin/right_margin_position -t int 80`
-    `gconftool-2 --set /apps/gedit-2/preferences/editor/save/create_backup_copy -t bool false`
-    `gconftool-2 --set /apps/gedit-2/preferences/editor/tabs/insert_spaces -t bool true`
-    `gconftool-2 --set /apps/gedit-2/preferences/editor/tabs/tabs_size -t int 4`
-    `gconftool-2 --set /apps/gedit-2/preferences/editor/wrap_mode/wrap_mode -t str GTK_WRAP_NONE`
-    `gconftool-2 --set /apps/gedit-2/preferences/ui/bottom_panel/bottom_panel_visible -t bool true`
-    `gconftool-2 --set /apps/gedit-2/preferences/ui/side_pane/side_pane_visible -t bool true`
-    wget -O /tmp/batraquio.tar.gz http://github.com/hugomaiavieira/batraquio/tarball/master --no-check-certificate
-    tar zxvf /tmp/batraquio.tar.gz -C /tmp
-    /tmp/hugomaiavieira-batraquio*/install.sh --yes
 }
 
 function instalar_refactoring
