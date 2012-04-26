@@ -106,10 +106,7 @@ function instalar_ps1
 
 function instalar_ssh
 {
-    sudo apt-get install -y openssh-server openssh-client && ssh-keygen -t rsa <<eof
-
-
-    eof
+    sudo apt-get install -y openssh-server openssh-client
 }
 
 function instalar_ruby1.9.2
