@@ -199,7 +199,7 @@ function instalar_media
 
     # Oracle Java JDK e java plugin para navegador
     sudo add-apt-repository ppa:webupd8team/java && sudo apt-get update
-    sudo apt-get install oracle-jdk7-installer
+    sudo apt-get -y install oracle-jdk7-installer
 }
 
 function instalar_googlechrome
