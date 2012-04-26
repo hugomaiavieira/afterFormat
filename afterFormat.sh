@@ -19,12 +19,14 @@
 #       - Fechada release depois de serem feitos vários testes e ajustes.
 #   v2.0, 12-10-2010, Hugo Maia Vieira:
 #       - Release para versões 10.x do Ubuntu.
+#   v2.0, 26-04-2012, Hugo Maia Vieira:
+#       - Release para versão 12.07 do Ubuntu.
 #
 # ------------------------------------------------------------------------------
 #
 # The MIT License
 #
-# Copyright (c) 2010 Hugo Henriques Maia Vieira
+# Copyright (c) 2012 Hugo Henriques Maia Vieira
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -58,7 +60,7 @@ vim=0
 sudo apt-get install -y dialog > /dev/null
 
 opcoes=$( dialog --stdout --separate-output                                                                 \
-    --title "afterFormat - Pós Formatação para as versão 11.10 do Ubuntu"                                   \
+    --title "afterFormat - Pós Formatação para as versão 12.04 do Ubuntu"                                   \
     --checklist 'Selecione os softwares que deseja instalar:' 0 0 0                                         \
     Desktop         "Muda \"Área de Trabalho\" para \"Desktop\" *(Apenas ptBR)"                         ON  \
     UnityTray       "Habilita ícones de aplicações no tray (como nas versões anteriores) "              ON  \
@@ -185,20 +187,23 @@ function instalar_media
     # A referência para a instalação desses pacotes foi o http://ubuntued.info/
 
     # Adiciona o repositório Medibuntu
-    sudo wget --output-document=/etc/apt/sources.list.d/medibuntu.list http://www.medibuntu.org/sources.list.d/$(lsb_release -cs).list
-    sudo apt-get update
-    sudo apt-get -y --allow-unauthenticated install medibuntu-keyring
-    sudo apt-get update
+    sudo -E wget --output-document=/etc/apt/sources.list.d/medibuntu.list http://www.medibuntu.org/sources.list.d/$(lsb_release -cs).list && \
+    sudo apt-get --quiet update && \
+    sudo apt-get -y --quiet --allow-unauthenticated install medibuntu-keyring && \
+    sudo apt-get --quiet update
 
-    # Pacotes de compactadores de ficheiros, OpenJDK, flash e codecs de áudio e vídeo
-    sudo apt-get install faac faad ffmpeg ffmpeg2theora flac icedax id3v2 lame \
-        libflac++6 libjpeg-progs libmpeg3-1 mencoder mjpegtools mp3gain \
-        mpeg2dec mpeg3-utils mpegdemux mpg123 mpg321 regionset sox uudeview \
-        vorbis-tools x264 arj lha p7zip p7zip-full p7zip-rar rar unace-nonfree \
-        # Adicionados por mim, não tem no tutorial do ubuntued
-        gstreamer0.10-ffmpeg gstreamer0.10-plugins-bad \
-        gstreamer0.10-fluendo-mp3 gstreamer0.10-plugins-ugly \
-        libdvdcss2 # para ler dvds encriptados
+    # Pacotes de codecs de áudio e vídeo
+    sudo apt-get install non-free-codecs libdvdcss2 faac faad ffmpeg \
+    ffmpeg2theora flac icedax id3v2 lame libflac++6 libjpeg-progs libmpeg3-1 \
+    mencoder mjpegtools mp3gain mpeg2dec mpeg3-utils mpegdemux mpg123 mpg321 \
+    regionset sox uudeview vorbis-tools x264
+
+    # Pacotes de compactadores de arquivos
+    sudo apt-get install arj lha p7zip p7zip-full p7zip-rar rar unrar unace-nonfree
+
+    # Oracle Java JDK e java plugin para navegador
+    sudo add-apt-repository ppa:webupd8team/java && sudo apt-get update
+    sudo apt-get install oracle-jdk7-installer
 }
 
 function instalar_googlechrome
