@@ -69,7 +69,7 @@ opcoes=$( dialog --stdout --separate-output                                     
     MySql           "Banco de dados"                                                                    ON  \
     PostgreSQL      "Banco de dados"                                                                    ON  \
     Sqlite3         "Banco de dados"                                                                    ON  \
-    Ruby1.9.2       "rvm com Ruby1.9.2"                                                                 ON  \
+    Ruby            "rvm + Ruby 1.9.3"                                                                  ON  \
     Python          "Ambiente para desenvolvimento com python"                                          ON  \
     VIM             "Editor de texto + configurações úteis"                                             ON  \
     Gedit           "Plugins oficiais, Gmate + configurações úteis"                                     ON  \
@@ -110,19 +110,19 @@ function instalar_ssh
     sudo apt-get install -y openssh-server openssh-client
 }
 
-function instalar_ruby1.9.2
+function instalar_ruby
 {
-    sudo apt-get install -y libssl-dev libreadline5-dev libxml2-dev libxslt-dev
+    sudo apt-get install -y libssl-dev libreadline-dev libxml2-dev libxslt-dev
 
     # Dependências do rvm
     sudo apt-get install -y curl git-core
     # Instala o rvm
-    bash < <(curl -s https://rvm.beginrescueend.com/install/rvm)
-    echo "[ -s \$HOME/.rvm/scripts/rvm ] && source \$HOME/.rvm/scripts/rvm" >> $HOME/.bashrc
-    [ -s $HOME/.rvm/scripts/rvm ] && source $HOME/.rvm/scripts/rvm
+    curl -L get.rvm.io | bash -s stable
+    source ~/.rvm/scripts/'rvm'
+    rvm requirements
 
-    # intala o ruby 1.9.2 no rvm
-    rvm install ruby-1.9.2
+    # intala o ruby 1.9.3 no rvm
+    rvm install ruby-1.9.3
 }
 
 function instalar_python
