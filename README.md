@@ -5,8 +5,7 @@ Instala automaticamente diversos softwares básicos que sempre são necessários
 após uma formatação. O PC deve estar conectado à internet. O tempo de
 instalação dependerá da velocidade de sua conexão.
 
-**Obs**.: Este script está validado apenas as versões **11.04 do Ubuntu**.
-Para outras versões do Ubuntu verifique os branches.
+**Obs**.: Este script está validado apenas a versão **12.04 do Ubuntu**.
 
 
 SOFTWARES E CONFIGURAÇÕES
@@ -69,25 +68,20 @@ SOFTWARES E CONFIGURAÇÕES
 EXECUTANDO O SCRIPT
 -------------------
 
-Primeiramente, faça o download do script clicando no link **Download** no
-topo desta página. Na tela que abrirá, clique em **Download .tar.gz**.
+Primeiramente, faça o download do script [clicando no aqui](https://github.com/hugomaiavieira/afterFormat/tarball/master).
 
 **Obs.: Nunca rode o script a partir da Área de Trabalho**
 
 Em seguida, descompacte o arquivo rodando no terminal (supondo que você baixou o arquivo na pasta Download):
 
-    $ cd Download
+    $ cd ~/Download
     $ tar xzfv hugomaiavieira-afterFormat-*.tar.gz
 
-Dê permissão de execução ao script:
-
-    $ cd hugomaiavieira-afterFormat-*
-    $ chmod +x afterFormat.sh
-
-Finalmente para executar:
+Finalmente execute o script:
 
     $ ./afterFormat.sh
 
+Será pedida sua senha e, após alguns segundos, será aberto um menu.
 
 INFORMAÇÃO
 -----------
@@ -121,6 +115,4 @@ AUTOR
 -----
 
   Hugo Henriques Maia Vieira <hugomaiavieira@gmail.com>
-
-  30 de Abril de 2011
 
