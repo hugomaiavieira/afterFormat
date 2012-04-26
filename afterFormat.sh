@@ -259,7 +259,7 @@ function instalar_gitmelddiff
 
 function instalar_mysql
 {
-    sudo apt-get install -y mysql-server-5.1 libmysqlclient16-dev
+    sudo apt-get install -y mysql-server
 }
 
 function instalar_postgresql
