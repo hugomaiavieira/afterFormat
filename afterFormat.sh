@@ -59,30 +59,30 @@ vim=0
 # Instala o dialog
 sudo apt-get install -y dialog > /dev/null
 
-opcoes=$( dialog --stdout --separate-output                                                                 \
-    --title "afterFormat - Pós Formatação para as versão 12.04 do Ubuntu"                                   \
-    --checklist 'Selecione os softwares que deseja instalar:' 0 0 0                                         \
-    Desktop         "Muda \"Área de Trabalho\" para \"Desktop\" *(Apenas ptBR)"                         ON  \
-    UnityTray       "Habilita ícones de aplicações no tray (como nas versões anteriores) "              ON  \
-    PS1             "\$PS1 no formato: usuário ~/diretório/atual (BranchGit)"                           ON  \
-    SSH             "SSH server e client"                                                               ON  \
-    MySql           "Banco de dados"                                                                    ON  \
-    PostgreSQL      "Banco de dados"                                                                    ON  \
-    Sqlite3         "Banco de dados"                                                                    ON  \
-    Ruby            "rvm + Ruby 1.9.3"                                                                  ON  \
-    Python          "Ambiente para desenvolvimento com python"                                          ON  \
-    VIM             "Editor de texto + configurações úteis"                                             ON  \
-    Gedit           "Plugins oficiais, Gmate + configurações úteis"                                     ON  \
-    Refactoring     "Conjunto de scripts para refatoração de código"                                    ON  \
-    Git             "Sistema de controle de versão + configurações úteis"                               ON  \
-    GitMeldDiff     "Torna o Meld o software para visualização do diff do git"                          ON  \
-    StarDict        "Dicionário multi-línguas (inclui dicionário PTbr-En/En-PTbr)"                      ON  \
-    Media           "Codecs, flashplayer (32 ou 64 bits), JRE e compactadores de arquivos"              ON  \
-    Gimp            "Software para manipulação de imagens"                                              ON  \
-    Inkscape        "Software para desenho vetorial"                                                    ON  \
-    XChat           "Cliente IRC"                                                                       ON  \
-    GoogleChrome    "Navegador web Google Chrome"                                                       ON  \
-    Skype           "Cliente para rede Skype"                                                           ON  )
+opcoes=$( dialog --stdout --separate-output                                                     \
+    --title "afterFormat - Pós Formatação para as versão 12.04 do Ubuntu"                       \
+    --checklist 'Selecione os softwares que deseja instalar:' 0 0 0                             \
+    Desktop         "Muda \"Área de Trabalho\" para \"Desktop\" *(Apenas ptBR)"             ON  \
+    UnityTray       "Habilita ícones de aplicações no tray (como nas versões anteriores) "  ON  \
+    PS1             "\$PS1 no formato: usuário ~/diretório/atual (BranchGit)"               ON  \
+    SSH             "SSH server e client"                                                   ON  \
+    MySql           "Banco de dados"                                                        ON  \
+    PostgreSQL      "Banco de dados"                                                        ON  \
+    Sqlite3         "Banco de dados"                                                        ON  \
+    Ruby            "rvm + Ruby 1.9.3"                                                      ON  \
+    Python          "Ambiente para desenvolvimento com python"                              ON  \
+    VIM             "Editor de texto + configurações úteis"                                 ON  \
+    Gedit           "Plugins oficiais, Gmate + configurações úteis"                         ON  \
+    Refactoring     "Conjunto de scripts para refatoração de código"                        ON  \
+    Git             "Sistema de controle de versão + configurações úteis"                   ON  \
+    GitMeldDiff     "Torna o Meld o software para visualização do diff do git"              ON  \
+    StarDict        "Dicionário multi-línguas (inclui dicionário PTbr-En/En-PTbr)"          ON  \
+    Media           "Codecs, flashplayer, Java RE e compactadores de arquivos"              ON  \
+    Gimp            "Software para manipulação de imagens"                                  ON  \
+    Inkscape        "Software para desenho vetorial"                                        ON  \
+    XChat           "Cliente IRC"                                                           ON  \
+    GoogleChrome    "Navegador web Google Chrome"                                           ON  \
+    Skype           "Cliente para rede Skype"                                               ON  )
 
 #=============================== Processamento =================================
 
@@ -213,6 +213,9 @@ function instalar_googlechrome
         wget -O /tmp/google-chrome-stable-amd64.deb http://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
         sudo dpkg -i /tmp/google-chrome-stable-amd64.deb
     fi
+
+    # Já que algumas dependências não instalam por bem, instalarão a força
+    sudo apt-get --force-yes -y -f install
 }
 
 function instalar_skype
@@ -231,7 +234,7 @@ function instalar_skype
     fi
 
     # Já que algumas dependências não instalam por bem, instalarão a força
-    sudo apt-get -f install
+    sudo apt-get --force-yes -y -f install
 }
 
 function instalar_stardict
