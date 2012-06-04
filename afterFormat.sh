@@ -118,8 +118,8 @@ function instalar_ruby
     sudo apt-get install -y curl git-core
     # Instala o rvm
     curl -L get.rvm.io | bash -s stable
-    source ~/.rvm/scripts/'rvm'
-    rvm requirements
+    source ~/.rvm/scripts/rvm
+    echo "source ~/.rvm/scripts/rvm" >> $HOME/.bashrc
 
     # intala o ruby 1.9.3 no rvm
     rvm install ruby-1.9.3
@@ -200,6 +200,7 @@ function instalar_media
     # Oracle Java JDK e java plugin para navegador
     sudo add-apt-repository ppa:webupd8team/java && sudo apt-get update
     sudo apt-get -y install oracle-jdk7-installer
+    sudo apt-get install flashplugin-installer
 }
 
 function instalar_googlechrome
@@ -320,4 +321,3 @@ done
 dialog --title 'Aviso' \
        --msgbox 'Instalação concluída!' \
 0 0
-
