@@ -63,6 +63,7 @@ SOFTWARES E CONFIGURAÇÕES
     * Instala a versão *estável* do navegador da Google
 * **Skype**             - Cliente do Skype: cliente de (video)conferencia
     * Instala o pacote deb oficial direto do site (32 ou 64 bits)
+* **SublimeText2**      - Editor de texto
 
 
 EXECUTANDO O SCRIPT

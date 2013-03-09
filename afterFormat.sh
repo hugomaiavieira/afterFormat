@@ -82,7 +82,8 @@ opcoes=$( dialog --stdout --separate-output                                     
     Inkscape        "Software para desenho vetorial"                                        ON  \
     XChat           "Cliente IRC"                                                           ON  \
     GoogleChrome    "Navegador web Google Chrome"                                           ON  \
-    Skype           "Cliente para rede Skype"                                               ON  )
+    Skype           "Cliente para rede Skype"                                               ON  \
+    SublimeText2    "Editor texto"                                                          ON  )
 
 #=============================== Processamento =================================
 
@@ -310,6 +311,12 @@ function instalar_xchat
 function instalar_unitytray
 {
     gsettings set com.canonical.Unity.Panel systray-whitelist "['all']"
+}
+
+function instalar_sublimetext2
+{
+    sudo add-apt-repository -y ppa:webupd8team/sublime-text-2 && sudo apt-get update
+    sudo apt-get install sublime-text
 }
 
 echo "$opcoes" |
