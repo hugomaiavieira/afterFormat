@@ -64,6 +64,7 @@ SOFTWARES E CONFIGURAÇÕES
 * **Skype**             - Cliente do Skype: cliente de (video)conferencia
     * Instala o pacote deb oficial direto do site (32 ou 64 bits)
 * **SublimeText2**      - Editor de texto
+* **Zsh**      - Shell + oh-my-zsh (framework para configurações úteis do zsh)
 
 
 EXECUTANDO O SCRIPT

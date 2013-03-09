@@ -83,6 +83,7 @@ opcoes=$( dialog --stdout --separate-output                                     
     XChat           "Cliente IRC"                                                           ON  \
     GoogleChrome    "Navegador web Google Chrome"                                           ON  \
     Skype           "Cliente para rede Skype"                                               ON  \
+    Zsh             "Shell + oh-my-zsh (framework para configurações úteis do zsh)"         ON  \
     SublimeText2    "Editor texto"                                                          ON  )
 
 #=============================== Processamento =================================
@@ -317,6 +318,12 @@ function instalar_sublimetext2
 {
     sudo add-apt-repository -y ppa:webupd8team/sublime-text-2 && sudo apt-get update
     sudo apt-get install sublime-text
+}
+function instalar_zsh
+{
+    sudo apt-get install zsh
+    wget --no-check-certificate https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
+    chsh -s /bin/zsh
 }
 
 echo "$opcoes" |
