@@ -139,14 +139,14 @@ function instalar_ruby
     instalar_dependencias_rvm
       
     # instala o rvm e ruby atuais e estaveis
-    \curl -#L https://get.rvm.io | bash -s stable --autolibs=3 --ruby
+    curl -L https://get.rvm.io | bash -s stable --autolibs=3 --ruby
 }
 
 function instalar_rails
 {
     instalar_dependencias_rvm
     # instala o rvm, ruby e rails atuais e estaveis
-    \curl -L https://get.rvm.io | bash -s stable --autolibs=3 --rails
+    curl -L https://get.rvm.io | bash -s stable --autolibs=3 --rails
 }
 
 function instalar_python
