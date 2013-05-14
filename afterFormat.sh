@@ -69,7 +69,7 @@ opcoes=$( dialog --stdout --separate-output                                     
     MySql           "Banco de dados"                                                        OFF \
     PostgreSQL      "Banco de dados"                                                        ON  \
     Sqlite3         "Banco de dados"                                                        OFF \
-    Ruby            "rvm + Ruby (ataul)"                                                    OFF \
+    Ruby            "rvm + Ruby (atual)"                                                    OFF \
     Rails           "rvm + Ruby e Rails (atuais)"                                           ON  \
     Python          "Ambiente para desenvolvimento com python"                              OFF \
     VIM             "Editor de texto + configurações úteis"                                 OFF \
