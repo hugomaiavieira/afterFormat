@@ -63,26 +63,27 @@ opcoes=$( dialog --stdout --separate-output                                     
     --title "afterFormat - Pós Formatação para as versão 12.04 do Ubuntu"                       \
     --checklist 'Selecione os softwares que deseja instalar:' 0 0 0                             \
     Desktop         "Muda \"Área de Trabalho\" para \"Desktop\" *(Apenas ptBR)"             ON  \
-    UnityTray       "Habilita ícones de aplicações no tray (como nas versões anteriores) "  ON  \
+    UnityTray       "Habilita ícones de aplicações no tray (como nas versões anteriores) "  OFF \
     PS1             "\$PS1 no formato: usuário ~/diretório/atual (BranchGit)"               ON  \
     SSH             "SSH server e client"                                                   ON  \
-    MySql           "Banco de dados"                                                        ON  \
+    MySql           "Banco de dados"                                                        OFF \
     PostgreSQL      "Banco de dados"                                                        ON  \
-    Sqlite3         "Banco de dados"                                                        ON  \
-    Ruby            "rvm + Ruby 1.9.3"                                                      ON  \
-    Python          "Ambiente para desenvolvimento com python"                              ON  \
-    VIM             "Editor de texto + configurações úteis"                                 ON  \
-    Gedit           "Plugins oficiais, Gmate + configurações úteis"                         ON  \
-    Refactoring     "Conjunto de scripts para refatoração de código"                        ON  \
+    Sqlite3         "Banco de dados"                                                        OFF \
+    Ruby            "rvm + Ruby (atual)"                                                    OFF \
+    Rails           "rvm + Ruby e Rails (atuais)"                                           ON  \
+    Python          "Ambiente para desenvolvimento com python"                              OFF \
+    VIM             "Editor de texto + configurações úteis"                                 OFF \
+    Gedit           "Plugins oficiais, Gmate + configurações úteis"                         OFF \
+    Refactoring     "Conjunto de scripts para refatoração de código"                        OFF \
     Git             "Sistema de controle de versão + configurações úteis"                   ON  \
-    GitMeldDiff     "Torna o Meld o software para visualização do diff do git"              ON  \
-    StarDict        "Dicionário multi-línguas (inclui dicionário PTbr-En/En-PTbr)"          ON  \
-    Media           "Codecs, flashplayer, Java RE e compactadores de arquivos"              ON  \
-    Gimp            "Software para manipulação de imagens"                                  ON  \
-    Inkscape        "Software para desenho vetorial"                                        ON  \
-    XChat           "Cliente IRC"                                                           ON  \
-    GoogleChrome    "Navegador web Google Chrome"                                           ON  \
-    Skype           "Cliente para rede Skype"                                               ON  \
+    GitMeldDiff     "Torna o Meld o software para visualização do diff do git"              OFF \
+    StarDict        "Dicionário multi-línguas (inclui dicionário PTbr-En/En-PTbr)"          OFF \
+    Media           "Codecs, flashplayer, Java RE e compactadores de arquivos"              OFF \
+    Gimp            "Software para manipulação de imagens"                                  OFF \
+    Inkscape        "Software para desenho vetorial"                                        OFF \
+    XChat           "Cliente IRC"                                                           OFF \
+    GoogleChrome    "Navegador web Google Chrome"                                           OFF \
+    Skype           "Cliente para rede Skype"                                               OFF \
     Zsh             "Shell + oh-my-zsh (framework para configurações úteis do zsh)"         ON  \
     SublimeText2    "Editor texto"                                                          ON  )
 
@@ -119,23 +120,33 @@ function instalar_ssh
     sudo apt-get install -y openssh-server openssh-client
 }
 
-function instalar_ruby
+function instalar_dependencias_rvm
 {
-    sudo apt-get install -y libssl-dev libreadline-dev libxml2-dev libxslt-dev
+    sudo apt-get install -y libssl-dev libreadline-dev libxml2-dev libxslt-dev libyaml-dev
 
     # Dependências do rvm
     sudo apt-get install -y curl git-core
-    # Instala o rvm
-    curl -L get.rvm.io | bash -s stable
-    source ~/.rvm/scripts/rvm
+    
 
     #adiciona source no bash
     echo "source $HOME/.rvm/scripts/rvm" >> $HOME/.bashrc
     #adiciona source no zsh
     echo "source $HOME/.rvm/scripts/rvm" >> $HOME/.zshrc
+}
 
-    # intala o ruby 1.9.3 no rvm
-    rvm install ruby-1.9.3
+function instalar_ruby
+{
+    instalar_dependencias_rvm
+      
+    # instala o rvm e ruby atuais e estaveis
+    curl -L https://get.rvm.io | bash -s stable --autolibs=3 --ruby
+}
+
+function instalar_rails
+{
+    instalar_dependencias_rvm
+    # instala o rvm, ruby e rails atuais e estaveis
+    curl -L https://get.rvm.io | bash -s stable --autolibs=3 --rails
 }
 
 function instalar_python
@@ -297,7 +308,7 @@ function instalar_mysql
 
 function instalar_postgresql
 {
-    sudo apt-get install -y postgresql
+    sudo apt-get install -y postgresql libpq-dev
 }
 
 function instalar_sqlite3

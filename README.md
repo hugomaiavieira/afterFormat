@@ -19,10 +19,14 @@ SOFTWARES E CONFIGURAÇÕES
     * Instala a pacote *git-core*
 * **SSH**               - Instala o ssh cliente e servidor
     * Instala os pacotes: *openssh-server, openssh-client*
-* **Ruby1.9.2**           - Ambiente para desenvolvimento com Ruby1.9.2
-    * Instala os pacotes: *libssl-dev, libreadline5-dev, libxml2-dev, libxslt-dev, git-core e curl*
+* **Ruby**           - Ambiente para desenvolvimento com Ruby
+    * Instala os pacotes: *libssl-dev, libreadline5-dev, libxml2-dev, libxslt-dev, libyaml-dev, git-core e curl*
     * Instala o *rvm*
-    * Instala o *ruby-1.9.2* no *rvm*
+    * Instala o *ruby mais atual e estavel* no *rvm*
+* **Rails**           - Ambiente para desenvolvimento com Ruby on Rails
+    * Instala os pacotes: *libssl-dev, libreadline5-dev, libxml2-dev, libxslt-dev, libyaml-dev, git-core e curl*
+    * Instala o *rvm*
+    * Instala o *ruby e *rails mais atuais e estaveis* no *rvm*
 * **Python**            - Ambiente para desenvolvimento com python
     * Instala os pacotes: *ipython, python-dev*
     * Instala o distribute, pip, virtualenv e virtualenvwrapper
