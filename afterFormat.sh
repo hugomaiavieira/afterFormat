@@ -308,7 +308,7 @@ function instalar_mysql
 
 function instalar_postgresql
 {
-    sudo apt-get install -y postgresql
+    sudo apt-get install -y postgresql libpq-dev
 }
 
 function instalar_sqlite3
