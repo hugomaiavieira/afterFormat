@@ -107,6 +107,13 @@ function instalar_ps1
     cat $FOLDER/PS1 >> $HOME/.bashrc
 }
 
+function instalar_zsh
+{
+    sudo apt-get install zsh
+    wget --no-check-certificate https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
+    sudo usermod -s /bin/zsh $USER
+}
+
 function instalar_ssh
 {
     sudo apt-get install -y openssh-server openssh-client
@@ -121,7 +128,11 @@ function instalar_ruby
     # Instala o rvm
     curl -L get.rvm.io | bash -s stable
     source ~/.rvm/scripts/rvm
-    echo "source ~/.rvm/scripts/rvm" >> $HOME/.bashrc
+
+    #adiciona source no bash
+    echo "source $HOME/.rvm/scripts/rvm" >> $HOME/.bashrc
+    #adiciona source no zsh
+    echo "source $HOME/.rvm/scripts/rvm" >> $HOME/.zshrc
 
     # intala o ruby 1.9.3 no rvm
     rvm install ruby-1.9.3
@@ -317,13 +328,7 @@ function instalar_unitytray
 function instalar_sublimetext2
 {
     sudo add-apt-repository -y ppa:webupd8team/sublime-text-2 && sudo apt-get update
-    sudo apt-get install sublime-text
-}
-function instalar_zsh
-{
-    sudo apt-get install zsh
-    wget --no-check-certificate https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
-    chsh -s /bin/zsh
+    sudo apt-get install -y sublime-text
 }
 
 echo "$opcoes" |
