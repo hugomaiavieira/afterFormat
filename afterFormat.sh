@@ -70,6 +70,7 @@ opcoes=$( dialog --stdout --separate-output                                     
     PostgreSQL      "Banco de dados"                                                        ON  \
     Sqlite3         "Banco de dados"                                                        ON  \
     Ruby            "rvm + Ruby 1.9.3"                                                      ON  \
+    Rails           "rvm + Ruby e Rails (atuais)"                                           ON  \
     Python          "Ambiente para desenvolvimento com python"                              ON  \
     VIM             "Editor de texto + configurações úteis"                                 ON  \
     Gedit           "Plugins oficiais, Gmate + configurações úteis"                         ON  \
@@ -119,23 +120,33 @@ function instalar_ssh
     sudo apt-get install -y openssh-server openssh-client
 }
 
-function instalar_ruby
+function instalar_dependencias_rvm
 {
-    sudo apt-get install -y libssl-dev libreadline-dev libxml2-dev libxslt-dev
+    sudo apt-get install -y libssl-dev libreadline-dev libxml2-dev libxslt-dev libyaml-dev
 
     # Dependências do rvm
     sudo apt-get install -y curl git-core
-    # Instala o rvm
-    curl -L get.rvm.io | bash -s stable
-    source ~/.rvm/scripts/rvm
+    
 
     #adiciona source no bash
     echo "source $HOME/.rvm/scripts/rvm" >> $HOME/.bashrc
     #adiciona source no zsh
     echo "source $HOME/.rvm/scripts/rvm" >> $HOME/.zshrc
+}
 
-    # intala o ruby 1.9.3 no rvm
-    rvm install ruby-1.9.3
+function instalar_ruby
+{
+    instalar_dependencias_rvm
+      
+    # intala o rvm e ruby atuais e estaveis
+    \curl -#L https://get.rvm.io | bash -s stable --autolibs=3 --ruby
+}
+
+function instalar_rails
+{
+    instalar_dependencias_rvm
+    # intala o rvm, ruby e rails atuais e estaveis
+    \curl -L https://get.rvm.io | bash -s stable --autolibs=3 --rails
 }
 
 function instalar_python
