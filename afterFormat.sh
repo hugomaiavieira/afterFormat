@@ -69,7 +69,7 @@ opcoes=$( dialog --stdout --separate-output                                     
     MySql           "Banco de dados"                                                        ON  \
     PostgreSQL      "Banco de dados"                                                        ON  \
     Sqlite3         "Banco de dados"                                                        ON  \
-    Ruby            "rvm + Ruby 1.9.3"                                                      ON  \
+    Ruby            "rbenv + Ruby 1.9.3"                                                    ON  \
     Python          "Ambiente para desenvolvimento com python"                              ON  \
     VIM             "Editor de texto + configurações úteis"                                 ON  \
     Gedit           "Plugins oficiais, Gmate + configurações úteis"                         ON  \
@@ -114,15 +114,17 @@ function instalar_ruby
 {
     sudo apt-get install -y libssl-dev libreadline-dev libxml2-dev libxslt-dev
 
-    # Dependências do rvm
-    sudo apt-get install -y curl git-core
-    # Instala o rvm
-    curl -L get.rvm.io | bash -s stable
-    source ~/.rvm/scripts/rvm
-    echo "source ~/.rvm/scripts/rvm" >> $HOME/.bashrc
-
-    # intala o ruby 1.9.3 no rvm
-    rvm install ruby-1.9.3
+    # Dependências para instalar o rbenv
+    sudo apt-get install -y git-core
+    # Instala o rbenv
+    git clone git://github.com/sstephenson/rbenv.git ~/.rbenv
+    echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+    echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+    exec $SHELL
+    # Instala o ruby-build como plugin do rbenv
+    git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+    # intala o ruby 1.9.3 no rbenv
+    rbenv install 1.9.3-p286
 }
 
 function instalar_python
@@ -207,7 +209,7 @@ function instalar_googlechrome
 {
     if [ "$arquitetura" = '32-bit' ]
     then
-        wget -O /tmp/google-chrome-stable-i386.deb http://dl.google.com/linux/direct/google-chrome-stable_current_i386.deb
+        wget -O /tmp/google-chrome-stable-i386.deb https://dl.google.com/linux/direct/google-chrome-stable_current_i386.deb
         sudo dpkg -i /tmp/google-chrome-stable-i386.deb
     elif [ "$arquitetura" = '64-bit' ]
     then

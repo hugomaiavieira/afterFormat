@@ -21,8 +21,8 @@ SOFTWARES E CONFIGURAÇÕES
     * Instala os pacotes: *openssh-server, openssh-client*
 * **Ruby1.9.2**           - Ambiente para desenvolvimento com Ruby1.9.2
     * Instala os pacotes: *libssl-dev, libreadline5-dev, libxml2-dev, libxslt-dev, git-core e curl*
-    * Instala o *rvm*
-    * Instala o *ruby-1.9.2* no *rvm*
+    * Instala o *rbenv*
+    * Instala o *ruby 1.9.3* no *rbenv*
 * **Python**            - Ambiente para desenvolvimento com python
     * Instala os pacotes: *ipython, python-dev*
     * Instala o distribute, pip, virtualenv e virtualenvwrapper

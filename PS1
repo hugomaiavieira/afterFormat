@@ -1,6 +1,2 @@
 
-gemset(){
-    _gemset=`rvm gemset name 2> /dev/null | xargs`
-    [ -n "$_gemset" ] && [ ! -d "$_gemset" ] && echo "@$_gemset"
-}
-export PS1="\`ruby=\$(which ruby 1> /dev/null && ruby -v 2> /dev/null | grep -oP \"[0-9]+(\.[0-9]+)+\") && echo \"(\$ruby\$(gemset)) \"\`\[\033[36m\]\u \[\033[33m\]\w \[\033[34m\]\$(__git_ps1 '(%s) ')\[\033[00m\]$ "
+export PS1="\`ruby=\$(which ruby 1> /dev/null && ruby -v 2> /dev/null | grep -oP \"[0-9]+(\.[0-9]+)+\") && echo \"(\$ruby) \"\`\[\033[36m\]\u \[\033[33m\]\w \[\033[34m\]\$(__git_ps1 '(%s) ')\[\033[00m\]$ "
