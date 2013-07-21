@@ -12,17 +12,20 @@ SOFTWARES E CONFIGURAÇÕES
 -------------------------
 
 * **Desktop**           - Muda "Área de Trabalho" para "Desktop"
-* **UnityTray**         - Habilita a antiga 'bandeja' (tray) do sistema no Ubuntu com Unity
 * **PS1**               - $PS1 no formato:
     * Sem ruby instalado: **usuário ~/diretório/atual (git_branch_atual) $**
     * Com ruby instalado: **(versao_do_ruby_ativa@gemset_ativa) usuário ~/diretório/atual (git_branch_atual) $**
     * Instala a pacote *git-core*
 * **SSH**               - Instala o ssh cliente e servidor
     * Instala os pacotes: *openssh-server, openssh-client*
-* **Ruby1.9.2**           - Ambiente para desenvolvimento com Ruby1.9.2
-    * Instala os pacotes: *libssl-dev, libreadline5-dev, libxml2-dev, libxslt-dev, git-core e curl*
+* **Rbenv**           - Ambiente para desenvolvimento com Ruby com rbenv
+    * Instala os pacotes: *libssl-dev, libreadline5-dev, libxml2-dev, libxslt-dev, libyaml-dev, git-core*
     * Instala o *rbenv*
-    * Instala o *ruby 1.9.3* no *rbenv*
+    * Instala o *ruby 2.0 mais atual e estavel* no *rbenv*
+* **Rvm**           - Ambiente para desenvolvimento com Ruby com rvm
+    * Instala os pacotes: *libssl-dev, libreadline5-dev, libxml2-dev, libxslt-dev, libyaml-dev, git-core e curl*
+    * Instala o *rvm*
+    * Instala o *ruby 2.0 mais atual e estavel* no *rvm*
 * **Python**            - Ambiente para desenvolvimento com python
     * Instala os pacotes: *ipython, python-dev*
     * Instala o distribute, pip, virtualenv e virtualenvwrapper
@@ -47,9 +50,6 @@ SOFTWARES E CONFIGURAÇÕES
 * **VIM**               - Editor de texto + configurações úteis
     * Instala o pacote: *vim*
     * Criar o arquivo `/etc/vim/vimrc.local` com diversas configurações úteis
-* **Gedit**             - Plugins oficiais, Gmate + configurações úteis
-    * Adiciona o repositório *ubuntu-on-rails*
-    * Instala os pacotes: *gedit-plugins, gedit-gmate*
 * **Refactoring**       - Conjunto de scripts para refatoração de código
     * Instala os scripts, criando links simbólicos e ativando os comandos: change-file-name, find-replace, html-characters e remove-temps
 * **StarDict**          - Dicionário multi-línguas
@@ -58,11 +58,12 @@ SOFTWARES E CONFIGURAÇÕES
     * Instala diversos pacotes de codecs, compactadores de arquivos, JRE e verifica se o sistema é 32 ou 64 bits e instala o flashplayer correspondente.
 * **Gimp**              - Software para manipulação de imagens
 * **Inkscape**          - Software para desenho vetorial
-* **XChat**             - Cliente IRC
 * **GoogleChrome**      - Navegador web Google Chrome
     * Instala a versão *estável* do navegador da Google
 * **Skype**             - Cliente do Skype: cliente de (video)conferencia
     * Instala o pacote deb oficial direto do site (32 ou 64 bits)
+* **SublimeText2**      - Editor de texto
+* **Zsh**      - Shell + oh-my-zsh (framework para configurações úteis do zsh)
 
 
 EXECUTANDO O SCRIPT
@@ -83,6 +84,7 @@ Finalmente execute o script:
 
 Será pedida sua senha e, após alguns segundos, será aberto um menu.
 
+
 INFORMAÇÃO
 -----------
 
@@ -90,25 +92,6 @@ Ao executar o script todos os softwares serão instalados automaticamente,
 sendo que o MySql pedirá para escolher a senha de root durante a
 instalação. Os softwares são instalados na ordem em que aparecem na
 lista.
-
-
-CONFIGURANDO O STARDICT
------------------------
-
-Vá em Aplicativos->Acessórios->StarDict
-
-1. No canto inferior direito clique no ícone "Preferências". Vá em
-    Dicionário->Leitura e seleção, marque "Somente ler se uma tecla ..." e
-    escolha uma tecla modificadora (a tecla Win é a tecla com o logo do
-    Windowns). Clique em fechar.
-
-2. No canto inferior direito clique no ícone "Administrar dicionários". Na
-    aba Administrar Dic desmarque todas as entradas "QQWry", "Man" e
-    "Dict.cn". Clique em fechar
-
-Para utilizar, basta abrir o StarDict e digitar a palavra ou em qualquer
-lugar (documento pdf, odp, no navegador e etc) selecione uma palavra e
-aperte a tecla modificadora escolhida no passo 1.
 
 
 AUTOR
