@@ -18,11 +18,13 @@ SOFTWARES E CONFIGURAÇÕES
     * Instala a pacote *git-core*
 * **SSH**               - Instala o ssh cliente e servidor
     * Instala os pacotes: *openssh-server, openssh-client*
-* **Rbenv**           - Ambiente para desenvolvimento com Ruby com rbenv
+* **Terminator**        - Um terminal mais poderoso
+* **Nodejs**            - Nodejs e npm (node packaged modules)
+* **Rbenv**             - Ambiente para desenvolvimento com Ruby com rbenv
     * Instala os pacotes: *libssl-dev, libreadline5-dev, libxml2-dev, libxslt-dev, libyaml-dev, git-core*
     * Instala o *rbenv*
     * Instala o *ruby 2.0 mais atual e estavel* no *rbenv*
-* **Rvm**           - Ambiente para desenvolvimento com Ruby com rvm
+* **Rvm**               - Ambiente para desenvolvimento com Ruby com rvm
     * Instala os pacotes: *libssl-dev, libreadline5-dev, libxml2-dev, libxslt-dev, libyaml-dev, git-core e curl*
     * Instala o *rvm*
     * Instala o *ruby 2.0 mais atual e estavel* no *rvm*

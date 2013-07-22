@@ -23,7 +23,7 @@
 #       - Release para versão 12.04 do Ubuntu.
 #   v3.0, 21-07-2013, Hugo Maia Vieira:
 #       - Release para versão 13.04 do Ubuntu e 15 do Linux Mint. Removidos 
-#         alguns itens e adicionado o rbenv.
+#         alguns itens. Adicionado o rbenv, nodejs e terminator.
 #
 # ------------------------------------------------------------------------------
 #
@@ -68,9 +68,11 @@ opcoes=$( dialog --stdout --separate-output                                     
     Desktop         "Muda \"Área de Trabalho\" para \"Desktop\" *(Apenas ptBR)"             ON  \
     PS1             "\$PS1 no formato: usuário ~/diretório/atual (BranchGit)"               ON  \
     SSH             "SSH server e client"                                                   ON  \
+    Terminator      "Terminal mais podereso"                                                ON  \
     MySql           "Banco de dados"                                                        ON  \
     PostgreSQL      "Banco de dados"                                                        ON  \
     Sqlite3         "Banco de dados"                                                        ON  \
+    Nodejs          "Nodejs e npm (node packaged modules)"                                  ON  \
     Rbenv           "rbenv + Ruby (atual)"                                                  ON  \
     Rvm             "rvm + Ruby e Rails (atuais)"                                           OFF \
     Python          "Ambiente para desenvolvimento com python"                              OFF \
@@ -97,6 +99,11 @@ function instalar_desktop
     mv /tmp/user-dirs.dirs.modificado $HOME/.config/user-dirs.dirs
     xdg-user-dirs-gtk-update
     xdg-user-dirs-update
+}
+
+function instalar_terminator
+{
+    sudo apt-get install -y terminator
 }
 
 function instalar_ps1
@@ -274,6 +281,12 @@ function instalar_postgresql
 function instalar_sqlite3
 {
     sudo apt-get install -y sqlite3 libsqlite3-dev
+}
+
+function instalar_nodejs
+{
+    sudo add-apt-repository ppa:chris-lea/node.js && sudo apt-get update
+    sudo apt-get install -y nodejs
 }
 
 function instalar_gimp
