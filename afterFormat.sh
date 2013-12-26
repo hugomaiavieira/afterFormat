@@ -115,7 +115,13 @@ function instalar_ps1
 
 function instalar_zsh
 {
-    sudo apt-get install zsh
+    wget -O /tmp/zsh-5.0.2.tar.bz2 http://ufpr.dl.sourceforge.net/project/zsh/zsh/5.0.2/zsh-5.0.2.tar.bz2
+    tar jxvf /tmp/zsh-5.0.2.tar.bz2 -C /tmp
+    cd /tmp/zsh-5.0.2/
+    ./configure && make
+    sudo make install
+    cd -
+
     wget --no-check-certificate https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
     sudo usermod -s /bin/zsh $USER
 }
