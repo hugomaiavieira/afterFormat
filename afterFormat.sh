@@ -22,7 +22,7 @@
 #   v2.1, 26-04-2012, Hugo Maia Vieira:
 #       - Release para versão 12.04 do Ubuntu.
 #   v3.0, 21-07-2013, Hugo Maia Vieira:
-#       - Release para versão 13.04 do Ubuntu e 15 do Linux Mint. Removidos 
+#       - Release para versão 13.04 do Ubuntu e 15 do Linux Mint. Removidos
 #         alguns itens. Adicionado o rbenv, nodejs e terminator.
 #
 # ------------------------------------------------------------------------------
@@ -85,7 +85,7 @@ opcoes=$( dialog --stdout --separate-output                                     
     GoogleChrome    "Navegador web Google Chrome"                                           ON  \
     Skype           "Cliente para rede Skype"                                               ON  \
     Zsh             "Shell + oh-my-zsh (framework para configurações úteis do zsh)"         OFF \
-    SublimeText2    "Editor texto"                                                          ON  )
+    SublimeText     "Editor texto"                                                          ON  )
 
 #=============================== Processamento =================================
 
@@ -299,10 +299,13 @@ function instalar_inkscape
     sudo apt-get install -y inkscape
 }
 
-function instalar_sublimetext2
+function instalar_sublimetext
 {
     sudo add-apt-repository ppa:webupd8team/sublime-text-2 && sudo apt-get update
     sudo apt-get install -y sublime-text
+    # seta o sublime como editor padrão
+    cat /etc/gnome/defaults.list | grep gedit >> ~/.local/share/applications/mimeapps.list
+    sed -i s,gedit,sublime-text, ~/.local/share/applications/mimeapps.list
 }
 
 echo "$opcoes" |
