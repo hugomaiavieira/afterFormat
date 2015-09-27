@@ -307,8 +307,8 @@ function instalar_inkscape
 
 function instalar_sublimetext
 {
-    sudo add-apt-repository ppa:webupd8team/sublime-text-2 && sudo apt-get update
-    sudo apt-get install -y sublime-text
+    sudo add-apt-repository ppa:webupd8team/sublime-text-3 && sudo apt-get update
+    sudo apt-get install -y sublime-text-installer
     # seta o sublime como editor padrão
     cat /etc/gnome/defaults.list | grep gedit >> ~/.local/share/applications/mimeapps.list
     sed -i s,gedit,sublime-text, ~/.local/share/applications/mimeapps.list
