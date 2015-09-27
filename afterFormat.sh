@@ -6,27 +6,6 @@
 #
 # ------------------------------------------------------------------------------
 #
-# Histórico:
-#
-#   v1.0, 19-11-2009, Hugo Maia:
-#       - Versão inicial.
-#   v1.1, 08-05-2010, Hugo Maia Vieira:
-#       - Retirados e adicionados itens, ajustando para o ubuntu 10.04
-#   v1.2, 08-05-2010, Hugo Maia Vieira:
-#       - Colocado o pacote de dicionários no downloads do projeto e mudado o
-#       script para baixar de lá se for necessário.
-#   v1.3, 19-05-2010, Hugo Maia Vieira:
-#       - Fechada release depois de serem feitos vários testes e ajustes.
-#   v2.0, 12-10-2010, Hugo Maia Vieira:
-#       - Release para versões 10.x do Ubuntu.
-#   v2.1, 26-04-2012, Hugo Maia Vieira:
-#       - Release para versão 12.04 do Ubuntu.
-#   v3.0, 21-07-2013, Hugo Maia Vieira:
-#       - Release para versão 13.04 do Ubuntu e 15 do Linux Mint. Removidos
-#         alguns itens. Adicionado o rbenv, nodejs e terminator.
-#
-# ------------------------------------------------------------------------------
-#
 # The MIT License
 #
 # Copyright (c) 2012 Hugo Henriques Maia Vieira
