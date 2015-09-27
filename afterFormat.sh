@@ -55,6 +55,7 @@ opcoes=$( dialog --stdout --separate-output                                     
     Rbenv           "rbenv + Ruby (atual)"                                                  ON  \
     Rvm             "rvm + Ruby e Rails (atuais)"                                           OFF \
     Python          "Ambiente para desenvolvimento com python"                              OFF \
+    Java            "Java Development Kit"                                                  ON  \
     VIM             "Editor de texto + configurações úteis"                                 OFF \
     Refactoring     "Conjunto de scripts para refatoração de código"                        ON  \
     Git             "Sistema de controle de versão + configurações úteis"                   ON  \
@@ -155,6 +156,11 @@ function instalar_rvm
 
     # instala o rvm, ruby e rails atuais e estaveis
     curl -L https://get.rvm.io | bash -s stable --autolibs=3 --rails
+}
+
+function instalar_java
+{
+    sudo apt-get install -y openjdk-7-jdk
 }
 
 function instalar_python
