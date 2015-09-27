@@ -58,7 +58,6 @@ SOFTWARES E CONFIGURAÇÕES
     * Inclui dicionários Inglês-Português e Português-Inglês
 * **Media**             - Codecs, flashplayer (32 ou 64 bits) e compactadores
     * Instala diversos pacotes de codecs, compactadores de arquivos, JRE e verifica se o sistema é 32 ou 64 bits e instala o flashplayer correspondente.
-* **Gimp**              - Software para manipulação de imagens
 * **Inkscape**          - Software para desenho vetorial
 * **GoogleChrome**      - Navegador web Google Chrome
     * Instala a versão *estável* do navegador da Google

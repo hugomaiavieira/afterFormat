@@ -80,7 +80,6 @@ opcoes=$( dialog --stdout --separate-output                                     
     Refactoring     "Conjunto de scripts para refatoração de código"                        ON  \
     Git             "Sistema de controle de versão + configurações úteis"                   ON  \
     GitMeldDiff     "Torna o Meld o software para visualização do diff do git"              ON  \
-    Gimp            "Software para manipulação de imagens"                                  ON  \
     Inkscape        "Software para desenho vetorial"                                        ON  \
     GoogleChrome    "Navegador web Google Chrome"                                           ON  \
     Skype           "Cliente para rede Skype"                                               ON  \
@@ -291,13 +290,7 @@ function instalar_sqlite3
 
 function instalar_nodejs
 {
-    sudo add-apt-repository ppa:chris-lea/node.js && sudo apt-get update
     sudo apt-get install -y nodejs
-}
-
-function instalar_gimp
-{
-    sudo apt-get install -y gimp
 }
 
 function instalar_inkscape
