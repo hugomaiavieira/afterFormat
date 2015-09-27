@@ -269,7 +269,7 @@ function instalar_sqlite3
 
 function instalar_nodejs
 {
-    sudo apt-get install -y nodejs
+    sudo apt-get install -y nodejs npm
 }
 
 function instalar_inkscape
