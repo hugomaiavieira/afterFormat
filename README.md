@@ -52,18 +52,12 @@ SOFTWARES E CONFIGURAÇÕES
 * **VIM**               - Editor de texto + configurações úteis
     * Instala o pacote: *vim*
     * Criar o arquivo `/etc/vim/vimrc.local` com diversas configurações úteis
-* **Refactoring**       - Conjunto de scripts para refatoração de código
-    * Instala os scripts, criando links simbólicos e ativando os comandos: change-file-name, find-replace, html-characters e remove-temps
-* **StarDict**          - Dicionário multi-línguas
-    * Inclui dicionários Inglês-Português e Português-Inglês
-* **Media**             - Codecs, flashplayer (32 ou 64 bits) e compactadores
-    * Instala diversos pacotes de codecs, compactadores de arquivos, JRE e verifica se o sistema é 32 ou 64 bits e instala o flashplayer correspondente.
 * **Inkscape**          - Software para desenho vetorial
 * **GoogleChrome**      - Navegador web Google Chrome
     * Instala a versão *estável* do navegador da Google
 * **Skype**             - Cliente do Skype: cliente de (video)conferencia
     * Instala o pacote deb oficial direto do site (32 ou 64 bits)
-* **SublimeText2**      - Editor de texto
+* **SublimeText3**      - Editor de texto
 * **Zsh**      - Shell + oh-my-zsh (framework para configurações úteis do zsh)
 
 

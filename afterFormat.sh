@@ -31,6 +31,8 @@
 # Mandinga para pegar o diretório onde o script foi executado
 FOLDER=$(dirname $(readlink -f $0))
 
+FINAL_MSG=''
+
 # Pegando arquitetura do sistema. Valores de retorno: '32-bit' ou '64-bit'
 arquitetura=`file /bin/bash | cut -d' ' -f3`
 
@@ -56,8 +58,7 @@ opcoes=$( dialog --stdout --separate-output                                     
     Rvm             "rvm + Ruby e Rails (atuais)"                                           OFF \
     Python          "Ambiente para desenvolvimento com python"                              OFF \
     Java            "Java Development Kit"                                                  ON  \
-    VIM             "Editor de texto + configurações úteis"                                 OFF \
-    Refactoring     "Conjunto de scripts para refatoração de código"                        ON  \
+    VIM             "Editor de texto + configurações úteis"                                 ON  \
     Git             "Sistema de controle de versão + configurações úteis"                   ON  \
     GitMeldDiff     "Torna o Meld o software para visualização do diff do git"              ON  \
     Inkscape        "Software para desenho vetorial"                                        ON  \
@@ -83,6 +84,7 @@ function instalar_desktop
 function instalar_terminator
 {
     sudo apt-get install -y terminator
+    FINAL_MSG="$FINAL_MSG\n\nInstalação do Terminator\n========================\n\nInstale esse plugin que é bem útil: https://github.com/mchelem/terminator-editor-plugin"
 }
 
 function instalar_ps1
@@ -184,13 +186,6 @@ function instalar_vim
     sudo apt-get install -y vim
     sudo cp $FOLDER/vimrc.local /etc/vim/
     vim=1
-}
-
-function instalar_refactoring
-{
-    wget -O /tmp/refactoring-scripts.tar.gz http://github.com/hugomaiavieira/refactoring-scripts/tarball/master --no-check-certificate
-    tar zxvf /tmp/refactoring-scripts.tar.gz -C /tmp
-    /tmp/hugomaiavieira-refactoring-scripts*/install.sh
 }
 
 function instalar_googlechrome
@@ -301,3 +296,6 @@ done
 dialog --title 'Aviso' \
        --msgbox 'Instalação concluída!' \
 0 0
+
+
+echo -e "$FINAL_MSG"
