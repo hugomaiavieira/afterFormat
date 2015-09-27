@@ -160,7 +160,7 @@ function instalar_rbenv
     git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
 
     # intala o ruby 2 mais atual
-    rbenv install `rbenv install -l | grep -P "2.0.0-p\d+" | tail -n 1`
+    rbenv install `rbenv install -l | grep -P "^(\s)*2\.\d\.\d$" | tail -n 1`
 }
 
 function instalar_rvm
