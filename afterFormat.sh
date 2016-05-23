@@ -87,34 +87,26 @@ function instalar_terminator
     FINAL_MSG="$FINAL_MSG\n\nInstalação do Terminator\n========================\n\nInstale esse plugin que é bem útil: https://github.com/mchelem/terminator-editor-plugin"
 }
 
-function instalar_ps1
-{
-    # Instala o git, que é dependência para a personalização
-    instalar_git
-    cat $FOLDER/PS1 >> $HOME/.bashrc
-}
-
 function instalar_zsh
 {
-    wget -O /tmp/zsh-5.0.2.tar.bz2 http://ufpr.dl.sourceforge.net/project/zsh/zsh/5.0.2/zsh-5.0.2.tar.bz2
-    tar jxvf /tmp/zsh-5.0.2.tar.bz2 -C /tmp
-    cd /tmp/zsh-5.0.2/
+    # dependências do zsh
+    sudo apt-get install -y libc6-dev libncursesw5-dev
+    wget -O /tmp/zsh-5.2.tar.gz http://ufpr.dl.sourceforge.net/project/zsh/zsh/5.2/zsh-5.2.tar.gz
+    tar -xvfz /tmp/zsh-5.2.tar.gz -C /tmp
+    cd /tmp/zsh-5.2/
     ./configure && make
     sudo make install
+    # define o zsh como shell default do usuário atual
+    sudo sh -c 'echo $(which zsh) >> /etc/shells'
+    sudo usermod --shell $(which zsh) $USER
     cd -
 
-    wget --no-check-certificate https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
-    sudo usermod -s /bin/zsh $USER
-}
-
-function instalar_ssh
-{
-    sudo apt-get install -y openssh-server openssh-client
+    sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 }
 
 function instalar_dependencias_ruby
 {
-    sudo apt-get install -y libssl-dev libreadline-dev libxml2-dev libxslt-dev libyaml-dev
+    sudo apt-get install -y libssl-dev libreadline-dev zlib1g-dev # libxml2-dev libxslt-dev libyaml-dev
 }
 
 function instalar_rbenv
@@ -125,17 +117,17 @@ function instalar_rbenv
     sudo apt-get install -y git-core
 
     # Instala o rbenv
-    git clone git://github.com/sstephenson/rbenv.git ~/.rbenv
+    git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 
+    # Isso é papel do dotfiles
     # Adiciona source no bash
-    echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
-    echo 'eval "$(rbenv init -)"' >> ~/.bashrc
-    source ~/.bashrc
-
+    # echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+    # echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+    # source ~/.bashrc
     # adiciona source no zshell
-    echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.zshrc
-    echo 'eval "$(rbenv init -)"' >> ~/.zshrc
-    source ~/.zshrc
+    # echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.zshrc
+    # echo 'eval "$(rbenv init -)"' >> ~/.zshrc
+    # source ~/.zshrc
 
     # Instala o ruby-build como plugin do rbenv
     git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
@@ -144,41 +136,9 @@ function instalar_rbenv
     rbenv install `rbenv install -l | grep -P "^(\s)*2\.\d\.\d$" | tail -n 1`
 }
 
-function instalar_rvm
-{
-    instalar_dependencias_ruby
-
-    # Dependências do rvm
-    sudo apt-get install -y curl git-core
-
-    # adiciona source no bash
-    echo "source $HOME/.rvm/scripts/rvm" >> $HOME/.bashrc
-    # adiciona source no zsh
-    echo "source $HOME/.rvm/scripts/rvm" >> $HOME/.zshrc
-
-    # instala o rvm, ruby e rails atuais e estaveis
-    curl -L https://get.rvm.io | bash -s stable --autolibs=3 --rails
-}
-
 function instalar_java
 {
     sudo apt-get install -y openjdk-7-jdk
-}
-
-function instalar_python
-{
-    sudo apt-get install -y ipython python-dev
-
-    wget -O /tmp/distribute_setup.py http://python-distribute.org/distribute_setup.py
-    sudo python /tmp/distribute_setup.py
-
-    sudo easy_install pip
-    sudo pip install virtualenv
-
-    sudo pip install virtualenvwrapper
-    mkdir -p $HOME/.virtualenvs
-    echo "export WORKON_HOME=\$HOME/.virtualenvs" >> $HOME/.bashrc
-    echo "source /usr/local/bin/virtualenvwrapper.sh"  >> $HOME/.bashrc
 }
 
 function instalar_vim
@@ -201,56 +161,9 @@ function instalar_googlechrome
     fi
 }
 
-function instalar_skype
-{
-    # Baixando dependências
-    sudo apt-get install -y libqtgui4 libqt4-dbus libqt4-network libqt4-xml libasound2
-
-    if [ "$arquitetura" = '32-bit' ]
-    then
-        wget -O /tmp/skype-i386.deb http://www.skype.com/go/getskype-linux-beta-ubuntu-32
-        sudo dpkg -i /tmp/skype-i386.deb
-    elif [ "$arquitetura" = '64-bit' ]
-    then
-        wget -O /tmp/skype-amd64.deb http://www.skype.com/go/getskype-linux-beta-ubuntu-64
-        sudo dpkg -i /tmp/skype-amd64.deb
-    fi
-
-    # Já que algumas dependências não instalam por bem, instalarão a força
-    sudo apt-get --force-yes -y -f install
-}
-
 function instalar_git
 {
     sudo apt-get install -y git-core
-    # Cores
-    git config --global color.ui auto
-    # Alias
-    git config --global alias.br branch
-    git config --global alias.ci commit
-    git config --global alias.co checkout
-    git config --global alias.st status
-    git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
-    # Editor
-    [ "$vim" -eq 1 ] && git config --global core.editor vim
-}
-
-function instalar_gitmelddiff
-{
-    git --version 2> /dev/null
-    if ! [ "$?" -eq 127 ]
-    then
-        sudo apt-get install -y meld
-        touch $HOME/.config/git_meld_diff.py
-        echo "#!/bin/bash" >> $HOME/.config/git_meld_diff.py
-        echo "meld \"\$5\" \"\$2\"" >> $HOME/.config/git_meld_diff.py
-        chmod +x $HOME/.config/git_meld_diff.py
-        git config --global diff.external $HOME/.config/git_meld_diff.py
-    else
-        dialog --title 'Aviso' \
-        --msgbox 'Para tornar o Meld o software para visualização do diff do git, o git deve estar instalado. Para isto, rode novamente o script marcando as opções Git e GitMeldDiff.' \
-        0 0
-    fi
 }
 
 function instalar_mysql
@@ -260,22 +173,20 @@ function instalar_mysql
 
 function instalar_postgresql
 {
-    sudo apt-get install -y postgresql libpq-dev
-}
+    local VERSION=$(tail -n 1 /etc/apt/sources.list.d/official-package-repositories.list | cut -d " " -f 3)
 
-function instalar_sqlite3
-{
-    sudo apt-get install -y sqlite3 libsqlite3-dev
+    sudo sh -c "echo 'deb http://apt.postgresql.org/pub/repos/apt/ $VERSION-pgdg main' > /etc/apt/sources.list.d/pgdg.list"
+    wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+    sudo apt-get update
+    sudo apt-get install -y postgresql-9.4 libpq-dev
+    sudo -u postgres psql -c "ALTER USER postgres WITH PASSWORD 'postgres';"
 }
 
 function instalar_nodejs
 {
-    sudo apt-get install -y nodejs npm
-}
-
-function instalar_inkscape
-{
-    sudo apt-get install -y inkscape
+    # https://github.com/nodesource/distributions#debinstall
+    curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+    sudo apt-get install -y nodejs
 }
 
 function instalar_sublimetext
@@ -285,6 +196,33 @@ function instalar_sublimetext
     # seta o sublime como editor padrão
     cat /etc/gnome/defaults.list | grep gedit >> ~/.local/share/applications/mimeapps.list
     sed -i s,gedit,sublime-text, ~/.local/share/applications/mimeapps.list
+}
+
+function instalar_source_code_pro_font
+{
+    git clone --depth 1 --branch release https://github.com/adobe-fonts/source-code-pro.git ~/.fonts/adobe-fonts/source-code-pro
+    fc-cache -f -v ~/.fonts/adobe-fonts/source-code-pro
+}
+
+function instalar_direnv
+{
+    local tag=$(curl -s https://api.github.com/repos/direnv/direnv/releases/latest | python -c 'import json, sys; parsed = json.load(sys.stdin); print parsed["tag_name"]')
+    # local tag=$(curl -s https://api.github.com/repos/direnv/direnv/releases/latest | grep -Po '"tag_name": "v([0-9]|\.)+"' | grep -Po 'v([0-9]|\.)+')
+    sudo wget -O /usr/local/bin/direnv "https://github.com/direnv/direnv/releases/download/$tag/direnv.linux-amd64"
+    sudo chmod +x /usr/local/bin/direnv
+}
+
+function instalar_smartgit
+{
+    wget -O /tmp/smartgit.deb http://www.syntevo.com/smartgit/download?file=smartgit/smartgit-7_1_3.deb
+    sudo dpkg -i /tmp/smartgit.deb
+}
+
+function instalar_applets
+{
+    # To install an applet: Download it and decompress it in ~/.local/share/cinnamon/applets.
+    # https://cinnamon-spices.linuxmint.com/applets/view/79
+    # https://cinnamon-spices.linuxmint.com/applets/view/106
 }
 
 echo "$opcoes" |
