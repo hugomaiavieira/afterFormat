@@ -46,26 +46,32 @@ sudo apt-get install -y dialog > /dev/null
 opcoes=$( dialog --stdout --separate-output                                                     \
     --title "afterFormat - Pós Formatação para a versão 13.04 do Ubuntu e 15 do Linux Mint"     \
     --checklist 'Selecione os softwares que deseja instalar:' 0 0 0                             \
-    Desktop         "Muda \"Área de Trabalho\" para \"Desktop\" *(Apenas ptBR)"             ON  \
-    PS1             "\$PS1 no formato: usuário ~/diretório/atual (BranchGit)"               ON  \
-    SSH             "SSH server e client"                                                   ON  \
-    Terminator      "Terminal mais podereso"                                                ON  \
-    MySql           "Banco de dados"                                                        ON  \
-    PostgreSQL      "Banco de dados"                                                        ON  \
-    Sqlite3         "Banco de dados"                                                        ON  \
-    Nodejs          "Nodejs e npm (node packaged modules)"                                  ON  \
-    Rbenv           "rbenv + Ruby (atual)"                                                  ON  \
-    Rvm             "rvm + Ruby e Rails (atuais)"                                           OFF \
-    Python          "Ambiente para desenvolvimento com python"                              OFF \
-    Java            "Java Development Kit"                                                  ON  \
-    VIM             "Editor de texto + configurações úteis"                                 ON  \
-    Git             "Sistema de controle de versão + configurações úteis"                   ON  \
-    GitMeldDiff     "Torna o Meld o software para visualização do diff do git"              ON  \
-    Inkscape        "Software para desenho vetorial"                                        ON  \
-    GoogleChrome    "Navegador web Google Chrome"                                           ON  \
-    Skype           "Cliente para rede Skype"                                               ON  \
-    Zsh             "Shell + oh-my-zsh (framework para configurações úteis do zsh)"         OFF \
-    SublimeText     "Editor texto"                                                          ON  )
+    Desktop           "Muda \"Área de Trabalho\" para \"Desktop\" *(Apenas ptBR)"             ON  \
+    PS1               "\$PS1 no formato: usuário ~/diretório/atual (BranchGit)"               ON  \
+    SSH               "SSH server e client"                                                   ON  \
+    Terminator        "Terminal mais podereso"                                                ON  \
+    MySql             "Banco de dados"                                                        ON  \
+    PostgreSQL        "Banco de dados"                                                        ON  \
+    Sqlite3           "Banco de dados"                                                        ON  \
+    Nodejs            "Nodejs e npm (node packaged modules)"                                  ON  \
+    Rbenv             "rbenv + Ruby (atual)"                                                  ON  \
+    Rvm               "rvm + Ruby e Rails (atuais)"                                           OFF \
+    Python            "Ambiente para desenvolvimento com python"                              OFF \
+    Java              "Java Development Kit"                                                  ON  \
+    VIM               "Editor de texto + configurações úteis"                                 ON  \
+    Git               "Sistema de controle de versão + configurações úteis"                   ON  \
+    GitMeldDiff       "Torna o Meld o software para visualização do diff do git"              OFF \
+    Inkscape          "Software para desenho vetorial"                                        ON  \
+    GoogleChrome      "Navegador web Google Chrome"                                           ON  \
+    Skype             "Cliente para rede Skype"                                               ON  \
+    Zsh               "Shell + oh-my-zsh (framework para configurações úteis do zsh)"         ON  \
+    SourceCodeProFont "Família de fontes Monospaced para código"                              ON  \
+    Direnv            "Switcher de ambiente para shell"                                       ON  \
+    Smartgit          "Interface gráfica para o git"                                          ON  \
+    CinnamonApplets   "Applets para o Linux Mint com Cinnamon"                                ON  \
+    Spotify           "App do Spotify"                                                        ON  \
+    Awscli            "Interface linha de comando da AWS"                                     ON  \
+    SublimeText       "Editor de texto"                                                       ON  )
 
 #=============================== Processamento =================================
 
@@ -184,8 +190,8 @@ function instalar_postgresql
 
 function instalar_nodejs
 {
-    # https://github.com/nodesource/distributions#debinstall
-    curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+    # https://github.com/nodesource/distributions#installation-instructions
+    curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
     sudo apt-get install -y nodejs
 }
 
@@ -207,22 +213,28 @@ function instalar_source_code_pro_font
 function instalar_direnv
 {
     local tag=$(curl -s https://api.github.com/repos/direnv/direnv/releases/latest | python -c 'import json, sys; parsed = json.load(sys.stdin); print parsed["tag_name"]')
-    # local tag=$(curl -s https://api.github.com/repos/direnv/direnv/releases/latest | grep -Po '"tag_name": "v([0-9]|\.)+"' | grep -Po 'v([0-9]|\.)+')
     sudo wget -O /usr/local/bin/direnv "https://github.com/direnv/direnv/releases/download/$tag/direnv.linux-amd64"
     sudo chmod +x /usr/local/bin/direnv
 }
 
 function instalar_smartgit
 {
-    wget -O /tmp/smartgit.deb http://www.syntevo.com/smartgit/download?file=smartgit/smartgit-7_1_3.deb
+    wget -O /tmp/smartgit.deb http://www.syntevo.com/smartgit/download?file=smartgit/smartgit-8_0_3.deb
     sudo dpkg -i /tmp/smartgit.deb
 }
 
-function instalar_applets
+function instalar_cinnamon_applets
 {
-    # To install an applet: Download it and decompress it in ~/.local/share/cinnamon/applets.
+    APPLETS_PATH=$HOME/.local/share/cinnamon/applets
+    # Multi-Core System Monitor
     # https://cinnamon-spices.linuxmint.com/applets/view/79
+    sudo apt-get install -y gir1.2-gtop-2.0 # dependencie
+    git clone --depth 1 https://github.com/ccadeptic23/Multi-Core-System-Monitor.git $APPLETS_PATH/multicore-sys-monitor@ccadeptic23
+
+    # CPU Temperature Indicator
     # https://cinnamon-spices.linuxmint.com/applets/view/106
+    sudo apt-get install -y lm-sensors # dependencie
+    git clone --depth 1 https://github.com/fevimu/cinnamon-applet-cpu-temperature.git $APPLETS_PATH/temperature@fevimu
 }
 
 function instalar_spotify
@@ -231,6 +243,12 @@ function instalar_spotify
     echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
     sudo apt-get update
     sudo apt-get install -y spotify-client
+}
+
+function instalar_awscli
+{
+    sudo apt-get install -y python-pip
+    sudo pip install awscli
 }
 
 echo "$opcoes" |
@@ -242,6 +260,5 @@ done
 dialog --title 'Aviso' \
        --msgbox 'Instalação concluída!' \
 0 0
-
 
 echo -e "$FINAL_MSG"

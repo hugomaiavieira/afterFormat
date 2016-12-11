@@ -5,7 +5,7 @@ Instala automaticamente diversos softwares básicos que sempre são necessários
 após uma formatação. O PC deve estar conectado à internet. O tempo de
 instalação dependerá da velocidade de sua conexão.
 
-**Obs**.: Este script está validado apenas a versão **12.04 do Ubuntu**.
+**Obs**.: Este script foi validado no **Linux Mint 18 Cinnamon 64-bit**.
 
 
 SOFTWARES E CONFIGURAÇÕES
