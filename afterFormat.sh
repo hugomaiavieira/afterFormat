@@ -51,6 +51,7 @@ opcoes=$( dialog --stdout --separate-output                                     
     Terminator        "Terminal mais podereso"                                                ON  \
     MySql             "Banco de dados"                                                        OFF \
     PostgreSQL        "Banco de dados"                                                        ON  \
+    PgCli             "CLI avançada para PostgreSQL"                                          ON  \
     Nodejs            "Nodejs e npm (node packaged modules)"                                  ON  \
     Rbenv             "rbenv + Ruby (atual)"                                                  ON  \
     Java              "Java Development Kit"                                                  ON  \
@@ -65,7 +66,7 @@ opcoes=$( dialog --stdout --separate-output                                     
     Smartgit          "Interface gráfica para o git"                                          ON  \
     CinnamonApplets   "Applets para o Linux Mint com Cinnamon"                                ON  \
     Spotify           "App do Spotify"                                                        ON  \
-    Awscli            "Interface linha de comando da AWS"                                     ON  \
+    AWSCli            "Interface linha de comando da AWS"                                     ON  \
     SublimeText       "Editor de texto"                                                       ON  )
 
 #=============================== Processamento =================================
@@ -254,6 +255,12 @@ function instalar_awscli
     pip install --upgrade pip
     sudo pip install setuptools
     sudo pip install awscli
+}
+
+function instalar_pgcli
+{
+    sudo apt-get install -y libpq-dev python-dev
+    sudo pip install pgcli
 }
 
 echo "$opcoes" |
