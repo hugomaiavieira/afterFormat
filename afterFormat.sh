@@ -47,20 +47,15 @@ opcoes=$( dialog --stdout --separate-output                                     
     --title "afterFormat - Pós Formatação para a versão 13.04 do Ubuntu e 15 do Linux Mint"     \
     --checklist 'Selecione os softwares que deseja instalar:' 0 0 0                             \
     Desktop           "Muda \"Área de Trabalho\" para \"Desktop\" *(Apenas ptBR)"             ON  \
-    PS1               "\$PS1 no formato: usuário ~/diretório/atual (BranchGit)"               ON  \
     SSH               "SSH server e client"                                                   ON  \
     Terminator        "Terminal mais podereso"                                                ON  \
-    MySql             "Banco de dados"                                                        ON  \
+    MySql             "Banco de dados"                                                        OFF \
     PostgreSQL        "Banco de dados"                                                        ON  \
-    Sqlite3           "Banco de dados"                                                        ON  \
     Nodejs            "Nodejs e npm (node packaged modules)"                                  ON  \
     Rbenv             "rbenv + Ruby (atual)"                                                  ON  \
-    Rvm               "rvm + Ruby e Rails (atuais)"                                           OFF \
-    Python            "Ambiente para desenvolvimento com python"                              OFF \
     Java              "Java Development Kit"                                                  ON  \
     VIM               "Editor de texto + configurações úteis"                                 ON  \
     Git               "Sistema de controle de versão + configurações úteis"                   ON  \
-    GitMeldDiff       "Torna o Meld o software para visualização do diff do git"              OFF \
     Inkscape          "Software para desenho vetorial"                                        ON  \
     GoogleChrome      "Navegador web Google Chrome"                                           ON  \
     Skype             "Cliente para rede Skype"                                               ON  \
@@ -98,7 +93,7 @@ function instalar_zsh
     # dependências do zsh
     sudo apt-get install -y libc6-dev libncursesw5-dev
     wget -O /tmp/zsh-5.2.tar.gz http://ufpr.dl.sourceforge.net/project/zsh/zsh/5.2/zsh-5.2.tar.gz
-    tar -xvfz /tmp/zsh-5.2.tar.gz -C /tmp
+    tar -zxvf /tmp/zsh-5.2.tar.gz -C /tmp
     cd /tmp/zsh-5.2/
     ./configure && make
     sudo make install
@@ -147,6 +142,17 @@ function instalar_java
     sudo apt-get install -y openjdk-7-jdk
 }
 
+function instalar_inkscape
+{
+    sudo apt-get install -y inkscape
+}
+
+function instalar_skype
+{
+    wget -O /tmp/skype.deb https://get.skype.com/go/getskype-linux-beta-ubuntu-64
+    sudo dpkg -i /tmp/skype.deb
+}
+
 function instalar_vim
 {
     sudo apt-get install -y vim
@@ -184,7 +190,7 @@ function instalar_postgresql
     sudo sh -c "echo 'deb http://apt.postgresql.org/pub/repos/apt/ $VERSION-pgdg main' > /etc/apt/sources.list.d/pgdg.list"
     wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
     sudo apt-get update
-    sudo apt-get install -y postgresql-9.4 libpq-dev
+    sudo apt-get install -y postgresql libpq-dev
     sudo -u postgres psql -c "ALTER USER postgres WITH PASSWORD 'postgres';"
 }
 
@@ -197,11 +203,8 @@ function instalar_nodejs
 
 function instalar_sublimetext
 {
-    sudo add-apt-repository ppa:webupd8team/sublime-text-3 && sudo apt-get update
+    sudo add-apt-repository -y ppa:webupd8team/sublime-text-3 && sudo apt-get update
     sudo apt-get install -y sublime-text-installer
-    # seta o sublime como editor padrão
-    cat /etc/gnome/defaults.list | grep gedit >> ~/.local/share/applications/mimeapps.list
-    sed -i s,gedit,sublime-text, ~/.local/share/applications/mimeapps.list
 }
 
 function instalar_source_code_pro_font
@@ -219,11 +222,11 @@ function instalar_direnv
 
 function instalar_smartgit
 {
-    wget -O /tmp/smartgit.deb http://www.syntevo.com/smartgit/download?file=smartgit/smartgit-8_0_3.deb
+    wget -O /tmp/smartgit.deb http://www.syntevo.com/static/smart/download/smartgit/smartgit-8_0_3.deb
     sudo dpkg -i /tmp/smartgit.deb
 }
 
-function instalar_cinnamon_applets
+function instalar_cinnamonapplets
 {
     APPLETS_PATH=$HOME/.local/share/cinnamon/applets
     # Multi-Core System Monitor
@@ -248,6 +251,8 @@ function instalar_spotify
 function instalar_awscli
 {
     sudo apt-get install -y python-pip
+    pip install --upgrade pip
+    sudo pip install setuptools
     sudo pip install awscli
 }
 
